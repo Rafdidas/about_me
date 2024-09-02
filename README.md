@@ -1,5 +1,5 @@
 ### about_me
-## 페이지 링크 : [go](https://rafdidas.github.io/about_me/){:target="_blank" rel="noopener"}
+## 페이지 링크 : https://rafdidas.github.io/about_me/
 
 ### 저를 소개하고, 포트폴리오들을 모아서 볼 수 있는 소개 사이트입니다.
 * 특별한 기능없이 저를 소개하고 포트폴리오를 모아서 올릴 목적의 사이트입니다.
