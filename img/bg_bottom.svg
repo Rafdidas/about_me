@@ -1,0 +1,12 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="429.6px" height="429.6px" viewBox="0 0 429.6 429.6" style="enable-background:new 0 0 429.6 429.6;" xml:space="preserve">
+        <style type="text/css">
+          .bg02{fill:url(#color-gradient-2);}
+        </style>
+        <g id="Layer_1-2">
+          <radialGradient id="color-gradient-2" cx="2213.9312" cy="-11537.4219" r="214.85" fx="2393.6191" fy="-11419.6494" gradientTransform="matrix(1.902285e-02 0.9998 0.9998 -1.954636e-02 11706.5303 -2223.4016)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" style="stop-color:#CEC4EF"></stop>
+            <stop offset="1" style="stop-color:#CEC4EF;stop-opacity:0"></stop>
+          </radialGradient>
+          <path class="bg02" d="M63,63C146.9-21,282.9-21,366.8,62.9s83.8,219.9-0.1,303.8s-219.9,83.9-303.8,0.1S-20.9,146.9,63,63z"></path>
+        </g>
+        </svg>
