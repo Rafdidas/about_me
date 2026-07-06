@@ -3,7 +3,7 @@ import { Badge } from "@/components/common/Badge";
 import { ButtonLink } from "@/components/common/Button";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
-import { homeCaseLinks, homeHero, homeHighlights, homeProofPanel, strengths } from "@/data/home";
+import { homeCaseLinks, homeHero, homeHighlights, homeProofPanel, homeSections, strengths } from "@/data/home";
 import { projects } from "@/data/projects";
 import { getExternalLinkProps } from "@/lib/links";
 
@@ -16,16 +16,16 @@ export default function HomePage() {
             <h1>{homeHero.title}</h1>
             <p>{homeHero.description}</p>
             <div className="p-home__hero-actions">
-              <ButtonLink href={homeHero.primaryCta.href}>{homeHero.primaryCta.label}</ButtonLink>
-              <ButtonLink href={homeHero.secondaryCta.href} variant="secondary">
-                {homeHero.secondaryCta.label}
-              </ButtonLink>
+              {homeHero.ctas.map((cta) => (
+                <ButtonLink href={cta.href} key={cta.href} variant={cta.variant}>
+                  {cta.label}
+                </ButtonLink>
+              ))}
             </div>
           </div>
           <div className="p-home__system-panel" aria-label="Design system preview">
             <div className="p-home__panel-header">
               <span>{homeProofPanel.title}</span>
-              <Badge tone="success">{homeProofPanel.status}</Badge>
             </div>
             {homeProofPanel.items.map((item) => (
               <Link className="p-home__panel-row" href={item.href} key={item.label}>
@@ -37,7 +37,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <Section title="Strengths" description="완성도보다 완결성을 우선해, 만든 화면은 상태와 반응형까지 마무리합니다.">
+      <Section title={homeSections.strengths.title} description={homeSections.strengths.description}>
         <div className="l-grid l-grid--three">
           {strengths.map((item) => (
             <article className="c-card" key={item.title}>
@@ -48,7 +48,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section title="Design System Preview" description="색상, 타이포그래피, 컴포넌트 상태를 문서가 아니라 실제 렌더링으로 확인합니다.">
+      <Section title={homeSections.designSystemPreview.title} description={homeSections.designSystemPreview.description}>
         <div className="p-home__highlight-list">
           {homeHighlights.map((highlight) => (
             <p key={highlight}>{highlight}</p>
@@ -67,7 +67,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section title="Featured Projects" description="기존 GitHub 프로젝트는 새 리팩토링 없이 README와 코드 증빙으로 연결합니다.">
+      <Section title={homeSections.featuredProjects.title} description={homeSections.featuredProjects.description}>
         <div className="l-grid l-grid--three">
           {projects.slice(0, 3).map((project) => (
             <article className="c-card" key={project.slug}>

@@ -54,7 +54,6 @@ describe("portfolio content requirements", () => {
   });
 
   it("links the home proof panel to concrete portfolio sections", () => {
-    expect(homeProofPanel.status).toBe("실제 렌더링");
     expect(homeProofPanel.items.map((item) => item.href)).toEqual([
       "/design-system",
       "/design-system#admin-table",
