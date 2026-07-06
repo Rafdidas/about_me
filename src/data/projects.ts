@@ -17,7 +17,7 @@ export const projects = [
     uiPoints: ["검색·필터 중심 탐색", "상세 화면 전환", "모바일 대응"],
     techPoints: ["Next.js 15 App Router", "React Query 캐싱", "Zustand 상태 관리"],
     githubUrl: "https://github.com/rafdidas/poke_dex_next",
-    demoUrl: ""
+    demoUrl: "https://poke-dex-next.vercel.app"
   },
   {
     slug: "tmdb-ai-reco",
@@ -27,6 +27,6 @@ export const projects = [
     uiPoints: ["추천 결과 카드", "로딩·에러 상태", "검증된 결과만 노출"],
     techPoints: ["JSON Schema 응답 통제", "외부 API 재검증", "AI 초안 검증 워크플로우"],
     githubUrl: "https://github.com/rafdidas/tmdb-ai-reco",
-    demoUrl: ""
+    demoUrl: "https://tmdb-ai-reco.vercel.app"
   }
 ];

@@ -8,26 +8,26 @@ export const careerItems = [
   {
     company: "(주)소프트자이온",
     period: "2025.09 - 재직중",
-    role: "주임 / 퍼블리셔",
+    role: "퍼블리셔 / UI 퍼블리싱·디자인 시스템",
     highlights: [
-      "WeSeed CRM 신규 기능 퍼블리싱 및 운영 유지보수",
-      "CRM 고객관리, 영업관리, 일정관리, 게시판, 마케팅관리 등 주요 업무 화면 구현",
-      "롯데글로벌로지스 CRM 고객관리·영업관리 화면 및 업무 기능 UI 구현",
-      "Next.js, React 기반 건설 SI 프로젝트의 PC·모바일 화면 퍼블리싱",
-      "버튼, 액션바, 테이블, 모달, 오토컴플리트 등 반복 UI 요소 정리 및 개선",
-      "색상 변수, 타이포그래피, 모바일 스타일, 공통 컴포넌트 적용 기준 정리"
+      { text: "WeSeed CRM 신규 기능 퍼블리싱 및 운영 유지보수", caseStudyHref: "/case-studies#weseed-design-system" },
+      { text: "CRM 고객관리, 영업관리, 일정관리, 게시판, 마케팅관리 등 주요 업무 화면 구현" },
+      { text: "롯데글로벌로지스 CRM 고객관리·영업관리 화면 및 업무 기능 UI 구현" },
+      { text: "Next.js, React 기반 건설 SI 프로젝트의 PC·모바일 화면 퍼블리싱", caseStudyHref: "/case-studies#b2b-admin-ui" },
+      { text: "버튼, 액션바, 테이블, 모달, 오토컴플리트 등 5개 반복 UI 유형 정리 및 개선", caseStudyHref: "/case-studies#weseed-design-system" },
+      { text: "색상 변수, 타이포그래피, 모바일 스타일, 공통 컴포넌트 적용 기준 정리" }
     ]
   },
   {
     company: "(주)위사",
     period: "2019.10 - 2024.11",
-    role: "웹 퍼블리셔",
+    role: "웹 퍼블리셔 / 이커머스 구축·운영 UI",
     highlights: [
-      "이커머스 신규 쇼핑몰 구축, 리뉴얼, 운영 유지보수 수행",
-      "PC·모바일 반응형 화면 구현 및 크로스브라우징 대응",
-      "HTML, CSS, JavaScript, jQuery 기반 UI 인터랙션 구현",
-      "이벤트, 기획전, 배너, 팝업 등 운영성 페이지 제작 및 수정",
-      "운영 중 발생하는 퍼블리싱 이슈와 고객 요청사항 반영"
+      { text: "약 5년간 신규 쇼핑몰 구축, 리뉴얼, 운영 유지보수 수행" },
+      { text: "메디플러스 세컨드닥터몰, 생활공작소, 대한인사이드 등 10여 개 브랜드 PC·모바일 화면 구현" },
+      { text: "PC·모바일 반응형 화면 구현 및 크로스브라우징 대응" },
+      { text: "HTML, CSS, JavaScript, jQuery 기반 UI 인터랙션 구현" },
+      { text: "이벤트, 기획전, 배너, 팝업 등 운영성 페이지 제작 및 고객 요청사항 반영" }
     ]
   }
 ];

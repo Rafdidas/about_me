@@ -27,12 +27,32 @@
 - 첨부 이력 내용을 바탕으로 Career / Case Studies / Home / Projects 데이터 1차 보강
 - Vercel 첫 배포 완료: https://about-me-iota-blond.vercel.app/
 - PDF 이력서 다운로드는 범위에서 제외하기로 결정
+- 7/6 배포본 심사자 관점 리뷰 완료 → 아래 "다음 할 일"에 반영 (상세: 기획서 5-5 배포 리뷰 반영 방침)
+- Projects 카드에 poke_dex_next / tmdb-ai-reco 배포 데모 링크 추가
+- title·OG title에 이름 반영, 코드 기반 OG 이미지 추가
+- Career → Case Studies 링크 연결 및 Case Studies 앵커 추가
+- Case Study Result에 셀 수 있는 규모 보강, Career 직급 표기를 역할 중심으로 변경
+- 위사 경력 설명을 구축·운영 규모가 보이도록 보강
 
 ## 다음 할 일
 
-1. Design System 컴포넌트 문서의 코드 예시와 접근성 설명 다듬기 (보류)
-2. 모바일/데스크톱 렌더링 QA 및 Lighthouse 확인 (보류)
-3. Projects 링크/README 점검은 사용자가 직접 진행
+### P1 — 완료
+
+1. Projects 카드에 배포 데모 링크 추가 완료: poke_dex_next / tmdb-ai-reco
+2. title·og:title에 이름 포함 완료 ("박현규 | UI Publisher Portfolio"), OG 이미지 추가 완료
+3. Career → Case Studies 링크 연결 완료 (소프트자이온→Case 1, 건설 SI→Case 2)
+
+### P2 — 콘텐츠 보강
+
+4. Case Study 2개의 Result에 셀 수 있는 규모 각 1개 이상 추가 완료
+5. Career 위사(2019~2024) 주요 업무 3~5개 구체화 완료
+6. Career 직급(주임) 표기 → 역할 중심 표기로 변경 완료
+
+### P3 — 확인·QA
+
+1. Design System의 variant/state 전환과 Admin Table 상태 토글이 실제 인터랙션으로 동작하는지 브라우저에서 확인 (기획 기준: 정적 나열 금지)
+2. 모바일/데스크톱 렌더링 QA 및 Lighthouse 확인
+3. Design System 코드 예시·접근성 설명 다듬기
 
 ## 블로커 / 확인 필요
 
@@ -45,6 +65,7 @@
 - 2026-07-06: shop-prive 제외 (CRA·구식 README·1.5년 전 커밋, 이커머스는 실무 경력으로 증명)
 - 2026-07-06: CLAUDE.md는 AI 활용 증빙으로 저장소에 영구 유지, handoff.md는 7/17 삭제
 - 2026-07-06: PDF 이력서 다운로드는 포트폴리오 범위에서 제외
+- 2026-07-06: Career는 부각하지 않는 구조 유지 — 대신 "찾아 들어오면 1분 안에 완결" 기준으로 보강 (Case 링크·위사 업무 구체화·역할 중심 표기). 경력 공백(2024.11~2025.09)은 사이트에서 해명하지 않고 면접 답변으로 준비
 
 ---
 

@@ -479,6 +479,14 @@
   color: var(--color-muted);
 }
 
+.p-career__case-link {
+  display: inline-flex;
+  margin-left: 8px;
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
 .p-project-card__actions {
   display: flex;
   flex-wrap: wrap;

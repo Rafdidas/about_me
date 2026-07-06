@@ -15,7 +15,7 @@ export default function CaseStudiesPage() {
       <Section title="Selected Work">
         <div className="p-case-studies__list">
           {caseStudies.map((study) => (
-            <article className="p-case-card" key={study.title}>
+            <article className="p-case-card" id={study.id} key={study.title}>
               <div className="p-case-card__meta">
                 <Badge>{study.category}</Badge>
                 <span>{study.period}</span>

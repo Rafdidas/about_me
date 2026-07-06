@@ -1,5 +1,6 @@
 export const caseStudies = [
   {
+    id: "weseed-design-system",
     title: "WeSeed Design System 고도화",
     category: "Design System",
     period: "2025 - Present",
@@ -22,7 +23,7 @@ export const caseStudies = [
       },
       {
         label: "Result",
-        body: "화면별 UI 편차를 줄이고, 운영 유지보수 과정에서 같은 기준으로 화면을 수정할 수 있는 기반을 마련했습니다."
+        body: "버튼, 액션바, 테이블, 모달, 오토컴플리트 등 5개 반복 UI 유형을 공통 기준으로 정리해 화면별 UI 편차를 줄이고, 운영 유지보수 과정에서 같은 기준으로 화면을 수정할 수 있는 기반을 마련했습니다."
       },
       {
         label: "What I Learned",
@@ -31,6 +32,7 @@ export const caseStudies = [
     ]
   },
   {
+    id: "b2b-admin-ui",
     title: "B2B 업무 시스템 공통 UI 구조",
     category: "Admin UI",
     period: "2025 - Present",
@@ -53,7 +55,7 @@ export const caseStudies = [
       },
       {
         label: "Result",
-        body: "후속 업무 화면에서 활용할 수 있는 공통 UI 기반을 마련하고, 데이터 중심 업무 화면에서 목록, 조회, 스크롤 영역, 페이지네이션 구조를 안정적으로 반복할 수 있게 했습니다."
+        body: "로그인, GNB, LNB, 대시보드, 조회 화면, 테이블, 페이지네이션 등 7개 업무 화면 구조를 반복 가능한 기준으로 정리해 후속 화면에서 활용할 수 있는 공통 UI 기반을 마련했습니다."
       },
       {
         label: "What I Learned",

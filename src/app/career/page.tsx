@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { careerItems, careerSummary, certificationItems, educationItems, portfolioLinks, projectHistory, skillGroups } from "@/data/career";
@@ -20,7 +21,14 @@ export default function CareerPage() {
               <p>{item.role}</p>
               <ul>
                 {item.highlights.map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
+                  <li key={highlight.text}>
+                    {highlight.text}
+                    {highlight.caseStudyHref ? (
+                      <Link className="p-career__case-link" href={highlight.caseStudyHref}>
+                        Case 보기
+                      </Link>
+                    ) : null}
+                  </li>
                 ))}
               </ul>
             </article>
