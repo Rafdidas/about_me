@@ -43,6 +43,13 @@
 - Home Hero 제목 개행 반영 및 증거 패널 row를 관련 페이지/섹션 링크로 연결
 - Design System Overview/Admin Table에 실무 B2B 화면 기준의 재구성 브릿지 문구 추가
 - Home에 Case Studies 진입점 추가
+- **전체 페이지 문구 정리본 반영 완료** (Home/DS/Case/Projects/Career/Admin 예시):
+  - 톤 기준 적용: "운영해본"·"실제 렌더링"·"새 리팩토링" 등 방어적 표현 제거, "React·Next.js" 표기 통일
+  - Home 히어로 CTA 3개(DS/Case/GitHub)로 확장, 증거 패널을 "보여주고 싶은 것"으로 재정의(배지 제거)
+  - 하드코딩돼 있던 섹션 설명 문구를 전부 data/로 이동
+  - 고유명사 교정: 대현인사이드·크레디아·탠디몰, Skills에 TypeScript 추가
+  - 정리본에서 조정한 것: Case 2 Result에 "7개" 수치 유지(기획서 Result 원칙·테스트),
+    위사 신규 구축에 "10여 개 브랜드" 규모 유지, Career→Case 링크 유지
 
 ## 다음 할 일
 
