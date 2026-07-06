@@ -48,3 +48,20 @@ export const homeHighlights = [
   "운영 중 발생하는 화면 이슈와 고객 요청사항을 빠르게 반영하며 장기 운영 UI 품질을 관리했습니다.",
   "AI가 만든 초안은 Figma 시안과 컬러·폰트 일치, 반응형 동작, 기존 컴포넌트 기준으로 직접 검증합니다."
 ];
+
+export const homeCaseLinks = {
+  title: "Case Studies",
+  description: "실무에서 반복 UI 기준과 업무 화면 구조를 어떻게 정리했는지 문제-해결 흐름으로 확인할 수 있습니다.",
+  items: [
+    {
+      title: "WeSeed Design System 고도화",
+      summary: "반복 UI 요소를 공통 기준으로 정리한 과정",
+      href: "/case-studies#weseed-design-system"
+    },
+    {
+      title: "B2B 업무 시스템 공통 UI 구조",
+      summary: "목록, 조회, 테이블 중심 업무 화면 구조화",
+      href: "/case-studies#b2b-admin-ui"
+    }
+  ]
+};

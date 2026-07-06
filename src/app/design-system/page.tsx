@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AdminTableExample } from "@/components/admin-example/AdminTableExample";
 import { Badge } from "@/components/common/Badge";
 import { Button } from "@/components/common/Button";
@@ -9,7 +10,15 @@ import { Select } from "@/components/common/Select";
 import { Skeleton } from "@/components/common/Skeleton";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
-import { colors, componentDocs, radii, spacing, typography } from "@/data/designTokens";
+import {
+  adminTableBridge,
+  colors,
+  componentDocs,
+  designSystemOverview,
+  radii,
+  spacing,
+  typography
+} from "@/data/designTokens";
 
 export default function DesignSystemPage() {
   return (
@@ -17,11 +26,8 @@ export default function DesignSystemPage() {
       <Container>
         <header className="p-page-header">
           <h1>Design System</h1>
-          <p>
-            반복되는 UI를 빠르게 구현하기 위해서는 컴포넌트보다 먼저 기준이 필요합니다. 색상,
-            타이포그래피, 간격, 상태 표현, 접근성 기본 규칙을 정리하고, 이를 바탕으로 재사용 가능한 UI
-            컴포넌트를 구성했습니다.
-          </p>
+          <p>{designSystemOverview.description}</p>
+          <p>{designSystemOverview.bridge}</p>
         </header>
       </Container>
 
@@ -113,8 +119,11 @@ export default function DesignSystemPage() {
       <Section
         id="admin-table"
         title="Admin Table Example"
-        description="컴포넌트를 조합해 데이터 중심 업무 화면에서 필요한 상태와 동작을 확인합니다."
+        description={adminTableBridge.description}
       >
+        <Link className="c-text-link p-design-system__case-link" href={adminTableBridge.caseStudyHref}>
+          {adminTableBridge.caseStudyLabel}
+        </Link>
         <AdminTableExample />
       </Section>
     </div>

@@ -25,6 +25,20 @@ export const radii = [
   { name: "Large", value: "16px" }
 ];
 
+export const designSystemOverview = {
+  description:
+    "반복되는 UI를 빠르게 구현하기 위해서는 컴포넌트보다 먼저 기준이 필요합니다. 색상, 타이포그래피, 간격, 상태 표현, 접근성 기본 규칙을 정리하고, 이를 바탕으로 재사용 가능한 UI 컴포넌트를 구성했습니다.",
+  bridge:
+    "이 기준은 CRM과 건설 플랫폼처럼 실무 B2B 업무 화면에서 반복하던 목록, 조회, 상태 표시 구조를 포트폴리오용으로 재구성한 것입니다."
+};
+
+export const adminTableBridge = {
+  description:
+    "컴포넌트를 조합해 데이터 중심 업무 화면에서 필요한 상태와 동작을 확인합니다. 실무에서 다루던 목록·조회 화면 구조를 재현한 예시입니다.",
+  caseStudyHref: "/case-studies#b2b-admin-ui",
+  caseStudyLabel: "B2B 업무 시스템 Case 보기"
+};
+
 export const componentDocs = [
   {
     title: "Button",

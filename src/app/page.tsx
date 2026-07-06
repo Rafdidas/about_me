@@ -3,7 +3,7 @@ import { Badge } from "@/components/common/Badge";
 import { ButtonLink } from "@/components/common/Button";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
-import { homeHero, homeHighlights, homeProofPanel, strengths } from "@/data/home";
+import { homeCaseLinks, homeHero, homeHighlights, homeProofPanel, strengths } from "@/data/home";
 import { projects } from "@/data/projects";
 import { getExternalLinkProps } from "@/lib/links";
 
@@ -52,6 +52,17 @@ export default function HomePage() {
         <div className="p-home__highlight-list">
           {homeHighlights.map((highlight) => (
             <p key={highlight}>{highlight}</p>
+          ))}
+        </div>
+      </Section>
+
+      <Section title={homeCaseLinks.title} description={homeCaseLinks.description}>
+        <div className="p-home__case-links">
+          {homeCaseLinks.items.map((item) => (
+            <Link className="p-home__case-link" href={item.href} key={item.href}>
+              <strong>{item.title}</strong>
+              <span>{item.summary}</span>
+            </Link>
           ))}
         </div>
       </Section>
