@@ -44,6 +44,9 @@
 - Design System Overview/Admin Table에 실무 B2B 화면 기준의 재구성 브릿지 문구 추가
 - Home에 Case Studies 진입점 추가
 - Projects 카드 대표 스크린샷 3장 추가 완료 (Home Featured Projects / Projects 페이지 공통 데이터 사용)
+- 제공된 `Portfolio.dc.html` 디자인 기준으로 전체 5페이지 시각 스타일 이식 완료
+  - Header/Footer, Home Hero, Section label, 카드/토큰/프로젝트 썸네일, Case/Career/Page Header 스타일을 원본 톤으로 재정렬
+  - 원본 `.thumbnail`과 Home 데스크톱 구현 화면을 직접 비교 확인
 - **전체 페이지 문구 정리본 반영 완료** (Home/DS/Case/Projects/Career/Admin 예시):
   - 톤 기준 적용: "운영해본"·"실제 렌더링"·"새 리팩토링" 등 방어적 표현 제거, "React·Next.js" 표기 통일
   - Home 히어로 CTA 3개(DS/Case/GitHub)로 확장, 증거 패널을 "보여주고 싶은 것"으로 재정의(배지 제거)
@@ -83,7 +86,7 @@
 ### P3 — QA
 
 7. Design System의 variant/state 전환과 Admin Table 상태 토글이 실제 인터랙션으로 동작하는지 브라우저에서 확인 (기획 기준: 정적 나열 금지) — 마크업에 토글 버튼 존재는 확인됨
-8. 모바일/데스크톱 렌더링 QA 및 Lighthouse 확인
+8. 모바일/데스크톱 렌더링 QA 진행: Home 1280px / 360px, Projects / Design System / Case / Career 첫 화면 확인 완료. Lighthouse는 미실행
 9. Design System 코드 예시·접근성 설명 다듬기
 
 ## 블로커 / 확인 필요
