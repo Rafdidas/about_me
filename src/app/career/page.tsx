@@ -8,6 +8,7 @@ export default function CareerPage() {
     <div className="p-career">
       <Container>
         <header className="p-page-header">
+          <div className="p-page-header__eyebrow">6+ years experience</div>
           <h1>Career</h1>
           <p>{careerSummary.body}</p>
         </header>

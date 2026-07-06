@@ -1,4 +1,4 @@
-import Image from "next/image";
+import type { CSSProperties } from "react";
 import { Badge } from "@/components/common/Badge";
 import { ButtonLink } from "@/components/common/Button";
 import { Container } from "@/components/layout/Container";
@@ -10,21 +10,18 @@ export default function ProjectsPage() {
     <div className="p-projects">
       <Container>
         <header className="p-page-header">
+          <div className="p-page-header__eyebrow">UI flow · State · Data</div>
           <h1>Projects</h1>
           <p>{projectsIntro}</p>
         </header>
       </Container>
-      <Section title="Curated GitHub Projects">
+      <Section eyebrow="Curated GitHub Projects" title="">
         <div className="l-grid l-grid--three">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <article className="c-card p-project-card" key={project.slug}>
-              <Image
-                className="p-project-card__image"
-                src={project.screenshot.src}
-                alt={project.screenshot.alt}
-                sizes="(max-width: 768px) 100vw, 33vw"
-                priority={index === 0}
-              />
+              <div className="p-project-thumb p-project-thumb--large" style={{ "--thumb-bg": project.thumbBg, "--thumb-ink": project.thumbInk } as CSSProperties}>
+                <span>{project.thumbLabel}</span>
+              </div>
               <div className="p-project-card__badges">
                 {project.stack.map((stack) => (
                   <Badge key={stack}>{stack}</Badge>

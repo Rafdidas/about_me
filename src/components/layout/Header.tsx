@@ -11,7 +11,11 @@ export function Header() {
     <header className="l-header">
       <div className="l-container l-header__inner">
         <Link className="l-header__brand" href="/" aria-label={`${siteMeta.name} home`}>
-          HK
+          <span className="l-header__brand-mark">HK</span>
+          <span className="l-header__brand-copy">
+            <span>박현규</span>
+            <span>PUBLISHER</span>
+          </span>
         </Link>
         <nav className="l-header__nav" aria-label="주요 메뉴">
           {navigation.map((item) => (

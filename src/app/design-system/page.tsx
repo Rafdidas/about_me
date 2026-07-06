@@ -27,6 +27,7 @@ export default function DesignSystemPage() {
     <div className="p-design-system">
       <Container>
         <header className="p-page-header">
+          <div className="p-page-header__eyebrow">Foundations & Components</div>
           <h1>Design System</h1>
           <p>{designSystemOverview.description}</p>
           <p>{designSystemOverview.bridge}</p>
@@ -44,19 +45,28 @@ export default function DesignSystemPage() {
             </div>
           ))}
         </div>
-        <div className="ds-token-list">
-          {typography.map((item) => (
-            <div className="ds-token-row" key={item.name}>
-              <strong>{item.name}</strong>
-              <span>{item.size}</span>
-              <span>{item.weight}</span>
-              <span>{item.usage}</span>
+        <div className="ds-token-details">
+          <div className="ds-type-scale">
+            <div className="ds-detail-title">Type Scale</div>
+            {typography.map((item) => (
+              <div className="ds-token-row" key={item.name}>
+                <strong>{item.name}</strong>
+                <span>{item.usage}</span>
+                <code>{item.size}</code>
+                <code>{item.weight}</code>
+              </div>
+            ))}
+          </div>
+          <div className="ds-inline-tokens">
+            <div>
+              <div className="ds-detail-title">Spacing</div>
+              <p>{spacing.join(" / ")}</p>
             </div>
-          ))}
-        </div>
-        <div className="ds-inline-tokens">
-          <p>Spacing: {spacing.join(" / ")}</p>
-          <p>Radius: {radii.map((radius) => `${radius.name} ${radius.value}`).join(" / ")}</p>
+            <div>
+              <div className="ds-detail-title">Radius</div>
+              <p>{radii.map((radius) => `${radius.name} ${radius.value}`).join(" / ")}</p>
+            </div>
+          </div>
         </div>
       </Section>
 

@@ -8,11 +8,12 @@ export default function CaseStudiesPage() {
     <div className="p-case-studies">
       <Container>
         <header className="p-page-header">
+          <div className="p-page-header__eyebrow">Problem · Role · Action · Result</div>
           <h1>Case Studies</h1>
           <p>{caseStudiesIntro}</p>
         </header>
       </Container>
-      <Section title="Selected Work">
+      <Section eyebrow="Selected Work" title="">
         <div className="p-case-studies__list">
           {caseStudies.map((study) => (
             <article className="p-case-card" id={study.id} key={study.title}>
