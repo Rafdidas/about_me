@@ -1,6 +1,6 @@
 export const colors = [
   { name: "Primary", value: "#2563eb", role: "주요 액션, 링크, 선택 상태" },
-  { name: "Text", value: "#0f172a", role: "제목과 핵심 본문" },
+  { name: "Text", value: "#0f172a", role: "제목과 본문 텍스트" },
   { name: "Muted", value: "#64748b", role: "보조 설명, 메타 정보" },
   { name: "Surface", value: "#f8fafc", role: "섹션 배경, 비활성 표면" },
   { name: "Border", value: "#e2e8f0", role: "구분선, 입력 경계" },
@@ -10,9 +10,9 @@ export const colors = [
 ];
 
 export const typography = [
-  { name: "Display", size: "48px", weight: "700", usage: "Home hero" },
-  { name: "Section", size: "32px", weight: "700", usage: "페이지 주요 섹션" },
-  { name: "Heading", size: "22px", weight: "700", usage: "카드와 컴포넌트 제목" },
+  { name: "Display", size: "48px", weight: "700", usage: "메인 히어로" },
+  { name: "Section", size: "32px", weight: "700", usage: "주요 섹션 제목" },
+  { name: "Heading", size: "22px", weight: "700", usage: "카드 및 컴포넌트 제목" },
   { name: "Body", size: "16px", weight: "400", usage: "본문 설명" },
   { name: "Caption", size: "13px", weight: "500", usage: "테이블 보조 정보" }
 ];
@@ -27,14 +27,25 @@ export const radii = [
 
 export const designSystemOverview = {
   description:
-    "반복되는 UI를 빠르게 구현하기 위해서는 컴포넌트보다 먼저 기준이 필요합니다. 색상, 타이포그래피, 간격, 상태 표현, 접근성 기본 규칙을 정리하고, 이를 바탕으로 재사용 가능한 UI 컴포넌트를 구성했습니다.",
+    "반복되는 UI를 안정적으로 구현하기 위해서는 컴포넌트보다 먼저 기준이 필요합니다. 이 페이지는 실무에서 경험한 디자인 시스템 고도화 과정을 바탕으로, 색상·타이포그래피·간격·상태 UI·컴포넌트 사용 기준을 포트폴리오용으로 재구성한 예시입니다.",
   bridge:
-    "이 기준은 CRM과 건설 플랫폼처럼 실무 B2B 업무 화면에서 반복하던 목록, 조회, 상태 표시 구조를 포트폴리오용으로 재구성한 것입니다."
+    "실제 업무 화면에서 반복적으로 사용되는 버튼, 입력 폼, 배지, 테이블, 페이지네이션 등을 기준화하는 과정을 보여주기 위한 화면입니다."
+};
+
+export const designTokensSection = {
+  title: "Design Tokens",
+  description:
+    "특정 서비스의 브랜드를 복제하지 않고, B2B 업무 화면에 적합한 중립적인 기본 색상과 상태 색상을 기준으로 재구성했습니다."
+};
+
+export const componentsSection = {
+  title: "Components",
+  description: "버튼, 입력 폼, 배지, 테이블, 페이지네이션처럼 업무 화면에서 반복되는 UI를 상태별로 정리했습니다."
 };
 
 export const adminTableBridge = {
   description:
-    "컴포넌트를 조합해 데이터 중심 업무 화면에서 필요한 상태와 동작을 확인합니다. 실무에서 다루던 목록·조회 화면 구조를 재현한 예시입니다.",
+    "컴포넌트를 조합해 데이터 중심 업무 화면에서 필요한 필터, 상태 배지, 테이블, 페이지네이션 흐름을 구성했습니다. 실무에서 다루던 목록·조회 화면 구조를 포트폴리오용 예시로 재구성한 화면입니다.",
   caseStudyHref: "/case-studies#b2b-admin-ui",
   caseStudyLabel: "B2B 업무 시스템 Case 보기"
 };
@@ -42,37 +53,37 @@ export const adminTableBridge = {
 export const componentDocs = [
   {
     title: "Button",
-    description: "주요 액션과 보조 액션을 구분하고, loading 상태에서 너비가 흔들리지 않게 유지합니다.",
-    accessibility: "button 태그를 사용하고, disabled와 aria-busy를 상태에 맞게 제공합니다.",
-    code: '<Button variant="primary" isLoading>저장 중</Button>'
+    description: "주요 액션과 보조 액션을 구분하고, loading·disabled 상태에서도 사용자가 현재 상태를 이해할 수 있도록 구성했습니다.",
+    accessibility: "button 태그를 기본으로 사용하고, disabled와 aria-busy를 상태에 맞게 적용합니다.",
+    code: '<Button variant="primary" isLoading>저장</Button>'
   },
   {
     title: "Input",
-    description: "label, help text, error message를 연결해 입력 목적과 오류를 명확히 전달합니다.",
+    description: "label, 도움말, 에러 메시지를 입력 필드와 연결해 입력 목적과 오류 상태를 명확히 전달합니다.",
     accessibility: "id/htmlFor와 aria-describedby로 레이블과 에러 메시지를 연결합니다.",
     code: '<Input id="store" label="매장명" error="매장명을 입력해주세요." />'
   },
   {
     title: "Select",
-    description: "상태 필터처럼 선택지가 제한된 값을 다룰 때 사용합니다.",
-    accessibility: "label과 select를 연결하고 키보드 기본 동작을 유지합니다.",
+    description: "상태 필터처럼 선택 가능한 값이 정해져 있는 경우 사용합니다.",
+    accessibility: "label을 연결하고, 기본 select 요소를 사용해 키보드 조작 흐름을 유지합니다.",
     code: '<Select label="상태" options={statusOptions} />'
   },
   {
     title: "Badge",
     description: "상태를 색상만으로 전달하지 않고 텍스트를 함께 표시합니다.",
-    accessibility: "상태명 자체가 보조 기술에 읽히도록 숨김 텍스트에 의존하지 않습니다.",
+    accessibility: "색상 차이를 인지하기 어려운 환경에서도 상태를 이해할 수 있도록 텍스트를 함께 제공합니다.",
     code: '<Badge tone="success">정상</Badge>'
   },
   {
     title: "Table",
-    description: "정렬 가능한 헤더, 상태 배지, 모바일 카드형 전환을 포함합니다.",
-    accessibility: "caption과 scope를 제공하고 정렬 버튼은 aria-sort 맥락을 유지합니다.",
+    description: "데이터 목록의 컬럼 기준, 상태 배지, 모바일 카드형 전환을 함께 고려합니다.",
+    accessibility: "caption과 scope를 제공하고, 정렬 버튼에는 aria-sort 상태를 연결합니다.",
     code: "<DataTable rows={rows} sort={sort} onSort={setSort} />"
   },
   {
     title: "Pagination",
-    description: "현재 페이지와 전체 페이지를 명확히 보여주고 이전/다음 이동을 제공합니다.",
+    description: "현재 페이지와 전체 페이지를 명확히 보여주고, 이전·다음 이동 흐름을 제공합니다.",
     accessibility: "nav aria-label과 현재 페이지 aria-current를 제공합니다.",
     code: '<Pagination currentPage={1} totalPages={5} onChange={setPage} />'
   }

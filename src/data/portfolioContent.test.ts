@@ -62,7 +62,8 @@ describe("portfolio content requirements", () => {
   });
 
   it("connects the design system demo back to real B2B work context", () => {
-    expect(designSystemOverview.bridge).toContain("실무 B2B 업무 화면");
+    expect(designSystemOverview.description).toContain("실무");
+    expect(designSystemOverview.description).toContain("재구성");
     expect(adminTableBridge.description).toContain("목록·조회 화면 구조");
     expect(adminTableBridge.caseStudyHref).toBe("/case-studies#b2b-admin-ui");
   });

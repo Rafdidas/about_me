@@ -14,7 +14,9 @@ import {
   adminTableBridge,
   colors,
   componentDocs,
+  componentsSection,
   designSystemOverview,
+  designTokensSection,
   radii,
   spacing,
   typography
@@ -31,7 +33,7 @@ export default function DesignSystemPage() {
         </header>
       </Container>
 
-      <Section title="Design Tokens" description="특정 브랜드를 그대로 복제하지 않고, B2B 업무 화면에 맞는 명확한 중립 톤과 상태 색상으로 재정리했습니다.">
+      <Section title={designTokensSection.title} description={designTokensSection.description}>
         <div className="ds-token-grid">
           {colors.map((color) => (
             <div className="ds-token" key={color.name}>
@@ -58,7 +60,7 @@ export default function DesignSystemPage() {
         </div>
       </Section>
 
-      <Section title="Components" description="축소 확정된 6종 컴포넌트와 상태 컴포넌트 3종만 구현합니다.">
+      <Section title={componentsSection.title} description={componentsSection.description}>
         <div className="ds-component-stack">
           <article className="ds-component">
             <h3>Button</h3>
