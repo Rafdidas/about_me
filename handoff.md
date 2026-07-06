@@ -43,6 +43,7 @@
 - Home Hero 제목 개행 반영 및 증거 패널 row를 관련 페이지/섹션 링크로 연결
 - Design System Overview/Admin Table에 실무 B2B 화면 기준의 재구성 브릿지 문구 추가
 - Home에 Case Studies 진입점 추가
+- Projects 카드 대표 스크린샷 3장 추가 완료 (Home Featured Projects / Projects 페이지 공통 데이터 사용)
 - **전체 페이지 문구 정리본 반영 완료** (Home/DS/Case/Projects/Career/Admin 예시):
   - 톤 기준 적용: "운영해본"·"실제 렌더링"·"새 리팩토링" 등 방어적 표현 제거, "React·Next.js" 표기 통일
   - Home 히어로 CTA 3개(DS/Case/GitHub)로 확장, 증거 패널을 "보여주고 싶은 것"으로 재정의(배지 제거)
@@ -72,12 +73,12 @@
 4. Hero 제목의 `\n` 개행이 무시됨 — `.p-home__hero-copy h1`에 `white-space: pre-line` 추가 완료
 5. Hero 증거 패널의 각 row를 해당 섹션 링크로 연결 완료.
    "배포 완료" 배지는 "실제 렌더링"으로 교체 완료
-6. Projects 카드 대표 스크린샷 3장 추가 (기준: 기획서 5-4 이미지 방침 — 데스크톱 1장, webp, next/image, alt)
+6. Projects 카드 대표 스크린샷 3장 추가 완료 (Home/Projects 모두 `next/image` 적용, alt 포함)
 7. **DS 실무 연결 브릿지 문구 추가** 완료.
    DS Overview에 "실무 B2B 화면 기준의 재구성" 문구 추가, Admin Table 예시에 "실무 목록·조회 구조의 재현" 문구 + Case 2 링크 연결
 8. **Home에 Case Studies 진입점 추가** 완료.
    제목 + 한 줄 요약 링크 2개로 디자이너/PM 심사자의 Home 내 입구 확보
-   → **사용자가 이미지 파일을 따로 제공 예정. 다음 작업 전 반드시 이미지 파일을 요청할 것.**
+   → 이미지 파일 제공 및 반영 완료.
 
 ### P3 — QA
 
@@ -87,7 +88,7 @@
 
 ## 블로커 / 확인 필요
 
-- Projects 카드 대표 스크린샷 3장 필요. 사용자가 따로 제공 예정이므로 다음 작업 전 반드시 요청.
+- 현재 작업 진행상 즉시 막는 블로커 없음.
 
 ## 결정 기록 (뒤집을 때만 수정)
 
