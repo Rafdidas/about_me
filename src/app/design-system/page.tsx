@@ -110,7 +110,11 @@ export default function DesignSystemPage() {
         </div>
       </Section>
 
-      <Section title="Admin Table Example" description="컴포넌트를 조합해 데이터 중심 업무 화면에서 필요한 상태와 동작을 확인합니다.">
+      <Section
+        id="admin-table"
+        title="Admin Table Example"
+        description="컴포넌트를 조합해 데이터 중심 업무 화면에서 필요한 상태와 동작을 확인합니다."
+      >
         <AdminTableExample />
       </Section>
     </div>

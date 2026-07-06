@@ -28,10 +28,10 @@ export default function HomePage() {
               <Badge tone="success">{homeProofPanel.status}</Badge>
             </div>
             {homeProofPanel.items.map((item) => (
-              <div className="p-home__panel-row" key={item.label}>
+              <Link className="p-home__panel-row" href={item.href} key={item.label}>
                 <span>{item.label}</span>
                 <span>{item.value}</span>
-              </div>
+              </Link>
             ))}
           </div>
         </Container>

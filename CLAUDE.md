@@ -1,7 +1,8 @@
 # CLAUDE.md — AI 에이전트 작업 가이드
 
-토스플레이스 지원용 포트폴리오 프로젝트. 어느 환경(집/회사)에서 어떤 AI 도구를 쓰든
-이 문서의 규칙을 기준으로 작업한다.
+취업용 디폴트 포트폴리오 프로젝트. 특정 회사 전용이 아니며, 사이트에 특정 회사 언급을
+넣지 않는다. 지원처별 강조점 조정은 `data/` 문구 교체로만 한다.
+어느 환경(집/회사)에서 어떤 AI 도구를 쓰든 이 문서의 규칙을 기준으로 작업한다.
 
 ## 세션 시작 시
 
@@ -28,7 +29,7 @@
 - BEM 접두어: `l-`(layout) `p-`(page) `c-`(component) `ds-`(design system) `u-`(utility)
 - 구조: `.block {}` `.block__element {}` `.block--modifier {}`
 - 콘텐츠·문구는 `data/`로 분리한다. 컴포넌트에 하드코딩 금지
-  (토스플레이스 특화 문구도 data로 — 다른 회사 지원 시 교체 가능해야 함)
+  (지원처 특화 문구도 data로 — 회사별 교체 가능해야 함)
 - Server Component 기본. client component는 상호작용이 필요한 곳에만
 - 이미지 `next/image`, 폰트 `next/font`(Pretendard)
 
@@ -45,6 +46,17 @@
 - [ ] loading / empty / error 상태 구현 (데이터를 다루는 화면이면 필수)
 - [ ] 위 접근성 항목 적용
 - [ ] BEM 규칙·접두어 준수
+
+## 커밋 규칙
+
+공개 저장소의 git log도 심사 대상이다. AI가 쓴 티가 나는 로그를 만들지 않는다.
+
+- 한 커밋 = 한 가지 변경. 큰 작업은 쪼개서 커밋한다 (scaffold 한 방 커밋 금지)
+- 메시지는 무엇을 왜 바꿨는지 구체적으로. 뭉뚱그린 요약 금지
+  - 나쁜 예: `fix: address review issues`, `chore: update stuff`
+  - 좋은 예: `fix: 홈 히어로 제목 개행이 무시되던 문제 수정`, `content: Case 2 타설관리 오타 수정`
+- 한국어 메시지 허용 (타입 접두어는 유지: feat/fix/content/chore/style)
+- Co-Authored-By 등 AI 서명·트레일러를 붙이지 않는다
 
 ## 세션 종료 시
 

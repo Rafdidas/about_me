@@ -292,6 +292,10 @@
   font-size: 1.125rem;
 }
 
+.p-home__hero-copy h1 {
+  white-space: pre-line;
+}
+
 .p-home__hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -329,7 +333,13 @@
 
 .p-home__panel-row {
   border-top: 1px solid var(--color-border);
+  color: var(--color-text);
   padding: 14px 0;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.p-home__panel-row:hover {
+  color: var(--color-primary);
 }
 
 .p-home__panel-row span:last-child {

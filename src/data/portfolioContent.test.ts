@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { careerItems, portfolioLinks } from "./career";
 import { caseStudies } from "./caseStudies";
+import { homeProofPanel } from "./home";
 import { projects } from "./projects";
 import { siteMeta } from "./site";
 
@@ -49,5 +50,14 @@ describe("portfolio content requirements", () => {
   it("uses the corrected concrete domain term in case studies", () => {
     expect(JSON.stringify(caseStudies)).not.toContain("단설관리");
     expect(JSON.stringify(caseStudies)).toContain("타설관리");
+  });
+
+  it("links the home proof panel to concrete portfolio sections", () => {
+    expect(homeProofPanel.status).toBe("실제 렌더링");
+    expect(homeProofPanel.items.map((item) => item.href)).toEqual([
+      "/design-system",
+      "/design-system#admin-table",
+      "/case-studies"
+    ]);
   });
 });

@@ -8,19 +8,22 @@ export const homeHero = {
 
 export const homeProofPanel = {
   title: "이 포트폴리오에서 확인할 수 있는 것",
-  status: "배포 완료",
+  status: "실제 렌더링",
   items: [
     {
       label: "Design System",
-      value: "토큰 / 컴포넌트 6종 / 상태 UI"
+      value: "토큰 / 컴포넌트 6종 / 상태 UI",
+      href: "/design-system"
     },
     {
       label: "Admin Table",
-      value: "필터 / 정렬 / 페이지네이션 / 상태 토글"
+      value: "필터 / 정렬 / 페이지네이션 / 상태 토글",
+      href: "/design-system#admin-table"
     },
     {
       label: "Case Studies",
-      value: "디자인 시스템 / B2B 업무 화면"
+      value: "디자인 시스템 / B2B 업무 화면",
+      href: "/case-studies"
     }
   ]
 };
