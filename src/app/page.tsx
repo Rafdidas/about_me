@@ -3,8 +3,9 @@ import { Badge } from "@/components/common/Badge";
 import { ButtonLink } from "@/components/common/Button";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
-import { homeHero, homeHighlights, strengths } from "@/data/home";
+import { homeHero, homeHighlights, homeProofPanel, strengths } from "@/data/home";
 import { projects } from "@/data/projects";
+import { getExternalLinkProps } from "@/lib/links";
 
 export default function HomePage() {
   return (
@@ -23,21 +24,15 @@ export default function HomePage() {
           </div>
           <div className="p-home__system-panel" aria-label="Design system preview">
             <div className="p-home__panel-header">
-              <span>UI 상태 기준</span>
-              <Badge tone="success">검증 중</Badge>
+              <span>{homeProofPanel.title}</span>
+              <Badge tone="success">{homeProofPanel.status}</Badge>
             </div>
-            <div className="p-home__panel-row">
-              <span>Button</span>
-              <span>default / hover / disabled / loading</span>
-            </div>
-            <div className="p-home__panel-row">
-              <span>Table</span>
-              <span>sort / empty / error / mobile card</span>
-            </div>
-            <div className="p-home__panel-row">
-              <span>Accessibility</span>
-              <span>label / focus-visible / aria</span>
-            </div>
+            {homeProofPanel.items.map((item) => (
+              <div className="p-home__panel-row" key={item.label}>
+                <span>{item.label}</span>
+                <span>{item.value}</span>
+              </div>
+            ))}
           </div>
         </Container>
       </section>
@@ -70,7 +65,7 @@ export default function HomePage() {
               <p>{project.summary}</p>
               <div className="p-home__project-actions">
                 {project.demoUrl ? (
-                  <Link className="c-text-link" href={project.demoUrl}>
+                  <Link className="c-text-link" href={project.demoUrl} {...getExternalLinkProps(project.demoUrl)}>
                     Demo
                   </Link>
                 ) : null}

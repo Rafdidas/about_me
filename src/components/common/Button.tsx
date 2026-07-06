@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { getExternalLinkProps } from "@/lib/links";
 
 type ButtonVariant = "primary" | "secondary" | "danger";
 
@@ -29,7 +30,7 @@ type ButtonLinkProps = {
 
 export function ButtonLink({ href, children, variant = "primary" }: ButtonLinkProps) {
   return (
-    <Link className={`c-button c-button--${variant}`} href={href}>
+    <Link className={`c-button c-button--${variant}`} href={href} {...getExternalLinkProps(href)}>
       {children}
     </Link>
   );

@@ -39,7 +39,7 @@ describe("portfolio content requirements", () => {
   });
 
   it("exposes a working contact email for footer mailto", () => {
-    expect(siteMeta.email).toBe("phg930421@gmail.com");
+    expect(siteMeta.email).toBe("yhu930421@naver.com");
   });
 
   it("does not link to the previous portfolio from the career page", () => {

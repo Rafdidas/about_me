@@ -33,10 +33,12 @@
 - Career → Case Studies 링크 연결 및 Case Studies 앵커 추가
 - Case Study Result에 셀 수 있는 규모 보강, Career 직급 표기를 역할 중심으로 변경
 - 위사 경력 설명을 구축·운영 규모가 보이도록 보강
-- Footer 이메일 설정 및 화면 노출 완료: phg930421@gmail.com
+- Footer 이메일 설정 및 화면 노출 완료: yhu930421@naver.com
 - Case 2 도메인 용어 "단설관리" → "타설관리" 수정
 - Career의 기존 포트폴리오 외부 링크 제거
 - Home Featured Projects 카드에 Demo 링크 노출
+- Demo / GitHub 외부 링크는 새 창에서 열리도록 공통 링크 헬퍼 적용
+- Home 오른쪽 Hero 카드는 "이 포트폴리오에서 확인할 수 있는 것" 증거 패널로 재정의
 
 ## 다음 할 일
 
@@ -45,13 +47,15 @@
 
 ### P1 — 완료
 
-1. 푸터 mailto 링크 이메일 설정 및 화면 노출 완료
+1. 푸터 mailto 링크 이메일 설정 및 화면 노출 완료: yhu930421@naver.com
 
 ### P2 — 결정 완료
 
 2. Case 2의 "단설관리" 표기 → "타설관리"로 수정 완료
 3. Career의 "기존 포트폴리오" 외부 링크 제거 완료
 4. Home Featured Projects 카드에도 Demo 링크 노출 완료
+5. Demo / GitHub 외부 링크 새 창 열기 적용 완료
+6. Home 오른쪽 Hero 카드 목적 재정의 완료 — 구현 범위와 확인 가능한 산출물을 보여주는 증거 패널
 
 ### P3 — QA
 
