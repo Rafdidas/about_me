@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Badge } from "@/components/common/Badge";
 import { ButtonLink } from "@/components/common/Button";
 import { Container } from "@/components/layout/Container";
@@ -70,7 +71,13 @@ export default function HomePage() {
       <Section title={homeSections.featuredProjects.title} description={homeSections.featuredProjects.description}>
         <div className="l-grid l-grid--three">
           {projects.slice(0, 3).map((project) => (
-            <article className="c-card" key={project.slug}>
+            <article className="c-card p-home__project-card" key={project.slug}>
+              <Image
+                className="p-home__project-image"
+                src={project.screenshot.src}
+                alt={project.screenshot.alt}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
               <Badge>{project.stack[0]}</Badge>
               <h3>{project.name}</h3>
               <p>{project.summary}</p>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Badge } from "@/components/common/Badge";
 import { ButtonLink } from "@/components/common/Button";
 import { Container } from "@/components/layout/Container";
@@ -15,8 +16,15 @@ export default function ProjectsPage() {
       </Container>
       <Section title="Curated GitHub Projects">
         <div className="l-grid l-grid--three">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <article className="c-card p-project-card" key={project.slug}>
+              <Image
+                className="p-project-card__image"
+                src={project.screenshot.src}
+                alt={project.screenshot.alt}
+                sizes="(max-width: 768px) 100vw, 33vw"
+                priority={index === 0}
+              />
               <div className="p-project-card__badges">
                 {project.stack.map((stack) => (
                   <Badge key={stack}>{stack}</Badge>
