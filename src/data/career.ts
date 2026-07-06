@@ -71,6 +71,5 @@ export const certificationItems = [
 ];
 
 export const portfolioLinks = [
-  { label: "GitHub", href: "https://github.com/rafdidas" },
-  { label: "기존 포트폴리오", href: "https://about-portfolio-blush.vercel.app/" }
+  { label: "GitHub", href: "https://github.com/rafdidas" }
 ];

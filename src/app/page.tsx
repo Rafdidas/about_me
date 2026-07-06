@@ -68,9 +68,16 @@ export default function HomePage() {
               <Badge>{project.stack[0]}</Badge>
               <h3>{project.name}</h3>
               <p>{project.summary}</p>
-              <Link className="c-text-link" href="/projects">
-                자세히 보기
-              </Link>
+              <div className="p-home__project-actions">
+                {project.demoUrl ? (
+                  <Link className="c-text-link" href={project.demoUrl}>
+                    Demo
+                  </Link>
+                ) : null}
+                <Link className="c-text-link" href="/projects">
+                  자세히 보기
+                </Link>
+              </div>
             </article>
           ))}
         </div>

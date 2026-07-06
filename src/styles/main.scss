@@ -351,6 +351,12 @@
   color: var(--color-text);
 }
 
+.p-home__project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
 .ds-token-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

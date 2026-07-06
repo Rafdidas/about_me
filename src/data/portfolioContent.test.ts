@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { careerItems } from "./career";
+import { careerItems, portfolioLinks } from "./career";
 import { caseStudies } from "./caseStudies";
 import { projects } from "./projects";
 import { siteMeta } from "./site";
@@ -36,5 +36,18 @@ describe("portfolio content requirements", () => {
     resultSections.forEach((body) => {
       expect(body).toMatch(/\d/);
     });
+  });
+
+  it("exposes a working contact email for footer mailto", () => {
+    expect(siteMeta.email).toBe("phg930421@gmail.com");
+  });
+
+  it("does not link to the previous portfolio from the career page", () => {
+    expect(portfolioLinks.map((link) => link.href).join(" ")).not.toContain("about-portfolio-blush");
+  });
+
+  it("uses the corrected concrete domain term in case studies", () => {
+    expect(JSON.stringify(caseStudies)).not.toContain("단설관리");
+    expect(JSON.stringify(caseStudies)).toContain("타설관리");
   });
 });

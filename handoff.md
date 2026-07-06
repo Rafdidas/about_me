@@ -33,24 +33,29 @@
 - Career → Case Studies 링크 연결 및 Case Studies 앵커 추가
 - Case Study Result에 셀 수 있는 규모 보강, Career 직급 표기를 역할 중심으로 변경
 - 위사 경력 설명을 구축·운영 규모가 보이도록 보강
+- Footer 이메일 설정 및 화면 노출 완료: phg930421@gmail.com
+- Case 2 도메인 용어 "단설관리" → "타설관리" 수정
+- Career의 기존 포트폴리오 외부 링크 제거
+- Home Featured Projects 카드에 Demo 링크 노출
 
 ## 다음 할 일
 
+> 7/6 2차 심사자 리뷰(라이브 재검증)에서 P1·P2 전 항목 반영 확인 완료.
+> 아래는 2차 리뷰에서 새로 발견된 항목 + 남은 QA.
+
 ### P1 — 완료
 
-1. Projects 카드에 배포 데모 링크 추가 완료: poke_dex_next / tmdb-ai-reco
-2. title·og:title에 이름 포함 완료 ("박현규 | UI Publisher Portfolio"), OG 이미지 추가 완료
-3. Career → Case Studies 링크 연결 완료 (소프트자이온→Case 1, 건설 SI→Case 2)
+1. 푸터 mailto 링크 이메일 설정 및 화면 노출 완료
 
-### P2 — 콘텐츠 보강
+### P2 — 결정 완료
 
-4. Case Study 2개의 Result에 셀 수 있는 규모 각 1개 이상 추가 완료
-5. Career 위사(2019~2024) 주요 업무 3~5개 구체화 완료
-6. Career 직급(주임) 표기 → 역할 중심 표기로 변경 완료
+2. Case 2의 "단설관리" 표기 → "타설관리"로 수정 완료
+3. Career의 "기존 포트폴리오" 외부 링크 제거 완료
+4. Home Featured Projects 카드에도 Demo 링크 노출 완료
 
-### P3 — 확인·QA
+### P3 — QA
 
-1. Design System의 variant/state 전환과 Admin Table 상태 토글이 실제 인터랙션으로 동작하는지 브라우저에서 확인 (기획 기준: 정적 나열 금지)
+1. Design System의 variant/state 전환과 Admin Table 상태 토글이 실제 인터랙션으로 동작하는지 브라우저에서 확인 (기획 기준: 정적 나열 금지) — 마크업에 토글 버튼 존재는 확인됨
 2. 모바일/데스크톱 렌더링 QA 및 Lighthouse 확인
 3. Design System 코드 예시·접근성 설명 다듬기
 
