@@ -1,8 +1,6 @@
-import { ButtonLink } from "@/components/common/Button";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { careerItems, careerSummary, certificationItems, educationItems, portfolioLinks, projectHistory, skillGroups } from "@/data/career";
-import { siteMeta } from "@/data/site";
 
 export default function CareerPage() {
   return (
@@ -11,7 +9,6 @@ export default function CareerPage() {
         <header className="p-page-header">
           <h1>Career</h1>
           <p>{careerSummary.body}</p>
-          {siteMeta.resumeUrl ? <ButtonLink href={siteMeta.resumeUrl}>PDF 이력서 다운로드</ButtonLink> : null}
         </header>
       </Container>
       <Section title="Timeline">

@@ -25,17 +25,18 @@
 - DESIGN.md는 원본 Toss 흔적이 드러나지 않도록 포트폴리오용 중립 B2B UI 톤으로 해석해 적용
 - GitHub 기본 브랜치 main 사용. 원격 master 삭제 완료
 - 첨부 이력 내용을 바탕으로 Career / Case Studies / Home / Projects 데이터 1차 보강
+- Vercel 첫 배포 완료: https://about-me-iota-blond.vercel.app/
+- PDF 이력서 다운로드는 범위에서 제외하기로 결정
 
 ## 다음 할 일
 
-1. 실제 PDF 이력서 파일 추가 후 `src/data/site.ts`의 `resumeUrl` 연결
-2. Design System 컴포넌트 문서의 코드 예시와 접근성 설명 다듬기
-3. 모바일/데스크톱 렌더링 QA 및 Lighthouse 확인
-4. Vercel 첫 배포 — **7/7까지**
+1. Design System 컴포넌트 문서의 코드 예시와 접근성 설명 다듬기 (보류)
+2. 모바일/데스크톱 렌더링 QA 및 Lighthouse 확인 (보류)
+3. Projects 링크/README 점검은 사용자가 직접 진행
 
 ## 블로커 / 확인 필요
 
-- 이력서 PDF 파일은 아직 저장소에 없음. 현재 Career 페이지의 PDF 다운로드 버튼은 숨김 처리
+- 없음
 
 ## 결정 기록 (뒤집을 때만 수정)
 
@@ -43,6 +44,7 @@
 - 2026-07-06: Admin UI Demo → Design System 내 "Admin Table 실전 예시" 1화면으로 축소
 - 2026-07-06: shop-prive 제외 (CRA·구식 README·1.5년 전 커밋, 이커머스는 실무 경력으로 증명)
 - 2026-07-06: CLAUDE.md는 AI 활용 증빙으로 저장소에 영구 유지, handoff.md는 7/17 삭제
+- 2026-07-06: PDF 이력서 다운로드는 포트폴리오 범위에서 제외
 
 ---
 
