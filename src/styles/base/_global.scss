@@ -1,0 +1,89 @@
+@use "../abstracts/mixins" as *;
+
+body {
+  background: var(--color-surface);
+}
+
+:focus-visible {
+  @include focus-ring;
+}
+
+.u-muted {
+  color: var(--color-muted);
+}
+
+.l-container {
+  width: min(100% - 40px, var(--container));
+  margin-inline: auto;
+}
+
+.l-section {
+  padding: 80px 0;
+}
+
+.l-section__header {
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+
+.l-section__header p {
+  margin-top: 10px;
+}
+
+.l-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.l-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.c-card {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.c-card h3,
+.c-card h2 {
+  margin-top: 12px;
+}
+
+.c-card p,
+.c-card ul {
+  margin-top: 10px;
+}
+
+.c-text-link {
+  display: inline-flex;
+  margin-top: 16px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.p-page-header {
+  max-width: 760px;
+  padding: 72px 0 24px;
+}
+
+.p-page-header p {
+  margin-top: 18px;
+  font-size: 1.0625rem;
+}
+
+@include mobile {
+  .l-container {
+    width: min(100% - 32px, var(--container));
+  }
+
+  .l-section {
+    padding: 56px 0;
+  }
+
+  .l-grid--three {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,80 @@
+import Link from "next/link";
+import { Badge } from "@/components/common/Badge";
+import { ButtonLink } from "@/components/common/Button";
+import { Container } from "@/components/layout/Container";
+import { Section } from "@/components/layout/Section";
+import { homeHero, homeHighlights, strengths } from "@/data/home";
+import { projects } from "@/data/projects";
+
+export default function HomePage() {
+  return (
+    <div className="p-home">
+      <section className="p-home__hero">
+        <Container className="p-home__hero-inner">
+          <div className="p-home__hero-copy">
+            <h1>{homeHero.title}</h1>
+            <p>{homeHero.description}</p>
+            <div className="p-home__hero-actions">
+              <ButtonLink href={homeHero.primaryCta.href}>{homeHero.primaryCta.label}</ButtonLink>
+              <ButtonLink href={homeHero.secondaryCta.href} variant="secondary">
+                {homeHero.secondaryCta.label}
+              </ButtonLink>
+            </div>
+          </div>
+          <div className="p-home__system-panel" aria-label="Design system preview">
+            <div className="p-home__panel-header">
+              <span>UI 상태 기준</span>
+              <Badge tone="success">검증 중</Badge>
+            </div>
+            <div className="p-home__panel-row">
+              <span>Button</span>
+              <span>default / hover / disabled / loading</span>
+            </div>
+            <div className="p-home__panel-row">
+              <span>Table</span>
+              <span>sort / empty / error / mobile card</span>
+            </div>
+            <div className="p-home__panel-row">
+              <span>Accessibility</span>
+              <span>label / focus-visible / aria</span>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <Section title="Strengths" description="완성도보다 완결성을 우선해, 만든 화면은 상태와 반응형까지 마무리합니다.">
+        <div className="l-grid l-grid--three">
+          {strengths.map((item) => (
+            <article className="c-card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Design System Preview" description="색상, 타이포그래피, 컴포넌트 상태를 문서가 아니라 실제 렌더링으로 확인합니다.">
+        <div className="p-home__highlight-list">
+          {homeHighlights.map((highlight) => (
+            <p key={highlight}>{highlight}</p>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Featured Projects" description="기존 GitHub 프로젝트는 새 리팩토링 없이 README와 코드 증빙으로 연결합니다.">
+        <div className="l-grid l-grid--three">
+          {projects.slice(0, 3).map((project) => (
+            <article className="c-card" key={project.slug}>
+              <Badge>{project.stack[0]}</Badge>
+              <h3>{project.name}</h3>
+              <p>{project.summary}</p>
+              <Link className="c-text-link" href="/projects">
+                자세히 보기
+              </Link>
+            </article>
+          ))}
+        </div>
+      </Section>
+    </div>
+  );
+}
