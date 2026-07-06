@@ -1,30 +1,30 @@
 export const careerSummary = {
   title: "사용성과 유지보수성을 함께 고려하는 UI 구현 경험",
   body:
-    "이커머스와 B2B 업무 시스템 분야에서 6년 이상 신규 구축, 리뉴얼, 운영 유지보수를 수행했습니다. 최근에는 WeSeed CRM과 건설 SI 프로젝트에서 React, Next.js 기반 PC·모바일 업무 화면을 구현하고, 반복 UI 요소와 디자인 시스템 기준을 정리하고 있습니다."
+    "이커머스와 B2B 업무 시스템 분야에서 6년 이상 신규 구축, 리뉴얼, 운영 유지보수를 수행했습니다. 현재는 WeSeed CRM과 건설 SI 프로젝트에서 React·Next.js 기반 PC·모바일 업무 화면을 구현하고, 반복 UI 요소와 디자인 시스템 기준을 정리하는 업무를 함께 수행하고 있습니다."
 };
 
 export const careerItems = [
   {
-    company: "(주)소프트자이온",
+    company: "㈜소프트자이온",
     period: "2025.09 - 재직중",
-    role: "퍼블리셔 / UI 퍼블리싱·디자인 시스템",
+    role: "퍼블리셔 / B2B 업무 시스템 UI·디자인 시스템 고도화",
     highlights: [
       { text: "WeSeed CRM 신규 기능 퍼블리싱 및 운영 유지보수", caseStudyHref: "/case-studies#weseed-design-system" },
       { text: "CRM 고객관리, 영업관리, 일정관리, 게시판, 마케팅관리 등 주요 업무 화면 구현" },
       { text: "롯데글로벌로지스 CRM 고객관리·영업관리 화면 및 업무 기능 UI 구현" },
-      { text: "Next.js, React 기반 건설 SI 프로젝트의 PC·모바일 화면 퍼블리싱", caseStudyHref: "/case-studies#b2b-admin-ui" },
-      { text: "버튼, 액션바, 테이블, 모달, 오토컴플리트 등 5개 반복 UI 유형 정리 및 개선", caseStudyHref: "/case-studies#weseed-design-system" },
+      { text: "React·Next.js 기반 건설 SI 프로젝트 PC·모바일 화면 구현", caseStudyHref: "/case-studies#b2b-admin-ui" },
+      { text: "버튼, 액션바, 테이블, 모달, 오토컴플리트 등 반복 UI 요소 정리 및 개선", caseStudyHref: "/case-studies#weseed-design-system" },
       { text: "색상 변수, 타이포그래피, 모바일 스타일, 공통 컴포넌트 적용 기준 정리" }
     ]
   },
   {
-    company: "(주)위사",
+    company: "㈜위사",
     period: "2019.10 - 2024.11",
     role: "웹 퍼블리셔 / 이커머스 구축·운영 UI",
     highlights: [
       { text: "약 5년간 신규 쇼핑몰 구축, 리뉴얼, 운영 유지보수 수행" },
-      { text: "메디플러스 세컨드닥터몰, 생활공작소, 대한인사이드 등 10여 개 브랜드 PC·모바일 화면 구현" },
+      { text: "메디플러스 세컨드닥터몰, 생활공작소, 대현인사이드 등 10여 개 브랜드 신규 구축" },
       { text: "PC·모바일 반응형 화면 구현 및 크로스브라우징 대응" },
       { text: "HTML, CSS, JavaScript, jQuery 기반 UI 인터랙션 구현" },
       { text: "이벤트, 기획전, 배너, 팝업 등 운영성 페이지 제작 및 고객 요청사항 반영" }
@@ -33,19 +33,19 @@ export const careerItems = [
 ];
 
 export const skillGroups = [
-  { title: "Frontend", items: ["HTML5", "CSS3", "JavaScript", "jQuery", "React", "Next.js"] },
+  { title: "Frontend", items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "jQuery", "React", "Next.js"] },
   { title: "Styling", items: ["SCSS", "Sass", "BEM", "Design Tokens", "Responsive UI"] },
-  { title: "Workflow", items: ["Git", "GitHub", "Vercel", "Figma Review", "AI-assisted Draft Review"] }
+  { title: "Workflow", items: ["Git", "GitHub", "Vercel", "Figma Handoff", "AI-assisted Draft Review"] }
 ];
 
 export const projectHistory = [
   {
-    company: "(주)소프트자이온",
+    company: "㈜소프트자이온",
     items: ["WeSeed CRM 운영 및 기능 개선", "롯데글로벌로지스 CRM 구축 및 오픈 이후 후속 개선", "LH 레미콘스마트관리시스템", "현대 CSM", "SZ 레미콘 스마트 관리 플랫폼", "WeSeed CRM 디자인 시스템 고도화"]
   },
   {
-    company: "(주)위사",
-    items: ["메디플러스 세컨드닥터몰, 생활공작소 자사몰 구축", "대한인사이드, 클럽발코니, 크레디어, 밀크코코아 라이즈 신규 구축", "액트플러스, 에스더몰 구축 및 오픈", "지오다노, 차홍, 텐디몰, 이현 어패럴, IDF몰 등 운영 유지보수"]
+    company: "㈜위사",
+    items: ["메디플러스 세컨드닥터몰, 생활공작소 자사몰 구축", "대현인사이드, 클럽발코니, 크레디아, 밀크코코아 라이즈 신규 구축", "액트플러스, 에스더몰 구축 및 오픈", "지오다노, 차홍, 탠디몰, 이현 어패럴, IDF몰 등 운영 유지보수"]
   }
 ];
 

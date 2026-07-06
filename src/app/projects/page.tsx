@@ -2,7 +2,7 @@ import { Badge } from "@/components/common/Badge";
 import { ButtonLink } from "@/components/common/Button";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
-import { projects } from "@/data/projects";
+import { projects, projectsIntro } from "@/data/projects";
 
 export default function ProjectsPage() {
   return (
@@ -10,7 +10,7 @@ export default function ProjectsPage() {
       <Container>
         <header className="p-page-header">
           <h1>Projects</h1>
-          <p>새 리팩토링이 아니라 기존 GitHub 프로젝트를 선별해 UI 품질, 상태 처리, README 증빙을 연결합니다.</p>
+          <p>{projectsIntro}</p>
         </header>
       </Container>
       <Section title="Curated GitHub Projects">

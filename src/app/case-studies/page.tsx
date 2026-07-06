@@ -1,7 +1,7 @@
 import { Badge } from "@/components/common/Badge";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
-import { caseStudies } from "@/data/caseStudies";
+import { caseStudies, caseStudiesIntro } from "@/data/caseStudies";
 
 export default function CaseStudiesPage() {
   return (
@@ -9,7 +9,7 @@ export default function CaseStudiesPage() {
       <Container>
         <header className="p-page-header">
           <h1>Case Studies</h1>
-          <p>경력기술서의 업무를 문제 해결 과정으로 압축했습니다. 공개 불가 수치와 화면은 재구성 예시로 대체합니다.</p>
+          <p>{caseStudiesIntro}</p>
         </header>
       </Container>
       <Section title="Selected Work">
