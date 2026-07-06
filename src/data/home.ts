@@ -1,7 +1,7 @@
 export const homeHero = {
   title: "화면을 구현하는 데서 끝나지 않고,\n반복되는 UI를 정리합니다.",
   description:
-    "6년 이상 이커머스와 B2B 업무 시스템의 UI를 구축·운영하며, 반응형 화면 구현과 운영 이슈 대응, 공통 UI 개선, 디자인 시스템 고도화 경험을 쌓아온 퍼블리셔입니다.",
+    "6년 이상 이커머스와 B2B 업무 시스템의 UI를 구축·운영하며, 반응형 화면 구현과 운영 이슈 대응, 공통 UI 개선, 디자인 시스템 고도화 경험을 쌓아온 박현규입니다.",
   primaryCta: { href: "/design-system", label: "Design System 보기" },
   secondaryCta: { href: "/projects", label: "GitHub 프로젝트 보기" }
 };
@@ -9,7 +9,7 @@ export const homeHero = {
 export const strengths = [
   {
     title: "UI Implementation",
-    description: "반응형, 브라우저 호환성, 인터랙션을 고려해 화면을 안정적으로 구현합니다."
+    description: "HTML, CSS, JavaScript, jQuery 기반 화면 구현부터 React, Next.js 기반 프로젝트까지 안정적으로 구현합니다."
   },
   {
     title: "Design System",
@@ -17,12 +17,12 @@ export const strengths = [
   },
   {
     title: "B2B Admin UI",
-    description: "목록, 조회, 테이블, 필터, 상태 처리처럼 반복되는 업무 화면 구조를 다룹니다."
+    description: "CRM, CSM, 레미콘 스마트관리시스템처럼 목록, 조회, 대시보드, 테이블 중심 업무 화면을 다룹니다."
   }
 ];
 
 export const homeHighlights = [
   "컴포넌트 상태를 default, hover, disabled, loading, empty, error까지 확인합니다.",
-  "문구와 데이터는 data/로 분리해 지원 회사에 맞춰 교체 가능한 구조를 지향합니다.",
-  "AI가 만든 초안을 그대로 쓰지 않고, 접근성·반응형·동작을 직접 검증합니다."
+  "운영 중 발생하는 화면 이슈와 고객 요청사항을 빠르게 반영하며 장기 운영 UI 품질을 관리했습니다.",
+  "AI가 만든 초안은 Figma 시안과 컬러·폰트 일치, 반응형 동작, 기존 컴포넌트 기준으로 직접 검증합니다."
 ];

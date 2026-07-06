@@ -1,7 +1,7 @@
 import { ButtonLink } from "@/components/common/Button";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
-import { careerItems, skillGroups } from "@/data/career";
+import { careerItems, careerSummary, certificationItems, educationItems, portfolioLinks, projectHistory, skillGroups } from "@/data/career";
 import { siteMeta } from "@/data/site";
 
 export default function CareerPage() {
@@ -10,8 +10,8 @@ export default function CareerPage() {
       <Container>
         <header className="p-page-header">
           <h1>Career</h1>
-          <p>연차, 역할, 주요 업무를 빠르게 확인할 수 있도록 요약했습니다. 상세 경력은 PDF 이력서와 Case Study로 위임합니다.</p>
-          <ButtonLink href={siteMeta.resumeUrl}>PDF 이력서 다운로드</ButtonLink>
+          <p>{careerSummary.body}</p>
+          {siteMeta.resumeUrl ? <ButtonLink href={siteMeta.resumeUrl}>PDF 이력서 다운로드</ButtonLink> : null}
         </header>
       </Container>
       <Section title="Timeline">
@@ -38,6 +38,54 @@ export default function CareerPage() {
               <p>{group.items.join(" / ")}</p>
             </article>
           ))}
+        </div>
+      </Section>
+      <Section title="Project History">
+        <div className="p-career__project-history">
+          {projectHistory.map((group) => (
+            <article className="c-card" key={group.company}>
+              <h3>{group.company}</h3>
+              <ul>
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </Section>
+      <Section title="Education & Certificates">
+        <div className="p-career__info-grid">
+          <article className="c-card">
+            <h3>Education</h3>
+            {educationItems.map((item) => (
+              <div className="p-career__info-item" key={item.school}>
+                <strong>{item.school}</strong>
+                <span>{item.period}</span>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </article>
+          <article className="c-card">
+            <h3>Certificates</h3>
+            {certificationItems.map((item) => (
+              <div className="p-career__info-item" key={item.name}>
+                <strong>{item.name}</strong>
+                <span>{item.issuedAt}</span>
+                <p>{item.issuer}</p>
+              </div>
+            ))}
+          </article>
+          <article className="c-card">
+            <h3>Links</h3>
+            <div className="p-career__links">
+              {portfolioLinks.map((link) => (
+                <a className="c-text-link" href={link.href} key={link.href} rel="noreferrer" target="_blank">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </article>
         </div>
       </Section>
     </div>

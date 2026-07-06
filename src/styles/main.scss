@@ -438,7 +438,8 @@
 }
 
 .p-case-studies__list,
-.p-career__timeline {
+.p-career__timeline,
+.p-career__project-history {
   display: grid;
   gap: 20px;
 }
@@ -485,6 +486,40 @@
   margin-top: 18px;
 }
 
+.p-career__project-history {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.p-career__project-history ul,
+.p-career__info-grid ul {
+  padding-left: 20px;
+  color: var(--color-muted);
+}
+
+.p-career__info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.p-career__info-item {
+  display: grid;
+  gap: 4px;
+  margin-top: 16px;
+}
+
+.p-career__info-item span {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.p-career__links {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
 @keyframes shimmer {
   to {
     background-position: -200% 0;
@@ -528,7 +563,9 @@
   .ds-state-grid,
   .ds-doc-grid,
   .p-admin-example__toolbar,
-  .ds-token-grid {
+  .ds-token-grid,
+  .p-career__project-history,
+  .p-career__info-grid {
     grid-template-columns: 1fr;
   }
 

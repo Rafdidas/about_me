@@ -23,18 +23,19 @@
 - Design System 페이지에 6개 컴포넌트 + 상태 컴포넌트 3종 + Admin Table 예시 1차 구현
 - Admin Table 필터·정렬·페이지네이션 순수 로직 테스트 추가
 - DESIGN.md는 원본 Toss 흔적이 드러나지 않도록 포트폴리오용 중립 B2B UI 톤으로 해석해 적용
+- GitHub 기본 브랜치 main 사용. 원격 master 삭제 완료
+- 첨부 이력 내용을 바탕으로 Career / Case Studies / Home / Projects 데이터 1차 보강
 
 ## 다음 할 일
 
-1. 실제 GitHub/Demo/이메일/이력서 링크로 `src/data/*` placeholder 교체
+1. 실제 PDF 이력서 파일 추가 후 `src/data/site.ts`의 `resumeUrl` 연결
 2. Design System 컴포넌트 문서의 코드 예시와 접근성 설명 다듬기
 3. 모바일/데스크톱 렌더링 QA 및 Lighthouse 확인
 4. Vercel 첫 배포 — **7/7까지**
 
 ## 블로커 / 확인 필요
 
-- Git 저장소가 아직 초기화되지 않은 상태였음. 이번 세션에서 초기화 및 커밋 예정
-- 원격 저장소 정보가 없어 push는 remote 등록 후 가능
+- 이력서 PDF 파일은 아직 저장소에 없음. 현재 Career 페이지의 PDF 다운로드 버튼은 숨김 처리
 
 ## 결정 기록 (뒤집을 때만 수정)
 
