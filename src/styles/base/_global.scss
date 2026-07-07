@@ -21,6 +21,14 @@ body {
   white-space: nowrap;
 }
 
+.u-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
 .l-container {
   width: min(100% - 40px, var(--container));
   margin-inline: auto;

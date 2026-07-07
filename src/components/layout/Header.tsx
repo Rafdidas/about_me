@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navigation, siteMeta } from "@/data/site";
+import { navigation } from "@/data/site";
 
 export function Header() {
   const pathname = usePathname();
@@ -10,7 +10,7 @@ export function Header() {
   return (
     <header className="l-header">
       <div className="l-container l-header__inner">
-        <Link className="l-header__brand" href="/" aria-label={`${siteMeta.name} home`}>
+        <Link className="l-header__brand" href="/">
           <span className="l-header__brand-mark">HK</span>
           <span className="l-header__brand-copy">
             <span>박현규</span>

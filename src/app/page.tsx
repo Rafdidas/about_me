@@ -48,7 +48,7 @@ export default function HomePage() {
           </div>
           <div className="p-home__system-panel">
             <div className="p-home__panel-header">
-              <h3>{homeProofPanel.title}</h3>
+              <h2>{homeProofPanel.title}</h2>
             </div>
             {homeProofPanel.items.map((item) => (
               <Link className="p-home__panel-row" href={item.href} key={item.label}>
@@ -120,7 +120,8 @@ export default function HomePage() {
                   </Link>
                 ) : null}
                 <Link className="c-text-link" href="/projects">
-                  자세히 보기
+                  <span aria-hidden="true">자세히 보기</span>
+                  <span className="u-visually-hidden">{project.name} 자세히 보기</span>
                 </Link>
               </div>
             </article>
