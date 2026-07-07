@@ -15,7 +15,7 @@
 
 ## 현재 상태
 
-- **마지막 갱신**: 2026-07-06
+- **마지막 갱신**: 2026-07-07
 - **진행 단계**: Next.js 프로젝트 생성 및 5개 고정 페이지 1차 골격 완료
 - App Router + TypeScript + SCSS 구조 생성
 - Pretendard local font 연결, 디자인 토큰/기본 레이아웃/Header/Footer 구성
@@ -54,40 +54,49 @@
   - 고유명사 교정: 대현인사이드·크레디아·탠디몰, Skills에 TypeScript 추가
   - 정리본에서 조정한 것: Case 2 Result에 "7개" 수치 유지(기획서 Result 원칙·테스트),
     위사 신규 구축에 "10여 개 브랜드" 규모 유지, Career→Case 링크 유지
+- 7/7 배포본 + 코드 전체 리뷰 진행 → 보완 항목 파악, 아래 P1·P2·P4는 같은 세션에서 수정 완료·검증까지 마침
+  (미커밋 상태로 다음 세션에 커밋 필요). 빌드·린트·테스트·브라우저 인터랙션 전부 재확인 완료
+- **P1 완료**: `npm test` 실패 수정 (`portfolioContent.test.ts` 의도에 맞춰 `designSystemOverview.description`에
+  "실무"·"재구성" 문구 복원 — 7/6 문구 정리 때 유실됐던 내용), `src/app/icon.tsx` 파비콘 추가(HK 마크, ImageResponse)
+- **P2 완료**: Home 히어로 h1을 `data/home.ts`의 `homeHero.titleLines`(세그먼트 배열) 기반으로 통일하고 컴포넌트 하드코딩 제거,
+  케이스 링크 카테고리를 `homeCaseLinks.items[].category` 필드로 이동, 히어로 배지·4개 페이지 헤더 eyebrow를 각 data 모듈로 이동,
+  AdminTableExample의 empty/error 중복 문구를 `adminTableCopy`로 통합, `projects.ts`의 미사용 `thumbBg/thumbInk/thumbLabel` +
+  main.scss `.p-project-thumb` 블록 + 미사용 의존성 `@fontsource/pretendard` 제거
+- **P4 완료**: Home 증거 패널의 낡은 `aria-label` 제거하고 패널 제목을 실제 `<h3>`로 변경(스타일 유지 확인),
+  `Skeleton`에 `role="status"` 추가, DS/Case/Projects/Career 4개 서브페이지에 `metadata.title` 추가,
+  DS 페이지의 정적 Pagination을 `PaginationDemo`(client) 컴포넌트로 교체해 실제 클릭 인터랙션 동작하도록 수정
+- 위 변경 전부 `npm run lint` / `npm test`(15개 통과) / `npm run build` 통과 확인,
+  미리보기 서버로 Home·Design System 브라우저 렌더링 및 Pagination 클릭 동작 직접 확인 완료
+- `.claude/launch.json` 신규 생성 (dev 서버 프리뷰용, autoPort 설정) — 향후 세션에서도 재사용 가능
 
 ## 다음 할 일
 
-> 7/6 3차 리뷰(디폴트 포트폴리오 전환 + 저장소 위생 점검) 반영.
-> 2차 리뷰 지적사항은 전부 반영 확인 완료. README/CLAUDE.md/AGENTS.md/기획서는 디폴트 포트폴리오 기준으로 갱신됨.
+> 7/7 전체 코드 리뷰 후 P1·P2·P4는 같은 세션에서 수정 완료 (위 "현재 상태" 참고).
+> **아직 커밋되지 않은 상태 — 다음 세션 최우선은 이 변경사항 커밋.**
+> 남은 항목은 P3(SCSS 정리, 별도 세션 권장)과 P5(QA·git 히스토리)뿐.
 
-### P1 — 저장소 위생 (다음 세션 최우선)
+### P0 — 커밋 (다음 세션 최우선)
 
-1. **DESIGN.md를 저장소에서 제거** (로컬 보관 + .gitignore 추가) 완료.
-   공개 저장소에 토스 디자인 시스템 분석 원문(Toss Blue, TDS, 페르소나 등)이 그대로 노출 중.
-   어느 회사에 내든 "타사 디자인 복제 기반 + AI 생성 문서" 인상 — 특히 토스 계열 지원 시 치명적.
-   적용된 토큰은 이미 중립화되어 있어 삭제해도 사이트에 영향 없음
-2. **git 히스토리 정리 (권장)**: 커밋 6개뿐, 협업자 없음, 단일 author → 재작성 비용·위험 낮음.
-   `git rebase -i --root`로 (a) 메시지를 구체적으로 reword (b) scaffold 커밋에서 DESIGN.md 제외 후 force push.
-   메시지 예시: "chore: address live review issues" → "fix: 푸터 mailto 주소 누락 수정, 외부 링크 새 창 처리"
-3. 이후 커밋부터 CLAUDE.md/AGENTS.md의 신규 "커밋 규칙" 적용 (작은 커밋, 구체적 메시지, AI 트레일러 금지)
+1. 위 "현재 상태"의 P1·P2·P4 수정사항을 CLAUDE.md 커밋 규칙에 따라 의미 단위로 쪼개서 커밋
+   (예: 테스트 수정 1개, 파비콘 1개, 히어로 데이터 분리 1개, 페이지 eyebrow data 이동 1개, 죽은 코드 제거 1개,
+   접근성/메타 수정 1개 — 한 커밋 = 한 가지 변경 원칙)
 
-### P2 — UI 개선 (Hero 및 Projects)
+### P3 — SCSS 정리 (작업량 큼, 별도 세션 권장)
 
-4. Hero 제목의 `\n` 개행이 무시됨 — `.p-home__hero-copy h1`에 `white-space: pre-line` 추가 완료
-5. Hero 증거 패널의 각 row를 해당 섹션 링크로 연결 완료.
-   "배포 완료" 배지는 "실제 렌더링"으로 교체 완료
-6. Projects 카드 대표 스크린샷 3장 추가 완료 (Home/Projects 모두 `next/image` 적용, alt 포함)
-7. **DS 실무 연결 브릿지 문구 추가** 완료.
-   DS Overview에 "실무 B2B 화면 기준의 재구성" 문구 추가, Admin Table 예시에 "실무 목록·조회 구조의 재현" 문구 + Case 2 링크 연결
-8. **Home에 Case Studies 진입점 추가** 완료.
-   제목 + 한 줄 요약 링크 2개로 디자이너/PM 심사자의 Home 내 입구 확보
-   → 이미지 파일 제공 및 반영 완료.
+2. **main.scss 1,663줄 병합 패스** — 698행 이후 "Reference design port" 섹션이
+   `.l-header`/`.c-button`/`.c-table`/`.ds-token-grid` 등을 통째로 재정의하는 구조.
+   모바일 미디어쿼리도 2벌(`@include mobile` 619행 / `@media max-width:768px` 1613행) → 통합.
+   후반부 raw hex(#556072, #e8ecf2, #eef1f6 등)는 `--color-*` 토큰으로 교체.
+   DS를 어필하는 포트폴리오의 SCSS가 정의→덮어쓰기 더미면 메시지와 코드가 어긋남 — 7/17 검수 전 필수
 
-### P3 — QA
+### P5 — 기존 QA (유지)
 
-7. Design System의 variant/state 전환과 Admin Table 상태 토글이 실제 인터랙션으로 동작하는지 브라우저에서 확인 (기획 기준: 정적 나열 금지) — 마크업에 토글 버튼 존재는 확인됨
-8. 모바일/데스크톱 렌더링 QA 진행: Home 1280px / 360px, Projects / Design System / Case / Career 첫 화면 확인 완료. Lighthouse는 미실행
-9. Design System 코드 예시·접근성 설명 다듬기
+3. Admin Table 상태 토글이 실제 인터랙션으로 동작하는지 QA (Pagination은 7/7에 인터랙티브화 완료·확인)
+4. Lighthouse 미실행 (모바일/데스크톱 첫 화면 QA는 완료)
+5. Design System 코드 예시·접근성 설명 다듬기
+6. **git 히스토리 정리 (권장)**: 커밋 수 적고 단일 author → 재작성 비용·위험 낮음.
+   `git rebase -i --root`로 (a) 메시지를 구체적으로 reword (b) scaffold 커밋에서 DESIGN.md 제외 후 force push
+7. 이후 커밋부터 CLAUDE.md/AGENTS.md의 "커밋 규칙" 적용 (작은 커밋, 구체적 메시지, AI 트레일러 금지)
 
 ## 블로커 / 확인 필요
 

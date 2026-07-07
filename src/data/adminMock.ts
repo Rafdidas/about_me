@@ -29,7 +29,13 @@ export const adminTableCopy = {
     "실제 서비스 정보가 드러나지 않도록 재구성한 B2B 업무 화면 예시입니다. 검색, 상태 필터, 정렬, 페이지네이션과 loading·empty·error 상태를 같은 컴포넌트 기준으로 확인할 수 있도록 구성했습니다.",
   searchLabel: "매장 또는 단말기 검색",
   statusLabel: "운영 상태",
-  modeLabel: "화면 상태"
+  modeLabel: "화면 상태",
+  emptyTitle: "조건에 맞는 결과가 없어요",
+  emptyDescription: "검색어를 줄이거나 상태 필터를 전체로 변경해보세요.",
+  emptyActionLabel: "필터 초기화",
+  errorTitle: "목록을 불러오지 못했어요",
+  errorDescription: "네트워크 상태를 확인한 뒤 다시 시도해주세요.",
+  errorActionLabel: "다시 시도"
 };
 
 export const adminRows: AdminDeviceRow[] = [

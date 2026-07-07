@@ -1,4 +1,5 @@
 export const careerSummary = {
+  eyebrow: "6+ years experience",
   title: "사용성과 유지보수성을 함께 고려하는 UI 구현 경험",
   body:
     "이커머스와 B2B 업무 시스템 분야에서 6년 이상 신규 구축, 리뉴얼, 운영 유지보수를 수행했습니다. 현재는 WeSeed CRM과 건설 SI 프로젝트에서 React·Next.js 기반 PC·모바일 업무 화면을 구현하고, 반복 UI 요소와 디자인 시스템 기준을 정리하는 업무를 함께 수행하고 있습니다."

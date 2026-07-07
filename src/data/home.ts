@@ -1,7 +1,19 @@
 import { siteMeta } from "./site";
 
+export type HeroTitleSegment = {
+  text: string;
+  nowrap?: boolean;
+  accent?: boolean;
+};
+
 export const homeHero = {
-  title: "화면을 구현하는 데서 끝나지 않고,\n반복되는 UI의 기준을 정리합니다.",
+  badge: "UI Publisher · 6+ years",
+  titleLines: [
+    [{ text: "화면을 구현하는 데서", nowrap: true }],
+    [{ text: "끝나지 않고," }],
+    [{ text: "반복되는 UI", accent: true }, { text: "의 기준을" }],
+    [{ text: "정리합니다." }]
+  ] as HeroTitleSegment[][],
   description:
     "이커머스와 B2B 업무 시스템에서 6년 이상 UI 구축·운영을 경험했습니다. 반응형 화면 구현, 운영 이슈 대응, 공통 UI 개선, 디자인 시스템 고도화 참여 경험을 바탕으로 사용성과 유지보수성을 함께 고려합니다.",
   ctas: [
@@ -74,11 +86,13 @@ export const homeCaseLinks = {
   description: "실무에서 반복 UI 기준과 업무 화면 구조를 어떻게 정리했는지 문제-해결-결과 흐름으로 정리했습니다.",
   items: [
     {
+      category: "Design System",
       title: "WeSeed Design System 고도화",
       summary: "색상·타이포그래피·반복 UI 요소를 공통 기준으로 정리한 경험",
       href: "/case-studies#weseed-design-system"
     },
     {
+      category: "Admin UI",
       title: "B2B 업무 시스템 공통 UI 구조",
       summary: "목록·조회·대시보드·테이블 중심의 업무 화면 구조화 경험",
       href: "/case-studies#b2b-admin-ui"

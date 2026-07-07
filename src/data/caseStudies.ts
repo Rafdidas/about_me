@@ -1,3 +1,6 @@
+export const caseStudiesEyebrow = "Problem · Role · Action · Result";
+export const caseStudiesSectionEyebrow = "Selected Work";
+
 export const caseStudiesIntro =
   "경력기술서의 업무를 문제, 역할, 실행, 결과 흐름으로 정리했습니다. 공개할 수 없는 화면과 수치는 포트폴리오용 예시와 범위 중심 설명으로 대체했습니다.";
 

@@ -1,21 +1,26 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Badge } from "@/components/common/Badge";
 import { ButtonLink } from "@/components/common/Button";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
-import { projects, projectsIntro } from "@/data/projects";
+import { projects, projectsEyebrow, projectsIntro, projectsSectionEyebrow } from "@/data/projects";
+
+export const metadata: Metadata = {
+  title: "Projects"
+};
 
 export default function ProjectsPage() {
   return (
     <div className="p-projects">
       <Container>
         <header className="p-page-header">
-          <div className="p-page-header__eyebrow">UI flow · State · Data</div>
+          <div className="p-page-header__eyebrow">{projectsEyebrow}</div>
           <h1>Projects</h1>
           <p>{projectsIntro}</p>
         </header>
       </Container>
-      <Section eyebrow="Curated GitHub Projects" title="">
+      <Section eyebrow={projectsSectionEyebrow} title="">
         <div className="l-grid l-grid--three">
           {projects.map((project) => (
             <article className="c-card p-project-card" key={project.slug}>

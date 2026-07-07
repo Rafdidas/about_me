@@ -1,19 +1,24 @@
+import type { Metadata } from "next";
 import { Badge } from "@/components/common/Badge";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
-import { caseStudies, caseStudiesIntro } from "@/data/caseStudies";
+import { caseStudies, caseStudiesEyebrow, caseStudiesIntro, caseStudiesSectionEyebrow } from "@/data/caseStudies";
+
+export const metadata: Metadata = {
+  title: "Case Studies"
+};
 
 export default function CaseStudiesPage() {
   return (
     <div className="p-case-studies">
       <Container>
         <header className="p-page-header">
-          <div className="p-page-header__eyebrow">Problem · Role · Action · Result</div>
+          <div className="p-page-header__eyebrow">{caseStudiesEyebrow}</div>
           <h1>Case Studies</h1>
           <p>{caseStudiesIntro}</p>
         </header>
       </Container>
-      <Section eyebrow="Selected Work" title="">
+      <Section eyebrow={caseStudiesSectionEyebrow} title="">
         <div className="p-case-studies__list">
           {caseStudies.map((study) => (
             <article className="p-case-card" id={study.id} key={study.title}>

@@ -74,11 +74,32 @@ export function AdminTableExample() {
         />
       </div>
       {mode === "loading" ? <Skeleton lines={5} /> : null}
-      {mode === "empty" ? <EmptyState title="조건에 맞는 결과가 없어요" description="검색어를 줄이거나 상태 필터를 전체로 변경해보세요." actionLabel="필터 초기화" onAction={() => { setQuery(""); handleStatus("all"); }} /> : null}
-      {mode === "error" ? <ErrorState title="목록을 불러오지 못했어요" description="네트워크 상태를 확인한 뒤 다시 시도해주세요." actionLabel="다시 시도" onAction={() => setMode("data")} /> : null}
+      {mode === "empty" ? (
+        <EmptyState
+          title={adminTableCopy.emptyTitle}
+          description={adminTableCopy.emptyDescription}
+          actionLabel={adminTableCopy.emptyActionLabel}
+          onAction={() => {
+            setQuery("");
+            handleStatus("all");
+          }}
+        />
+      ) : null}
+      {mode === "error" ? (
+        <ErrorState
+          title={adminTableCopy.errorTitle}
+          description={adminTableCopy.errorDescription}
+          actionLabel={adminTableCopy.errorActionLabel}
+          onAction={() => setMode("data")}
+        />
+      ) : null}
       {mode === "data" ? (
         <>
-          {paginated.rows.length > 0 ? <DataTable rows={paginated.rows} sort={sort} onSort={handleSort} /> : <EmptyState title="조건에 맞는 결과가 없어요" description="검색어를 줄이거나 상태 필터를 전체로 변경해보세요." />}
+          {paginated.rows.length > 0 ? (
+            <DataTable rows={paginated.rows} sort={sort} onSort={handleSort} />
+          ) : (
+            <EmptyState title={adminTableCopy.emptyTitle} description={adminTableCopy.emptyDescription} />
+          )}
           <Pagination currentPage={paginated.currentPage} totalPages={paginated.totalPages} onChange={setPage} />
         </>
       ) : null}

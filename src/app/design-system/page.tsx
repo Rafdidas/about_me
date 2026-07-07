@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { AdminTableExample } from "@/components/admin-example/AdminTableExample";
 import { Badge } from "@/components/common/Badge";
@@ -5,11 +6,11 @@ import { Button } from "@/components/common/Button";
 import { EmptyState } from "@/components/common/EmptyState";
 import { ErrorState } from "@/components/common/ErrorState";
 import { Input } from "@/components/common/Input";
-import { Pagination } from "@/components/common/Pagination";
 import { Select } from "@/components/common/Select";
 import { Skeleton } from "@/components/common/Skeleton";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { PaginationDemo } from "@/components/design-system/PaginationDemo";
 import {
   adminTableBridge,
   colors,
@@ -22,12 +23,16 @@ import {
   typography
 } from "@/data/designTokens";
 
+export const metadata: Metadata = {
+  title: "Design System"
+};
+
 export default function DesignSystemPage() {
   return (
     <div className="p-design-system">
       <Container>
         <header className="p-page-header">
-          <div className="p-page-header__eyebrow">Foundations & Components</div>
+          <div className="p-page-header__eyebrow">{designSystemOverview.eyebrow}</div>
           <h1>Design System</h1>
           <p>{designSystemOverview.description}</p>
           <p>{designSystemOverview.bridge}</p>
@@ -110,7 +115,7 @@ export default function DesignSystemPage() {
               <Skeleton lines={3} />
               <EmptyState title="조건에 맞는 결과가 없어요" description="검색어를 줄이거나 필터를 전체로 변경해보세요." />
               <ErrorState title="목록을 불러오지 못했어요" description="잠시 후 다시 시도해주세요." />
-              <Pagination currentPage={2} totalPages={5} />
+              <PaginationDemo />
             </div>
           </article>
           <div className="ds-doc-grid">

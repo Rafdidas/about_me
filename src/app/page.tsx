@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ButtonLink } from "@/components/common/Button";
@@ -15,16 +16,26 @@ export default function HomePage() {
           <div className="p-home__hero-copy">
             <div className="p-home__hero-badge">
               <span />
-              UI Publisher · 6+ years
+              {homeHero.badge}
             </div>
             <h1>
-              <span className="u-keep">화면을 구현하는 데서</span>
-              <br />
-              끝나지 않고,
-              <br />
-              <span className="p-home__hero-accent">반복되는 UI</span>의 기준을
-              <br />
-              정리합니다.
+              {homeHero.titleLines.map((line, lineIndex) => (
+                <Fragment key={lineIndex}>
+                  {lineIndex > 0 ? <br /> : null}
+                  {line.map((segment, segmentIndex) => (
+                    <span
+                      key={segmentIndex}
+                      className={
+                        [segment.nowrap ? "u-keep" : "", segment.accent ? "p-home__hero-accent" : ""]
+                          .filter(Boolean)
+                          .join(" ") || undefined
+                      }
+                    >
+                      {segment.text}
+                    </span>
+                  ))}
+                </Fragment>
+              ))}
             </h1>
             <p>{homeHero.description}</p>
             <div className="p-home__hero-actions">
@@ -35,9 +46,9 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <div className="p-home__system-panel" aria-label="Design system preview">
+          <div className="p-home__system-panel">
             <div className="p-home__panel-header">
-              <span>{homeProofPanel.title}</span>
+              <h3>{homeProofPanel.title}</h3>
             </div>
             {homeProofPanel.items.map((item) => (
               <Link className="p-home__panel-row" href={item.href} key={item.label}>
@@ -83,9 +94,9 @@ export default function HomePage() {
 
       <Section eyebrow="Selected work" title={homeCaseLinks.title} description={homeCaseLinks.description}>
         <div className="p-home__case-links">
-          {homeCaseLinks.items.map((item, index) => (
+          {homeCaseLinks.items.map((item) => (
             <Link className="p-home__case-link" href={item.href} key={item.href}>
-              <span>{index === 0 ? "Design System" : "Admin UI"}</span>
+              <span>{item.category}</span>
               <strong>{item.title}</strong>
               <span>{item.summary}</span>
               <em>자세히 보기 →</em>

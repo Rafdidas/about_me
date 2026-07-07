@@ -2,6 +2,9 @@ import moneyBookScreenshot from "@/assets/monibuk.jpg";
 import pokeDexScreenshot from "@/assets/pokedex.jpg";
 import tmdbScreenshot from "@/assets/tmdb.jpg";
 
+export const projectsEyebrow = "UI flow · State · Data";
+export const projectsSectionEyebrow = "Curated GitHub Projects";
+
 export const projectsIntro =
   "기존 GitHub 프로젝트를 선별해 UI 흐름, 상태 처리, 데이터 연동 경험을 중심으로 정리했습니다.";
 
@@ -15,9 +18,6 @@ export const projects = [
     techPoints: ["Supabase RLS 기반 데이터 보호", "문제-해결형 README", "도메인 배포 운영"],
     githubUrl: "https://github.com/rafdidas/money_book",
     demoUrl: "https://monibuk.com",
-    thumbBg: "linear-gradient(135deg,#eef2fb,#dfe7f7)",
-    thumbInk: "#3b5688",
-    thumbLabel: "money_book · dashboard",
     screenshot: {
       src: moneyBookScreenshot,
       alt: "money_book 프로젝트 데스크톱 화면"
@@ -32,9 +32,6 @@ export const projects = [
     techPoints: ["Next.js 15 App Router", "React Query 캐싱", "Zustand 상태 관리"],
     githubUrl: "https://github.com/rafdidas/poke_dex_next",
     demoUrl: "https://poke-dex-next.vercel.app",
-    thumbBg: "linear-gradient(135deg,#e9f6ee,#d8eede)",
-    thumbInk: "#2f7a4e",
-    thumbLabel: "poke_dex_next · grid",
     screenshot: {
       src: pokeDexScreenshot,
       alt: "poke_dex_next 프로젝트 데스크톱 화면"
@@ -49,9 +46,6 @@ export const projects = [
     techPoints: ["JSON Schema 응답 통제", "외부 API 재검증", "AI 초안 검증 워크플로우"],
     githubUrl: "https://github.com/rafdidas/tmdb-ai-reco",
     demoUrl: "https://tmdb-ai-reco.vercel.app",
-    thumbBg: "linear-gradient(135deg,#1f2937,#0f172a)",
-    thumbInk: "#cbd5e1",
-    thumbLabel: "tmdb-ai-reco · recommend",
     screenshot: {
       src: tmdbScreenshot,
       alt: "tmdb-ai-reco 프로젝트 데스크톱 화면"

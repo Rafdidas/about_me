@@ -26,8 +26,9 @@ export const radii = [
 ];
 
 export const designSystemOverview = {
+  eyebrow: "Foundations & Components",
   description:
-    "색상·타이포그래피·간격·상태 UI가 실제 화면에서 어떻게 사용되는지 포트폴리오용 예시로 재구성했습니다.",
+    "실무에서 반복적으로 사용하는 색상·타이포그래피·간격·상태 UI 기준을 포트폴리오용 화면으로 재구성했습니다.",
   bridge:
     "정해진 디자인 기준을 화면에 적용하고, 반복되는 UI 요소를 구현 관점에서 정리한 경험을 보여주기 위한 페이지입니다."
 };

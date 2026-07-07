@@ -1,14 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { careerItems, careerSummary, certificationItems, educationItems, portfolioLinks, projectHistory, skillGroups } from "@/data/career";
+
+export const metadata: Metadata = {
+  title: "Career"
+};
 
 export default function CareerPage() {
   return (
     <div className="p-career">
       <Container>
         <header className="p-page-header">
-          <div className="p-page-header__eyebrow">6+ years experience</div>
+          <div className="p-page-header__eyebrow">{careerSummary.eyebrow}</div>
           <h1>Career</h1>
           <p>{careerSummary.body}</p>
         </header>
