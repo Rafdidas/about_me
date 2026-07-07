@@ -82,20 +82,18 @@
     3개가 서로 다른 프로젝트인데 텍스트가 동일하던 문제(link-text) — 접근성 98→100, SEO 82→91.
     SEO의 meta-description 미검출은 curl로 태그가 실제로는 정상 렌더링됨을 확인한 dev/스트리밍 관련
     false positive로 판단(프로덕션 배포본엔 영향 없음)
-- **git 히스토리 정리 진행 중** (사용자 확인 후 시작): `filter-branch`로 커밋 메시지 5건(모호했던 영어/일반화 메시지)을
-  구체적인 한국어로 reword + DESIGN.md를 전체 히스토리에서 제거. 진행 상황은 아래 "다음 할 일" 참고
+- **git 히스토리 정리 완료** (사용자 확인 후 진행): `filter-branch`로 커밋 메시지 6건(모호했던 영어/일반화
+  메시지, 오늘 세션 중 생긴 것 포함)을 구체적인 한국어로 reword + DESIGN.md를 전체 히스토리(22개 커밋)에서 제거.
+  재작성 전 `backup-before-history-rewrite` 태그로 로컬 백업(푸시 안 함) 후 진행, 재작성 후 최종 트리가
+  이전과 100% 동일함을 `git diff`로 확인(DESIGN.md 제외 diff 0건), lint/test/build 재통과 확인,
+  `git push --force-with-lease`로 원격 반영 및 `origin/main` 재확인 완료
 
 ## 다음 할 일
 
-### P0 — git 히스토리 재작성 마무리 (진행 중)
+이번 세션에서 계획했던 P0~P5 전부 완료. 남은 항목은 우선순위 낮은 상시 유지 작업뿐.
 
-1. `filter-branch`로 메시지 reword + DESIGN.md 히스토리 제거 실행 → 결과 확인(로그·DESIGN.md 부재·빌드) → force push
-2. force push 후 원격이 재작성된 히스토리로 정상 갱신됐는지, Vercel 배포가 깨지지 않는지 확인
-
-### P1 — 향후 계속 유지
-
-3. Design System 코드 예시·접근성 설명 다듬기 (여유 있을 때, 우선순위 낮음)
-4. 이후 커밋부터 CLAUDE.md/AGENTS.md의 "커밋 규칙" 계속 적용 (작은 커밋, 구체적 메시지, AI 트레일러 금지)
+1. Design System 코드 예시·접근성 설명 다듬기 (여유 있을 때, 우선순위 낮음)
+2. 이후 커밋부터 CLAUDE.md/AGENTS.md의 "커밋 규칙" 계속 적용 (작은 커밋, 구체적 메시지, AI 트레일러 금지)
 
 ## 블로커 / 확인 필요
 
