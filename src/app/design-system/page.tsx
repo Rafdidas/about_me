@@ -55,21 +55,41 @@ export default function DesignSystemPage() {
             <div className="ds-detail-title">Type Scale</div>
             {typography.map((item) => (
               <div className="ds-token-row" key={item.name}>
-                <strong>{item.name}</strong>
-                <span>{item.usage}</span>
+                <div className="ds-token-row__label">
+                  <strong>{item.name}</strong>
+                  <span>{item.usage}</span>
+                </div>
                 <code>{item.size}</code>
-                <code>{item.weight}</code>
+                <code className="ds-token-row__weight">{item.weight}</code>
               </div>
             ))}
           </div>
           <div className="ds-inline-tokens">
             <div>
               <div className="ds-detail-title">Spacing</div>
-              <p>{spacing.join(" / ")}</p>
+              <div className="ds-spacing-scale">
+                {spacing.map((value) => (
+                  <span className="ds-spacing-scale__chip" key={value}>
+                    {value}
+                  </span>
+                ))}
+              </div>
             </div>
             <div>
               <div className="ds-detail-title">Radius</div>
-              <p>{radii.map((radius) => `${radius.name} ${radius.value}`).join(" / ")}</p>
+              <div className="ds-radius-scale">
+                {radii.map((radius) => (
+                  <div className="ds-radius-scale__item" key={radius.name}>
+                    <span
+                      className="ds-radius-scale__swatch"
+                      style={{ borderRadius: radius.value }}
+                    />
+                    <span className="ds-radius-scale__label">
+                      {radius.name} {radius.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
