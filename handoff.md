@@ -54,49 +54,48 @@
   - 고유명사 교정: 대현인사이드·크레디아·탠디몰, Skills에 TypeScript 추가
   - 정리본에서 조정한 것: Case 2 Result에 "7개" 수치 유지(기획서 Result 원칙·테스트),
     위사 신규 구축에 "10여 개 브랜드" 규모 유지, Career→Case 링크 유지
-- 7/7 배포본 + 코드 전체 리뷰 진행 → 보완 항목 파악, 아래 P1·P2·P4는 같은 세션에서 수정 완료·검증까지 마침
-  (미커밋 상태로 다음 세션에 커밋 필요). 빌드·린트·테스트·브라우저 인터랙션 전부 재확인 완료
-- **P1 완료**: `npm test` 실패 수정 (`portfolioContent.test.ts` 의도에 맞춰 `designSystemOverview.description`에
-  "실무"·"재구성" 문구 복원 — 7/6 문구 정리 때 유실됐던 내용), `src/app/icon.tsx` 파비콘 추가(HK 마크, ImageResponse)
-- **P2 완료**: Home 히어로 h1을 `data/home.ts`의 `homeHero.titleLines`(세그먼트 배열) 기반으로 통일하고 컴포넌트 하드코딩 제거,
-  케이스 링크 카테고리를 `homeCaseLinks.items[].category` 필드로 이동, 히어로 배지·4개 페이지 헤더 eyebrow를 각 data 모듈로 이동,
-  AdminTableExample의 empty/error 중복 문구를 `adminTableCopy`로 통합, `projects.ts`의 미사용 `thumbBg/thumbInk/thumbLabel` +
-  main.scss `.p-project-thumb` 블록 + 미사용 의존성 `@fontsource/pretendard` 제거
-- **P4 완료**: Home 증거 패널의 낡은 `aria-label` 제거하고 패널 제목을 실제 `<h3>`로 변경(스타일 유지 확인),
-  `Skeleton`에 `role="status"` 추가, DS/Case/Projects/Career 4개 서브페이지에 `metadata.title` 추가,
-  DS 페이지의 정적 Pagination을 `PaginationDemo`(client) 컴포넌트로 교체해 실제 클릭 인터랙션 동작하도록 수정
-- 위 변경 전부 `npm run lint` / `npm test`(15개 통과) / `npm run build` 통과 확인,
-  미리보기 서버로 Home·Design System 브라우저 렌더링 및 Pagination 클릭 동작 직접 확인 완료
-- `.claude/launch.json` 신규 생성 (dev 서버 프리뷰용, autoPort 설정) — 향후 세션에서도 재사용 가능
+- 7/7 배포본 + 코드 전체 리뷰 진행 → 보완 항목 파악, P1·P2·P4 수정·검증·**커밋 완료**.
+  `.claude/launch.json` 신규 생성(dev 서버 프리뷰용, autoPort) — 향후 세션에서도 재사용 가능
+  - P1: `npm test` 실패 수정(`designSystemOverview.description`에 "실무"·"재구성" 문구 복원), 파비콘 추가
+  - P2: Home 히어로 h1을 `homeHero.titleLines`(세그먼트 배열) 기반으로 통일, 케이스 카테고리·페이지 eyebrow data 이동,
+    AdminTableExample 중복 문구 통합, 미사용 `thumb*`/`.p-project-thumb`/`@fontsource/pretendard` 제거
+  - P4: 증거 패널 낡은 `aria-label` 제거, `Skeleton`에 `role="status"`, 서브페이지 `metadata.title` 추가,
+    DS Pagination 예시를 `PaginationDemo`(client)로 교체해 실제 클릭 동작하도록 수정
+- **P3 완료 (SCSS 병합 패스, 커밋 완료)**: `main.scss` 1,625줄 → 1,412줄. 2개 커밋으로 분리.
+  - 42개 중복 선택자(`.l-header`/`.c-button`/`.c-table`/`.ds-token-grid`/`.p-home__hero` 등)를 각각 단일 규칙으로 병합.
+    원본/병합본을 컴파일해 선택자·미디어스코프별 최종 유효 속성을 전수 비교하는 스크립트로 검증(캐스케이드 100% 동일 확인).
+    이 과정에서 "첫 발생 위치에 병합" 방식이 사이에 다른 규칙이 끼어있으면 순서를 깨는 버그 2건을 발견해
+    "마지막 발생 위치에 병합" 방식으로 교정
+  - 모바일 미디어쿼리 2벌(767px/768px) → 같은 767px로 통일. 단, 물리적으로 한 블록에 합치면 그 사이 무조건부
+    규칙과의 캐스케이드 순서가 깨지는 회귀를 브라우저 검증 중 발견(`.l-header__brand-copy`가 모바일에서 안 숨겨짐) →
+    두 블록은 원래 위치 유지, 두 번째 블록의 조건문(768→767)만 치환하는 방식으로 안전하게 수정.
+    **알려진 의도적 동작 변화**: 기존 767/768 어긋남으로 정확히 뷰포트 768px에서 모바일 오버라이드가 일부만
+    적용되던 게, 통일 후 768px에서 완전한 데스크톱 레이아웃으로 렌더링됨(일관성 있는 동작이 되어 사실상 개선)
+  - 반복 raw hex 토큰화: 신규 `--color-border-card`/`--color-hairline`/`--color-text-secondary` 추가 +
+    기존 토큰과 값이 일치하는 raw hex 재사용 치환. 전부 기존 값 그대로라 렌더링 변화 없음(픽셀 단위 확인)
+- **P5 QA 완료**:
+  - Admin Table 검색·상태 필터·정렬(asc/desc)·페이지네이션·loading/empty/error 토글 전부 브라우저에서 실제
+    DOM 인터랙션으로 재확인(마크업 존재 확인 수준이 아니라 클릭·입력 이벤트 발생 후 실제 반영 확인)
+  - Lighthouse를 로컬 프로덕션 서버에 직접 실행(개발 서버는 성능 점수가 왜곡되어 미참고).
+    발견 후 **수정·재검사까지 완료·커밋**: 헤더 브랜드 링크 aria-label이 화면 텍스트를 가리던 문제,
+    히어로 증거 패널 제목이 h1→h3로 heading-order를 건너뛰던 문제, Home 프로젝트 카드 "자세히 보기" 링크
+    3개가 서로 다른 프로젝트인데 텍스트가 동일하던 문제(link-text) — 접근성 98→100, SEO 82→91.
+    SEO의 meta-description 미검출은 curl로 태그가 실제로는 정상 렌더링됨을 확인한 dev/스트리밍 관련
+    false positive로 판단(프로덕션 배포본엔 영향 없음)
+- **git 히스토리 정리 진행 중** (사용자 확인 후 시작): `filter-branch`로 커밋 메시지 5건(모호했던 영어/일반화 메시지)을
+  구체적인 한국어로 reword + DESIGN.md를 전체 히스토리에서 제거. 진행 상황은 아래 "다음 할 일" 참고
 
 ## 다음 할 일
 
-> 7/7 전체 코드 리뷰 후 P1·P2·P4는 같은 세션에서 수정 완료 (위 "현재 상태" 참고).
-> **아직 커밋되지 않은 상태 — 다음 세션 최우선은 이 변경사항 커밋.**
-> 남은 항목은 P3(SCSS 정리, 별도 세션 권장)과 P5(QA·git 히스토리)뿐.
+### P0 — git 히스토리 재작성 마무리 (진행 중)
 
-### P0 — 커밋 (다음 세션 최우선)
+1. `filter-branch`로 메시지 reword + DESIGN.md 히스토리 제거 실행 → 결과 확인(로그·DESIGN.md 부재·빌드) → force push
+2. force push 후 원격이 재작성된 히스토리로 정상 갱신됐는지, Vercel 배포가 깨지지 않는지 확인
 
-1. 위 "현재 상태"의 P1·P2·P4 수정사항을 CLAUDE.md 커밋 규칙에 따라 의미 단위로 쪼개서 커밋
-   (예: 테스트 수정 1개, 파비콘 1개, 히어로 데이터 분리 1개, 페이지 eyebrow data 이동 1개, 죽은 코드 제거 1개,
-   접근성/메타 수정 1개 — 한 커밋 = 한 가지 변경 원칙)
+### P1 — 향후 계속 유지
 
-### P3 — SCSS 정리 (작업량 큼, 별도 세션 권장)
-
-2. **main.scss 1,663줄 병합 패스** — 698행 이후 "Reference design port" 섹션이
-   `.l-header`/`.c-button`/`.c-table`/`.ds-token-grid` 등을 통째로 재정의하는 구조.
-   모바일 미디어쿼리도 2벌(`@include mobile` 619행 / `@media max-width:768px` 1613행) → 통합.
-   후반부 raw hex(#556072, #e8ecf2, #eef1f6 등)는 `--color-*` 토큰으로 교체.
-   DS를 어필하는 포트폴리오의 SCSS가 정의→덮어쓰기 더미면 메시지와 코드가 어긋남 — 7/17 검수 전 필수
-
-### P5 — 기존 QA (유지)
-
-3. Admin Table 상태 토글이 실제 인터랙션으로 동작하는지 QA (Pagination은 7/7에 인터랙티브화 완료·확인)
-4. Lighthouse 미실행 (모바일/데스크톱 첫 화면 QA는 완료)
-5. Design System 코드 예시·접근성 설명 다듬기
-6. **git 히스토리 정리 (권장)**: 커밋 수 적고 단일 author → 재작성 비용·위험 낮음.
-   `git rebase -i --root`로 (a) 메시지를 구체적으로 reword (b) scaffold 커밋에서 DESIGN.md 제외 후 force push
-7. 이후 커밋부터 CLAUDE.md/AGENTS.md의 "커밋 규칙" 적용 (작은 커밋, 구체적 메시지, AI 트레일러 금지)
+3. Design System 코드 예시·접근성 설명 다듬기 (여유 있을 때, 우선순위 낮음)
+4. 이후 커밋부터 CLAUDE.md/AGENTS.md의 "커밋 규칙" 계속 적용 (작은 커밋, 구체적 메시지, AI 트레일러 금지)
 
 ## 블로커 / 확인 필요
 
