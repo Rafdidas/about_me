@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { CSSProperties } from "react";
+import Image from "next/image";
 import { ButtonLink } from "@/components/common/Button";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
@@ -98,9 +98,7 @@ export default function HomePage() {
         <div className="l-grid l-grid--three">
           {projects.slice(0, 3).map((project) => (
             <article className="c-card p-home__project-card" key={project.slug}>
-              <div className="p-project-thumb" style={{ "--thumb-bg": project.thumbBg, "--thumb-ink": project.thumbInk } as CSSProperties}>
-                <span>{project.thumbLabel}</span>
-              </div>
+              <Image className="p-home__project-image" src={project.screenshot.src} alt={project.screenshot.alt} />
               <span className="p-project-tag">{project.stack[0]}</span>
               <h3>{project.name}</h3>
               <p>{project.summary}</p>

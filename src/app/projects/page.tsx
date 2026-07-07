@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import Image from "next/image";
 import { Badge } from "@/components/common/Badge";
 import { ButtonLink } from "@/components/common/Button";
 import { Container } from "@/components/layout/Container";
@@ -19,9 +19,7 @@ export default function ProjectsPage() {
         <div className="l-grid l-grid--three">
           {projects.map((project) => (
             <article className="c-card p-project-card" key={project.slug}>
-              <div className="p-project-thumb p-project-thumb--large" style={{ "--thumb-bg": project.thumbBg, "--thumb-ink": project.thumbInk } as CSSProperties}>
-                <span>{project.thumbLabel}</span>
-              </div>
+              <Image className="p-project-card__image" src={project.screenshot.src} alt={project.screenshot.alt} />
               <div className="p-project-card__badges">
                 {project.stack.map((stack) => (
                   <Badge key={stack}>{stack}</Badge>
