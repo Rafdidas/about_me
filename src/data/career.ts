@@ -35,8 +35,8 @@ export const careerItems = [
 
 export const skillGroups = [
   { title: "Frontend", items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "jQuery", "React", "Next.js"] },
-  { title: "Styling", items: ["SCSS", "Sass", "BEM", "Design Tokens", "Responsive UI"] },
-  { title: "Workflow", items: ["Git", "GitHub", "Vercel", "Figma Handoff", "AI-assisted Draft Review"] }
+  { title: "Styling", items: ["SCSS", "Sass", "Tailwind CSS", "BEM", "Design Tokens", "Responsive UI"] },
+  { title: "Workflow", items: ["Git", "GitHub", "Vercel", "Figma"] }
 ];
 
 export const projectHistory = [
