@@ -1,35 +1,26 @@
 # AGENTS.md — AI 에이전트 작업 가이드
 
-취업용 디폴트 포트폴리오 프로젝트. 특정 회사 전용이 아니며, 사이트에 특정 회사 언급을
-넣지 않는다. 지원처별 강조점 조정은 `data/` 문구 교체로만 한다.
-어느 환경(집/회사)에서 어떤 AI 도구를 쓰든 이 문서의 규칙을 기준으로 작업한다.
+이 저장소에서 AI 도구로 작업할 때 따르는 규칙이다. 사람이 작업하든 AI가 작업하든
+같은 기준(구조·컨벤션·접근성·완료 기준)을 적용해 일관성과 품질을 유지한다.
 
-## 세션 시작 시
+## 콘텐츠 원칙
 
-1. `handoff.md`를 먼저 읽고 현재 상태와 다음 할 일을 파악한다 (7/17 삭제 예정 문서)
-2. 범위·일정 판단이 필요하면 `portfolio_renewal_plan.md`(2주 실행판)를 기준으로 한다
+- 사이트에 특정 회사를 언급하지 않는다. 도메인 예시는 중립적인 B2B 소재로 유지한다.
+- 콘텐츠·문구는 `data/`로 분리한다. 컴포넌트에 하드코딩하지 않는다.
 
-## 프로젝트 컨텍스트
-
-- 공고 마감 2026-07-20, **지원 목표 7/18**, 최종 검수 7/17
-- 재직 병행 12일 프로젝트. 완성도보다 완결성 — 만든 것은 전부 끝까지 다듬는다
-
-## 범위 규칙 (절대 준수)
+## 범위 규칙
 
 - 페이지 5개 고정: Home / Design System / Case Studies(2개) / Projects / Career
-- 컴포넌트는 아래만 만든다. 추가 금지:
+- 공통 컴포넌트는 아래로 한정한다. 임의 추가 금지:
   - Button, Input, Select, Badge, Table, Pagination + Skeleton, EmptyState, ErrorState
-- 새 기능·페이지·컴포넌트가 필요해 보이면 **구현하지 말고** 기획서 11장 백로그에 추가만 한다
-- 일정이 밀리면 기획서 10장 컷라인 순서로 범위를 줄인다. **기한 연장 제안 금지**
-- 기존 깃헙 프로젝트(money_book, poke_dex_next, tmdb-ai-reco)는 README 보강만. 리팩토링 금지
+- 새 기능·페이지·컴포넌트가 필요하면 즉흥적으로 구현하지 않고 별도로 기록한 뒤 판단한다
+- 개인 프로젝트(money_book, poke_dex_next, tmdb-ai-reco)는 문서 보강만 한다. 리팩토링 금지
 
 ## 기술 스택 · 컨벤션
 
 - Next.js App Router + React + TypeScript + SCSS(BEM) + Vercel
 - BEM 접두어: `l-`(layout) `p-`(page) `c-`(component) `ds-`(design system) `u-`(utility)
 - 구조: `.block {}` `.block__element {}` `.block--modifier {}`
-- 콘텐츠·문구는 `data/`로 분리한다. 컴포넌트에 하드코딩 금지
-  (지원처 특화 문구도 data로 — 회사별 교체 가능해야 함)
 - Server Component 기본. client component는 상호작용이 필요한 곳에만
 - 이미지 `next/image`, 폰트 `next/font`(Pretendard)
 
@@ -49,21 +40,10 @@
 
 ## 커밋 규칙
 
-공개 저장소의 git log도 심사 대상이다. AI가 쓴 티가 나는 로그를 만들지 않는다.
-
-- 한 커밋 = 한 가지 변경. 큰 작업은 쪼개서 커밋한다 (scaffold 한 방 커밋 금지)
+- 한 커밋 = 한 가지 변경. 큰 작업은 의미 단위로 쪼갠다 (scaffold 한 방 커밋 금지)
 - 메시지는 무엇을 왜 바꿨는지 구체적으로. 뭉뚱그린 요약 금지
   - 나쁜 예: `fix: address review issues`, `chore: update stuff`
   - 좋은 예: `fix: 홈 히어로 제목 개행이 무시되던 문제 수정`, `content: Case 2 타설관리 오타 수정`
 - 한국어 메시지 허용 (타입 접두어는 유지: feat/fix/content/chore/style)
-- Co-Authored-By 등 AI 서명·트레일러를 붙이지 않는다
-
-## 세션 종료 시
-
-- `handoff.md`의 "현재 상태 / 다음 할 일 / 블로커"를 갱신하고 커밋·푸시한다
-- 커밋은 단계 단위로 의미 있게 나눈다 (배포 가능한 상태 유지)
-
-## 이 문서 자체에 대해
-
-이 파일은 삭제하지 않는다. "AI를 규칙 기반으로 활용한다"는 증빙으로 저장소에 남기며,
-README에서 한 줄로 언급한다. handoff.md와 달리 영구 유지 대상이다.
+- 커밋에 서명·트레일러(Co-Authored-By 등)를 붙이지 않는다
+- 배포 가능한 상태를 유지하며 단계 단위로 커밋한다
