@@ -15,8 +15,8 @@ export const careerItems = [
       { text: "CRM 고객관리, 영업관리, 일정관리, 게시판, 마케팅관리 등 주요 업무 화면 구현" },
       { text: "롯데글로벌로지스 CRM 고객관리·영업관리 화면 및 업무 기능 UI 구현" },
       { text: "React·Next.js 기반 건설 SI 프로젝트 PC·모바일 화면 구현", caseStudyHref: "/case-studies#b2b-admin-ui" },
-      { text: "버튼, 액션바, 테이블, 모달, 오토컴플리트 등 반복 UI 요소 정리 및 개선", caseStudyHref: "/case-studies#weseed-design-system" },
-      { text: "색상 변수, 타이포그래피, 모바일 스타일, 공통 컴포넌트 적용 기준 정리" }
+      { text: "버튼, 테이블, 모달, 오토컴플리트 등 공통 컴포넌트를 직접 구현해 WeSeed CRM과 건설 SI 프로젝트에서 재사용", caseStudyHref: "/case-studies#weseed-design-system" },
+      { text: "디자이너가 정의한 상태별(loading/disabled/error) 디자인을 props 구조로 설계해 화면 간 UI 일관성 확보" }
     ]
   },
   {
