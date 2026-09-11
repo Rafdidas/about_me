@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 import { careerItems, portfolioLinks } from "./career";
 import { caseStudies, caseStudiesDisclosure } from "./caseStudies";
 import { adminTableBridge, designSystemOverview } from "./designTokens";
-import { homeProofPanel } from "./home";
+import { homeHighlights, homeProofPanel } from "./home";
 import { projects } from "./projects";
 import { siteMeta } from "./site";
 
@@ -79,6 +79,14 @@ describe("portfolio content requirements", () => {
     expect(designSystemOverview.description).toContain("포트폴리오용 예시");
     expect(adminTableBridge.description).toContain("업무 화면에서 다룬 UI 흐름");
     expect(adminTableBridge.caseStudyHref).toBe("/case-studies#b2b-admin-ui");
+  });
+
+  it("provides a title and explanation for each home UI evidence item", () => {
+    expect(homeHighlights).toEqual([
+      expect.objectContaining({ title: "공개 UI 예시", description: expect.any(String) }),
+      expect.objectContaining({ title: "이커머스 운영", description: expect.any(String) }),
+      expect.objectContaining({ title: "B2B 업무 화면", description: expect.any(String) })
+    ]);
   });
 
   it("renders the Monibuk anchor and case-study disclosure", () => {

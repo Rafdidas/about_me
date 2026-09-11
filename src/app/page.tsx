@@ -79,14 +79,17 @@ export default function HomePage() {
       </Section>
 
       <Section eyebrow="Foundations" title={homeSections.designSystemPreview.title} description={homeSections.designSystemPreview.description}>
-        <div className="p-home__highlight-list">
+        <ol className="p-home__highlight-list">
           {homeHighlights.map((highlight, index) => (
-            <p key={highlight}>
-              <span>{["①", "②", "③"][index]}</span>
-              {highlight}
-            </p>
+            <li className="p-home__highlight-item" key={highlight.title}>
+              <span className="p-home__highlight-index">{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <h3>{highlight.title}</h3>
+                <p>{highlight.description}</p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ol>
         <Link className="c-text-link p-home__section-link" href="/design-system">
           Design System 전체 보기 →
         </Link>

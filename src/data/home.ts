@@ -76,9 +76,18 @@ export const strengths = [
 ];
 
 export const homeHighlights = [
-  "공개된 예시에서는 컴포넌트의 기본 상태와 disabled, loading, empty, error 상태를 함께 확인할 수 있습니다.",
-  "이커머스 운영에서는 화면 이슈와 고객 요청사항을 반영하며 UI를 유지보수했습니다.",
-  "B2B 업무 시스템에서는 목록, 조회, 대시보드와 반복되는 화면 구조를 구현했습니다."
+  {
+    title: "공개 UI 예시",
+    description: "컴포넌트의 기본 상태와 disabled, loading, empty, error 상태를 확인할 수 있습니다."
+  },
+  {
+    title: "이커머스 운영",
+    description: "화면 이슈와 고객 요청사항을 반영하며 UI를 유지보수했습니다."
+  },
+  {
+    title: "B2B 업무 화면",
+    description: "목록, 조회, 대시보드와 반복되는 화면 구조를 구현했습니다."
+  }
 ];
 
 export const homeCaseLinks = {
