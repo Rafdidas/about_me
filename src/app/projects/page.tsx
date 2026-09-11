@@ -23,14 +23,20 @@ export default function ProjectsPage() {
       <Section eyebrow={projectsSectionEyebrow} title="">
         <div className="l-grid l-grid--three">
           {projects.map((project) => (
-            <article className="c-card p-project-card" key={project.slug}>
+            <article
+              className="c-card p-project-card"
+              id={project.slug === "money-book" ? "money-book" : undefined}
+              key={project.slug}
+            >
               <Image className="p-project-card__image" src={project.screenshot.src} alt={project.screenshot.alt} />
               <div className="p-project-card__badges">
+                {project.status ? <Badge tone="success">{project.status}</Badge> : null}
+                {project.developmentMethod ? <Badge>{project.developmentMethod}</Badge> : null}
                 {project.stack.map((stack) => (
                   <Badge key={stack}>{stack}</Badge>
                 ))}
               </div>
-              <h2>{project.name}</h2>
+              <h2>{project.displayName}</h2>
               <p>{project.summary}</p>
               <h3>UI/UX Point</h3>
               <ul>
@@ -48,7 +54,7 @@ export default function ProjectsPage() {
                 <ButtonLink href={project.githubUrl} variant="secondary">
                   GitHub
                 </ButtonLink>
-                {project.demoUrl ? <ButtonLink href={project.demoUrl}>Demo</ButtonLink> : null}
+                {project.demoUrl ? <ButtonLink href={project.demoUrl}>{project.slug === "money-book" ? "서비스 보기" : "Demo"}</ButtonLink> : null}
               </div>
             </article>
           ))}

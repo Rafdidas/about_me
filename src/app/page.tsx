@@ -110,18 +110,18 @@ export default function HomePage() {
           {projects.slice(0, 3).map((project) => (
             <article className="c-card p-home__project-card" key={project.slug}>
               <Image className="p-home__project-image" src={project.screenshot.src} alt={project.screenshot.alt} />
-              <span className="p-project-tag">{project.stack[0]}</span>
-              <h3>{project.name}</h3>
+              <span className="p-project-tag">{project.developmentMethod ?? project.stack[0]}</span>
+              <h3>{project.displayName}</h3>
               <p>{project.summary}</p>
               <div className="p-home__project-actions">
                 {project.demoUrl ? (
                   <Link className="c-text-link" href={project.demoUrl} {...getExternalLinkProps(project.demoUrl)}>
-                    Demo
+                    {project.slug === "money-book" ? "서비스 보기" : "Demo"}
                   </Link>
                 ) : null}
-                <Link className="c-text-link" href="/projects">
+                <Link className="c-text-link" href={project.slug === "money-book" ? "/projects#money-book" : "/projects"}>
                   <span aria-hidden="true">자세히 보기</span>
-                  <span className="u-visually-hidden">{project.name} 자세히 보기</span>
+                  <span className="u-visually-hidden">{project.displayName} 자세히 보기</span>
                 </Link>
               </div>
             </article>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Badge } from "@/components/common/Badge";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
-import { caseStudies, caseStudiesEyebrow, caseStudiesIntro, caseStudiesSectionEyebrow } from "@/data/caseStudies";
+import { caseStudies, caseStudiesDisclosure, caseStudiesEyebrow, caseStudiesIntro, caseStudiesSectionEyebrow } from "@/data/caseStudies";
 
 export const metadata: Metadata = {
   title: "Case Studies"
@@ -16,6 +16,7 @@ export default function CaseStudiesPage() {
           <div className="p-page-header__eyebrow">{caseStudiesEyebrow}</div>
           <h1>Case Studies</h1>
           <p>{caseStudiesIntro}</p>
+          <p className="p-page-header__notice">{caseStudiesDisclosure}</p>
         </header>
       </Container>
       <Section eyebrow={caseStudiesSectionEyebrow} title="">

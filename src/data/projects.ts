@@ -2,30 +2,34 @@ import moneyBookScreenshot from "@/assets/monibuk.jpg";
 import pokeDexScreenshot from "@/assets/pokedex.jpg";
 import tmdbScreenshot from "@/assets/tmdb.jpg";
 
-export const projectsEyebrow = "UI flow · State · Data";
+export const projectsEyebrow = "Personal projects · UI flow · Operation";
 export const projectsSectionEyebrow = "Curated GitHub Projects";
 
 export const projectsIntro =
-  "기존 GitHub 프로젝트를 선별해 UI 흐름, 상태 처리, 데이터 연동 경험을 중심으로 정리했습니다.";
+  "개인 프로젝트의 사용 흐름과 개발 경험을 정리했습니다. 모니북은 AI를 활용해 개발하고 실제 서비스로 운영하고 있습니다.";
 
 export const projects = [
   {
     slug: "money-book",
     name: "money_book",
-    summary: "수입·지출 입력, 월별 요약, 빈 상태 등 개인 가계부의 사용 흐름을 정리한 TypeScript 기반 프로젝트입니다.",
+    displayName: "모니북",
+    status: "운영 중",
+    developmentMethod: "AI 활용 개발",
+    summary: "AI를 활용해 개발하고 실제 운영하는 개인 가계부 서비스입니다.",
     stack: ["TypeScript", "SCSS", "Supabase"],
-    uiPoints: ["수입·지출 입력 흐름", "월별 요약과 빈 상태 처리", "실서비스 배포 경험"],
-    techPoints: ["Supabase RLS 기반 데이터 보호", "문제-해결형 README", "도메인 배포 운영"],
+    uiPoints: ["수입·지출 입력 흐름", "월별 요약과 빈 상태 처리", "개인 가계부 사용 흐름 설계"],
+    techPoints: ["도메인 배포 운영", "AI 활용 개발", "프로젝트 README 정리"],
     githubUrl: "https://github.com/rafdidas/money_book",
     demoUrl: "https://monibuk.com",
     screenshot: {
       src: moneyBookScreenshot,
-      alt: "money_book 프로젝트 데스크톱 화면"
+      alt: "모니북 가계부 서비스 데스크톱 화면"
     }
   },
   {
     slug: "poke-dex-next",
     name: "poke_dex_next",
+    displayName: "Pokédex",
     summary: "검색, 필터, 상세 화면 전환을 중심으로 포켓몬 탐색 경험을 구성한 Next.js 프로젝트입니다.",
     stack: ["Next.js", "React Query", "Zustand"],
     uiPoints: ["검색·필터 중심 탐색", "상세 화면 전환", "모바일 대응"],
@@ -40,6 +44,7 @@ export const projects = [
   {
     slug: "tmdb-ai-reco",
     name: "tmdb-ai-reco",
+    displayName: "TMDB AI Reco",
     summary: "AI 추천 결과를 구조화하고 TMDB 데이터로 검증해 사용자에게 신뢰 가능한 추천 결과를 보여주는 프로젝트입니다.",
     stack: ["AI", "TMDB", "Schema"],
     uiPoints: ["추천 결과 카드", "로딩·에러 상태", "검증된 결과만 노출"],

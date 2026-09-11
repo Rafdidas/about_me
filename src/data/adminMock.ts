@@ -24,9 +24,9 @@ export const paymentTypeLabels: Record<PaymentType, string> = {
 };
 
 export const adminTableCopy = {
-  title: "매장 결제 현황 관리 화면",
+  title: "가상 매장 결제 현황 예시",
   description:
-    "실제 서비스 정보가 드러나지 않도록 재구성한 B2B 업무 화면 예시입니다. 검색, 상태 필터, 정렬, 페이지네이션과 loading·empty·error 상태를 같은 컴포넌트 기준으로 확인할 수 있도록 구성했습니다.",
+    "가상 데이터를 사용한 포트폴리오용 예시입니다. 검색, 상태 필터, 정렬, 페이지네이션과 loading·empty·error 상태를 확인할 수 있습니다.",
   searchLabel: "매장 또는 단말기 검색",
   statusLabel: "운영 상태",
   modeLabel: "화면 상태",

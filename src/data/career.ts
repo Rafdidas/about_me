@@ -2,7 +2,7 @@ export const careerSummary = {
   eyebrow: "6+ years experience",
   title: "사용성과 유지보수성을 함께 고려하는 UI 구현 경험",
   body:
-    "이커머스와 B2B 업무 시스템 분야에서 6년 이상 신규 구축, 리뉴얼, 운영 유지보수를 수행했습니다. 현재는 WeSeed CRM과 건설 SI 프로젝트에서 React·Next.js 기반 PC·모바일 업무 화면을 구현하고, 반복 UI 요소와 디자인 시스템 기준을 정리하는 업무를 함께 수행하고 있습니다."
+    "이커머스와 B2B 업무 시스템 분야에서 6년 이상 신규 구축, 리뉴얼, 운영 유지보수를 수행했습니다. 현재는 WeSeed CRM과 건설 SI 프로젝트에서 React·Next.js 기반 PC·모바일 업무 화면과 반복 UI 요소를 구현하고 있습니다."
 };
 
 export const careerItems = [
@@ -15,7 +15,7 @@ export const careerItems = [
       { text: "CRM 고객관리, 영업관리, 일정관리, 게시판, 마케팅관리 등 주요 업무 화면 구현" },
       { text: "롯데글로벌로지스 CRM 고객관리·영업관리 화면 및 업무 기능 UI 구현" },
       { text: "React·Next.js 기반 건설 SI 프로젝트 PC·모바일 화면 구현", caseStudyHref: "/case-studies#b2b-admin-ui" },
-      { text: "버튼, 테이블, 모달, 오토컴플리트 등 공통 컴포넌트를 직접 구현해 WeSeed CRM과 건설 SI 프로젝트에서 재사용", caseStudyHref: "/case-studies#weseed-design-system" },
+      { text: "버튼, 테이블, 모달, 오토컴플리트 등 반복 UI 요소 구현 및 업무 화면 적용", caseStudyHref: "/case-studies#weseed-design-system" },
       { text: "디자이너가 정의한 상태별(loading/disabled/error) 디자인을 props 구조로 설계해 화면 간 UI 일관성 확보" }
     ]
   },

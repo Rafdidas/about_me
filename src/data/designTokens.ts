@@ -28,9 +28,9 @@ export const radii = [
 export const designSystemOverview = {
   eyebrow: "Foundations & Components",
   description:
-    "실무에서 반복적으로 사용하는 색상·타이포그래피·간격·상태 UI 기준을 포트폴리오용 화면으로 재구성했습니다.",
+    "컴포넌트와 상태별 UI를 확인할 수 있는 포트폴리오용 예시입니다. 실제 회사 업무 화면이나 내부 소스 코드를 공개한 자료는 아닙니다.",
   bridge:
-    "정해진 디자인 기준을 화면에 적용하고, 반복되는 UI 요소를 구현 관점에서 정리한 경험을 보여주기 위한 페이지입니다."
+    "업무 화면에서 다룬 UI 흐름을 설명하기 위해 별도로 구성한 예시입니다."
 };
 
 export const designTokensSection = {
@@ -46,7 +46,7 @@ export const componentsSection = {
 
 export const adminTableBridge = {
   description:
-    "컴포넌트를 조합해 데이터 중심 업무 화면에서 필요한 필터, 상태 배지, 테이블, 페이지네이션 흐름을 구성했습니다. 실무에서 다루던 목록·조회 화면 구조를 포트폴리오용 예시로 재구성한 화면입니다.",
+    "가상 데이터를 사용해 검색·필터·정렬·페이지네이션과 화면 상태를 살펴볼 수 있는 포트폴리오용 예시입니다. 업무 화면에서 다룬 UI 흐름을 설명하기 위해 구성했습니다.",
   caseStudyHref: "/case-studies#b2b-admin-ui",
   caseStudyLabel: "B2B 업무 시스템 Case 보기"
 };
