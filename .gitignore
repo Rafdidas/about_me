@@ -15,3 +15,5 @@ handoff.md
 portfolio_renewal_plan.md
 .superpowers/
 *.tsbuildinfo
+
+next-env.d.ts
