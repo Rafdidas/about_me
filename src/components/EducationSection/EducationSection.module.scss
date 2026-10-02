@@ -1,0 +1,20 @@
+@use "../../styles/mixins" as *;
+
+.section {
+  scroll-margin-top: calc(var(--space-16) + var(--space-12));
+}
+
+.list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.item {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.detail {
+  color: var(--color-text-sub);
+  @include text(caption);
+}

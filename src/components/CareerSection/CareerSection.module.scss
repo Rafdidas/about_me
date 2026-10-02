@@ -1,0 +1,57 @@
+@use "../../styles/mixins" as *;
+
+.section {
+  scroll-margin-top: calc(var(--space-16) + var(--space-12));
+}
+
+.list {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.item {
+  display: grid;
+  gap: var(--space-3);
+  padding-left: var(--space-5);
+  border-left: 2px solid var(--color-border);
+}
+
+.header {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.company {
+  @include text(heading-2);
+}
+
+.meta {
+  color: var(--color-text-sub);
+  @include text(caption);
+}
+
+.summary {
+  color: var(--color-text-sub);
+}
+
+.highlights {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.highlight {
+  position: relative;
+  padding-left: var(--space-4);
+  @include text(body-sm);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0.65em;
+    left: 0;
+    width: var(--space-1);
+    height: var(--space-1);
+    border-radius: 50%;
+    background: var(--color-decor);
+  }
+}
