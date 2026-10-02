@@ -1,0 +1,17 @@
+@use "../../styles/mixins" as *;
+
+.link {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-thickness var(--duration-fast) var(--ease-out);
+
+  &:hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
+.hidden {
+  @include visually-hidden;
+}

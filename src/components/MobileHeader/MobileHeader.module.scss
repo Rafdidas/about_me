@@ -1,0 +1,27 @@
+@use "../../styles/mixins" as *;
+
+.header {
+  // glass가 사방에 테두리를 그리므로 믹스인을 먼저 쓰고 border-width로 아래쪽만 남긴다.
+  @include glass;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4) 0;
+  border-width: 0 0 1px;
+
+  @include up(lg) {
+    display: none;
+  }
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  @include text(heading-2);
+}

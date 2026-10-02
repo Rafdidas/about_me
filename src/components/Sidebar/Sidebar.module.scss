@@ -1,0 +1,44 @@
+@use "../../styles/mixins" as *;
+
+.sidebar {
+  display: none;
+
+  @include up(lg) {
+    position: sticky;
+    top: var(--space-6);
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    height: calc(100dvh - var(--space-12));
+    padding: var(--space-8) var(--space-6);
+    border-radius: var(--radius-lg);
+    @include glass;
+  }
+}
+
+.brand {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.name {
+  @include text(heading-1);
+}
+
+.role {
+  color: var(--color-text-sub);
+  @include text(overline);
+}
+
+.nav {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+}

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Backdrop } from "@/components/Backdrop/Backdrop";
+import { SkipLink } from "@/components/SkipLink/SkipLink";
 import { siteMeta } from "@/data/site";
 import { themeInitScript } from "@/lib/theme";
 import "@/styles/globals.scss";
@@ -29,7 +31,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <SkipLink />
+        <Backdrop />
+        {children}
+      </body>
     </html>
   );
 }

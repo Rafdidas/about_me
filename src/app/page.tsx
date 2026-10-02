@@ -1,9 +1,14 @@
-import { ThemeToggle } from "@/components/ThemeToggle/ThemeToggle";
+import { PageShell } from "@/components/PageShell/PageShell";
+import { sectionNav, uiCopy } from "@/data/site";
 
 export default function HomePage() {
   return (
-    <main id="main">
-      <ThemeToggle />
-    </main>
+    <PageShell navItems={sectionNav} navLabel={uiCopy.sectionNavLabel}>
+      {sectionNav.map((item) => (
+        <section key={item.id} id={item.id} style={{ minHeight: "80vh" }}>
+          <h2>{item.label}</h2>
+        </section>
+      ))}
+    </PageShell>
   );
 }
