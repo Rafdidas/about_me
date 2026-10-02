@@ -1,0 +1,40 @@
+@use "../../styles/mixins" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--space-10);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  @include text(body-sm);
+  font-weight: var(--font-weight-semibold);
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.primary {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-accent) 85%, var(--color-text));
+  }
+}
+
+.secondary {
+  border-color: var(--color-text);
+  color: var(--color-text);
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+}
+
+.hidden {
+  @include visually-hidden;
+}

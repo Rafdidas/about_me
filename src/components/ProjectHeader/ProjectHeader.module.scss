@@ -1,0 +1,35 @@
+@use "../../styles/mixins" as *;
+
+.header {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.label {
+  color: var(--color-accent);
+  @include text(overline);
+}
+
+.title {
+  @include text(display);
+}
+
+.meta {
+  color: var(--color-text-sub);
+  @include text(body-sm);
+}
+
+.note {
+  padding: var(--space-4);
+  border-left: 2px solid var(--color-accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--color-surface);
+  color: var(--color-text-sub);
+  @include text(body-sm);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}

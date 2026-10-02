@@ -1,0 +1,45 @@
+@use "../../styles/mixins" as *;
+
+.body {
+  display: grid;
+  gap: var(--space-12);
+}
+
+.section {
+  display: grid;
+  gap: var(--space-4);
+  scroll-margin-top: calc(var(--space-16) + var(--space-12));
+}
+
+.title {
+  @include text(heading-1);
+}
+
+.paragraph {
+  @include text(body);
+}
+
+.items {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.item {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  @include text(body-sm);
+}
+
+.itemLabel {
+  @include text(body);
+  font-weight: var(--font-weight-semibold);
+}
+
+.evidence {
+  display: grid;
+  gap: var(--space-2);
+}

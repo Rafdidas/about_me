@@ -42,3 +42,7 @@
   justify-content: space-between;
   gap: var(--space-4);
 }
+
+.extra {
+  @include text(body-sm);
+}
