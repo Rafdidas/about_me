@@ -22,7 +22,13 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return {};
-  return { title: project.title, description: project.summary };
+  const url = `/projects/${slug}`;
+  return {
+    title: project.title,
+    description: project.summary,
+    openGraph: { title: project.title, description: project.summary, url, type: "article" },
+    alternates: { canonical: url }
+  };
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
