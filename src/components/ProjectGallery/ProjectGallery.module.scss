@@ -8,9 +8,13 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-surface);
+  aspect-ratio: 16 / 10;
 }
 
+// 화면 캡처는 가로·세로 비율이 제각각이라 위쪽을 기준으로 잘라 같은 비율로 맞춘다.
 .image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
