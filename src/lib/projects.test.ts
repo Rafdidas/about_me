@@ -21,6 +21,14 @@ describe("projects 조회", () => {
     expect(getAdjacentProjects(last.slug)).toEqual({ prev: projects[projects.length - 2], next: undefined });
   });
 
+  it("없는 slug의 이전/다음은 빈 객체", () => {
+    expect(getAdjacentProjects("nope")).toEqual({});
+  });
+
+  it("확인 자료가 없는 프로젝트는 빈 배열", () => {
+    expect(getEvidenceLinks(getProjectBySlug("weseedcon")!)).toEqual([]);
+  });
+
   it("sectionId는 1부터 시작한다", () => {
     expect(sectionId(0)).toBe("section-1");
   });
