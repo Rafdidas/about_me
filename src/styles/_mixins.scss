@@ -1,0 +1,89 @@
+@use "sass:map";
+
+$breakpoints: (
+  md: 768px,
+  lg: 1024px,
+);
+
+@mixin up($bp) {
+  @media (min-width: map.get($breakpoints, $bp)) {
+    @content;
+  }
+}
+
+@mixin down($bp) {
+  @media (max-width: (map.get($breakpoints, $bp) - 0.02px)) {
+    @content;
+  }
+}
+
+@mixin text($role) {
+  font-size: var(--text-#{$role}-size);
+  font-weight: var(--text-#{$role}-weight);
+  line-height: var(--text-#{$role}-line-height);
+  letter-spacing: var(--text-#{$role}-letter-spacing);
+  @if $role == overline {
+    text-transform: uppercase;
+  }
+}
+
+@mixin focus-ring {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// 약한 글래스모피즘. 고정 UI(Sidebar, MobileHeader)에만 사용한다.
+@mixin glass {
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    background: var(--color-surface);
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    background: var(--color-surface);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+// CSS Modules는 keyframes 이름을 모듈 단위로 바꾸므로,
+// reveal을 쓰는 모듈은 파일 최상단에서 reveal-keyframes를 함께 include한다.
+@mixin reveal-keyframes {
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(var(--space-4));
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+// 스크롤 등장. 미지원 브라우저·움직임 줄이기 설정에서는 처음부터 보인다.
+@mixin reveal {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}

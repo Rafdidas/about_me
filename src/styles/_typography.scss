@@ -1,0 +1,67 @@
+// 기본값(primitive) 토큰은 컴포넌트에서 직접 쓰지 않는다.
+// 컴포넌트는 의미(semantic) 토큰을 @include text(<role>)로만 사용한다.
+
+@mixin primitive-tokens {
+  --font-size-100: 0.8125rem; // 13px
+  --font-size-200: 0.9375rem; // 15px
+  --font-size-300: 1rem; // 16px
+  --font-size-400: 1.125rem; // 18px
+  --font-size-500: 1.375rem; // 22px
+  --font-size-600: 1.75rem; // 28px
+  --font-size-700: 2.25rem; // 36px
+
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.3;
+  --line-height-snug: 1.5;
+  --line-height-body: 1.7;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.12em;
+}
+
+// 모바일 기준값. md 이상에서 display·heading-1만 한 단계 커진다.
+@mixin semantic-tokens {
+  --text-display-size: var(--font-size-600);
+  --text-display-weight: var(--font-weight-bold);
+  --text-display-line-height: var(--line-height-tight);
+  --text-display-letter-spacing: var(--letter-spacing-tight);
+
+  --text-heading-1-size: var(--font-size-500);
+  --text-heading-1-weight: var(--font-weight-bold);
+  --text-heading-1-line-height: var(--line-height-tight);
+  --text-heading-1-letter-spacing: var(--letter-spacing-tight);
+
+  --text-heading-2-size: var(--font-size-400);
+  --text-heading-2-weight: var(--font-weight-semibold);
+  --text-heading-2-line-height: var(--line-height-snug);
+  --text-heading-2-letter-spacing: var(--letter-spacing-normal);
+
+  --text-body-size: var(--font-size-300);
+  --text-body-weight: var(--font-weight-regular);
+  --text-body-line-height: var(--line-height-body);
+  --text-body-letter-spacing: var(--letter-spacing-normal);
+
+  --text-body-sm-size: var(--font-size-200);
+  --text-body-sm-weight: var(--font-weight-regular);
+  --text-body-sm-line-height: var(--line-height-snug);
+  --text-body-sm-letter-spacing: var(--letter-spacing-normal);
+
+  --text-caption-size: var(--font-size-100);
+  --text-caption-weight: var(--font-weight-regular);
+  --text-caption-line-height: var(--line-height-snug);
+  --text-caption-letter-spacing: var(--letter-spacing-normal);
+
+  --text-overline-size: var(--font-size-100);
+  --text-overline-weight: var(--font-weight-semibold);
+  --text-overline-line-height: var(--line-height-snug);
+  --text-overline-letter-spacing: var(--letter-spacing-wide);
+}
+
+@mixin semantic-tokens-md {
+  --text-display-size: var(--font-size-700);
+  --text-heading-1-size: var(--font-size-600);
+}
