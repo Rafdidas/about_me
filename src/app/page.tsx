@@ -1,3 +1,9 @@
+import { ThemeToggle } from "@/components/ThemeToggle/ThemeToggle";
+
 export default function HomePage() {
-  return <main id="main">포트폴리오 개편 작업 중</main>;
+  return (
+    <main id="main">
+      <ThemeToggle />
+    </main>
+  );
 }

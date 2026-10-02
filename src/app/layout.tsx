@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { siteMeta } from "@/data/site";
+import { themeInitScript } from "@/lib/theme";
 import "@/styles/globals.scss";
 
 const pretendard = localFont({
@@ -15,12 +17,18 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "박현규 — Frontend · UI Engineer"
+  metadataBase: new URL(siteMeta.url),
+  title: { default: siteMeta.title, template: `%s | ${siteMeta.title}` },
+  description: siteMeta.description,
+  openGraph: { title: siteMeta.title, description: siteMeta.description, type: "website", url: siteMeta.url }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ko" className={pretendard.variable} data-scroll-behavior="smooth">
+    <html lang="ko" className={pretendard.variable} data-scroll-behavior="smooth" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body>{children}</body>
     </html>
   );
