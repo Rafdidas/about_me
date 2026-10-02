@@ -1,37 +1,25 @@
-# 박현규 — UI Publisher Portfolio
+# 박현규 — Frontend · UI Engineer Portfolio
 
-이 저장소는 이커머스와 B2B 업무 시스템에서 쌓은 UI 구축·운영 경험, 그리고 AI를 활용해 개발·운영하는 개인 프로젝트를 소개하는 포트폴리오입니다.
+이커머스·B2B 서비스의 PC·모바일 UI를 6년 이상 구축·운영한 경력과, AI 코딩 도구를 활용해 개발·운영하는 개인 프로젝트를 소개하는 포트폴리오입니다.
 
 - 배포: <https://about-me-iota-blond.vercel.app/>
-- 직무: UI Publisher
 
-## 포트폴리오에서 보여주는 것
+## 구성
 
-| 페이지 | 확인할 수 있는 내용 |
+| 경로 | 내용 |
 | --- | --- |
-| Home | UI 구축·운영 경력과 AI 활용 개인 프로젝트의 탐색 경로 |
-| Case Studies | 실제 업무에서 맡은 범위와 구현한 UI 작업 |
-| Design System | 컴포넌트 상태와 테이블 흐름을 확인하는 포트폴리오용 예시 |
-| Projects | 모니북을 포함한 개인 프로젝트의 사용 흐름과 개발 경험 |
-| Career | 이커머스와 B2B 업무 시스템의 경력 이력 |
+| `/` | 소개·핵심 역량, 경력, 대표 실무 프로젝트·개인 프로젝트, 기술, 학력·자격 |
+| `/projects/[slug]` | 프로젝트별 배경·담당 작업·적용 및 운영, 확인 자료 |
 
-## 공개 범위
-
-실제 업무 화면과 내부 자료는 공개하지 않습니다. Case Studies는 실제 수행한 업무의 배경·담당 범위·구현 내용을 정리합니다.
-
-Design System과 Admin Table은 가상 데이터를 사용하는 포트폴리오용 예시입니다. 실제 회사 화면, 내부 소스 코드, 내부 데이터를 재현하거나 공개한 자료가 아닙니다.
-
-## 모니북
-
-[모니북](https://monibuk.com)은 AI를 활용해 개발하고 실제 운영하는 개인 가계부 서비스입니다. `AI 활용 개발`은 제작 방식이며, 서비스 내부에 AI 기능이 있다는 뜻으로 사용하지 않습니다.
+실무 프로젝트는 사내·고객사 전용 시스템이 많아 화면 대신 담당 범위와 구현 과제를 글로 정리했습니다.
 
 ## 구현 원칙
 
-- Next.js App Router의 Server Component를 기본으로 사용하고, Admin Table처럼 브라우저 상호작용이 필요한 영역만 Client Component로 구현합니다.
-- 문구와 포트폴리오 데이터는 `src/data/`에 분리하고 페이지 컴포넌트는 이를 렌더링합니다.
-- 검색·필터·정렬·페이지네이션은 `src/lib/adminTable.ts`의 순수 함수로 처리하고 테스트합니다.
-- SCSS는 BEM 접두어(`l-`, `p-`, `c-`, `ds-`, `u-`)를 사용합니다.
-- 접근성을 위해 기본 HTML 요소, 연결된 label, `focus-visible`, 텍스트가 있는 상태 배지를 사용합니다.
+- Next.js App Router의 Server Component를 기본으로 하고, 테마 토글과 섹션 내비만 Client Component로 구현했습니다.
+- 콘텐츠는 `src/data/`의 타입 있는 데이터로 분리하고, 컴포넌트는 이를 렌더링만 합니다.
+- 색상·타이포그래피·간격을 CSS 변수 토큰으로 정의하고, 컴포넌트 스타일(SCSS Modules)은 토큰과 믹스인만 사용합니다.
+- 라이트·다크 테마는 같은 의미 토큰에 모드별 값을 연결하며, 텍스트 대비 4.5:1 이상을 테스트로 검증합니다.
+- 인터랙션은 라이브러리 없이 CSS와 브라우저 기본 API(View Transition, scroll-driven animation, IntersectionObserver)로 구현하고, 움직임 줄이기 설정을 따릅니다.
 
 ## 로컬 실행과 검증
 
@@ -42,5 +30,3 @@ npm run lint
 npm test
 npm run build
 ```
-
-`npm run dev` 실행 후 Home의 `AI 활용 프로젝트 보기`가 `/projects#money-book`으로 이동하는지, Design System의 Admin Table에서 검색·필터·정렬·페이지 이동·상태 전환이 동작하는지 확인합니다.
