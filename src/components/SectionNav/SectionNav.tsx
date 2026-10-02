@@ -12,7 +12,7 @@ type SectionNavProps = {
 };
 
 export function SectionNav({ items, label, orientation }: SectionNavProps) {
-  const [activeId, setActiveId] = useState(items[0]?.id);
+  const [activeId, setActiveId] = useState<string | undefined>(items[0]?.id);
   const listRef = useRef<HTMLUListElement>(null);
   const navRef = useRef<HTMLElement>(null);
 
