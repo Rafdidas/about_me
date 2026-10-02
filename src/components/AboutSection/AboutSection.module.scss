@@ -3,7 +3,6 @@
 .section {
   display: grid;
   gap: var(--space-4);
-  scroll-margin-top: calc(var(--space-16) + var(--space-12));
 }
 
 .role {

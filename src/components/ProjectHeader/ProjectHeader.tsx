@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/ButtonLink/ButtonLink";
+import { TextLink } from "@/components/TextLink/TextLink";
 import { TagList } from "@/components/Tag/Tag";
 import { uiCopy } from "@/data/site";
 import type { Project } from "@/data/types";
@@ -11,6 +12,9 @@ export function ProjectHeader({ project }: { project: Project }) {
 
   return (
     <header className={styles.header}>
+      <TextLink href="/#projects" className={styles.back}>
+        {uiCopy.backToProjects}
+      </TextLink>
       <p className={styles.label}>{project.label}</p>
       <h1 className={styles.title}>{project.title}</h1>
       <p className={styles.meta}>

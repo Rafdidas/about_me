@@ -11,7 +11,7 @@ export function ProjectPager({ prev, next }: ProjectPagerProps) {
   return (
     <nav className={styles.pager} aria-label={uiCopy.pagerLabel}>
       {prev ? (
-        <Link className={`${styles.link} ${styles.prev}`} href={`/projects/${prev.slug}`}>
+        <Link className={styles.link} href={`/projects/${prev.slug}`}>
           <span className={styles.direction}>{uiCopy.prevProject}</span>
           <span className={styles.title}>{prev.title}</span>
         </Link>

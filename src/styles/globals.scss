@@ -26,6 +26,7 @@
   --radius-lg: 1rem;
   --radius-pill: 999px;
 
+  --header-offset: calc(var(--space-16) + var(--space-12));
   --sidebar-width: 18rem;
   --content-max: 45rem;
 
@@ -57,6 +58,10 @@ html {
 
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;
+  }
+
+  @include down(lg) {
+    scroll-padding-top: var(--header-offset);
   }
 }
 

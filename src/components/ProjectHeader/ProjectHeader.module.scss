@@ -5,6 +5,14 @@
   gap: var(--space-4);
 }
 
+.back {
+  justify-self: start;
+
+  @include up(lg) {
+    display: none;
+  }
+}
+
 .label {
   color: var(--color-accent);
   @include text(overline);

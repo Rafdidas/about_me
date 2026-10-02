@@ -24,3 +24,17 @@
   width: var(--space-5);
   height: var(--space-5);
 }
+
+.sun {
+  display: none;
+}
+
+:global(:root[data-theme="dark"]) {
+  .moon {
+    display: none;
+  }
+
+  .sun {
+    display: block;
+  }
+}
