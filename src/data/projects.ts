@@ -152,6 +152,32 @@ export const projects: Project[] = [
         kind: "evidence"
       }
     ],
+    images: [
+      {
+        src: "/projects/monibuk-1.webp",
+        alt: "머니북가계부 소개 화면. 수입·지출·저축·투자를 한눈에 정리한다는 문구와 기능 소개 영역이 보인다.",
+        width: 1383,
+        height: 2000
+      },
+      {
+        src: "/projects/monibuk-2.webp",
+        alt: "머니북가계부 대시보드. 현재 남은 돈과 이번 달 수입·지출 요약, 달력, 내역 입력 폼, 카테고리별 지출 비율 차트, 거래 내역 표가 보인다.",
+        width: 1714,
+        height: 2000
+      },
+      {
+        src: "/projects/monibuk-3.webp",
+        alt: "머니북가계부 월별 분석 화면. 연간 누적 현황, 월 선택 버튼, 이번 달 돈의 흐름, 월별 수입·지출 막대그래프, 월별 요약 카드가 보인다.",
+        width: 1622,
+        height: 2000
+      },
+      {
+        src: "/projects/monibuk-4.webp",
+        alt: "머니북가계부 투자 관리 화면. 총 평가금액과 수익률, 절세계좌 한도, 포트폴리오 비중, 보유 종목 표가 보인다.",
+        width: 2000,
+        height: 1532
+      }
+    ],
     sections: [
       {
         title: "개요",
@@ -181,6 +207,160 @@ export const projects: Project[] = [
     ]
   },
   {
+    slug: "race-note",
+    kind: "personal",
+    label: "Personal Project",
+    title: "RaceNote",
+    summary: "한국 팬을 위한 F1 시즌 정보 허브. 일정·결과·순위·뉴스를 자동 수집해 한국 시간으로 보여주는 서비스를 개발·운영",
+    period: "공개 서비스 운영 중",
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Cloudflare Workers", "Cloudflare D1", "Drizzle ORM"],
+    links: [
+      { label: "서비스", href: "https://race-note.rafdi.workers.dev", kind: "service" },
+      { label: "GitHub", href: "https://github.com/Rafdidas/race-note", kind: "github" },
+      {
+        label: "F1 일정 동기화 테스트",
+        href: "https://github.com/Rafdidas/race-note/blob/main/src/lib/sync/f1-sync.test.ts",
+        kind: "evidence"
+      },
+      {
+        label: "Cron 수집 진입점(worker.ts)",
+        href: "https://github.com/Rafdidas/race-note/blob/main/worker.ts",
+        kind: "evidence"
+      }
+    ],
+    images: [
+      {
+        src: "/projects/race-note-1.webp",
+        alt: "RaceNote 홈 화면. 다음 그랑프리 일정, 패독 뉴스, 최근 결승 결과, 시즌 순위 요약이 어두운 테마로 보인다.",
+        width: 1420,
+        height: 2000
+      },
+      {
+        src: "/projects/race-note-2.webp",
+        alt: "RaceNote 드라이버 상세 화면. 시즌 순위와 포인트, 최근 결승 결과, 관련 뉴스가 보인다.",
+        width: 2000,
+        height: 1580
+      }
+    ],
+    sections: [
+      {
+        title: "개요",
+        paragraphs: [
+          "한국 팬을 위한 F1 시즌 정보 허브입니다. 다음 경기부터 일정·결과·순위·뉴스, 팀·드라이버·서킷과 입문 가이드까지 한국어로 탐색하고 경기 시간을 한국 시간(KST)으로 확인할 수 있습니다."
+        ]
+      },
+      {
+        title: "구현 내용",
+        items: [
+          {
+            label: "데이터 수집",
+            text: "Jolpica에서 일정·세션, 드라이버·팀 순위, 최근 결승 결과를 수집하고, 네이버 뉴스 검색 API로 기사 제목·요약·원문 링크를 Cloudflare D1에 캐시"
+          },
+          {
+            label: "자동 갱신",
+            text: "Worker Cron이 매일 10:23, 22:23 KST에 F1 데이터를 먼저 수집하고, 네이버 인증 키가 설정된 경우 뉴스를 이어서 수집"
+          },
+          {
+            label: "시간 처리",
+            text: "DB에는 시간을 UTC로 저장하고 공개 화면에서는 KST로 표시"
+          },
+          {
+            label: "시즌 기준 처리",
+            text: "정적 카탈로그를 2026 시즌 기준으로 두고, 해당 시즌 자료가 없으면 다른 연도의 일정이나 로스터를 현재 시즌으로 표시하지 않음. 시즌 연도는 요청·Cron 실행 시점에 계산"
+          },
+          {
+            label: "뉴스 범위",
+            text: "검색 결과 미리보기와 원문 링크만 제공하고 기사 전문은 저장하지 않음"
+          },
+          {
+            label: "화면 구성",
+            text: "홈·뉴스·일정·순위와 팀·드라이버·서킷·입문 가이드의 목록·상세 경로를 App Router로 구성하고, 경기 상세에서 세션별 KST 일정과 결승 결과 표시"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: "tmdb-ai-reco",
+    kind: "personal",
+    label: "Personal Project",
+    title: "TMDB AI RECO",
+    summary: "좋아하는 영화 3~5개를 고르면 AI가 취향을 분석하고, 추천 결과를 실제 TMDB 영화 데이터와 연결해 보여주는 서비스",
+    period: "배포된 개인 프로젝트",
+    stack: ["Next.js", "React", "TypeScript", "Sass", "OpenAI API", "TMDB API"],
+    links: [
+      { label: "서비스", href: "https://tmdb-ai-reco.vercel.app", kind: "service" },
+      { label: "GitHub", href: "https://github.com/Rafdidas/tmdb-ai-reco", kind: "github" },
+      {
+        label: "AI 응답 스키마·취향 분석 코드",
+        href: "https://github.com/Rafdidas/tmdb-ai-reco/blob/main/src/lib/analyze-taste.ts",
+        kind: "evidence"
+      },
+      {
+        label: "TMDB 공통 요청 함수",
+        href: "https://github.com/Rafdidas/tmdb-ai-reco/blob/main/src/lib/tmdb.ts",
+        kind: "evidence"
+      }
+    ],
+    images: [
+      {
+        src: "/projects/tmdb-ai-reco-1.webp",
+        alt: "TMDB AI RECO 메인 화면. 취향에 맞는 콘텐츠를 찾아보라는 문구와 검색창, 인기 영화 포스터 카드 목록과 페이지네이션이 보인다.",
+        width: 1173,
+        height: 2000
+      },
+      {
+        src: "/projects/tmdb-ai-reco-2.webp",
+        alt: "TMDB AI RECO의 AI 취향 분석 결과 화면. 취향 서사 요약과 키워드, 감정 스펙트럼 막대, 맞춤 추천 작품 카드 3개가 보인다.",
+        width: 2000,
+        height: 1691
+      },
+      {
+        src: "/projects/tmdb-ai-reco-3.webp",
+        alt: "TMDB AI RECO 영화 상세 화면. 백드롭 이미지 히어로, 줄거리, 주요 출연진, AI 인사이트, 비슷한 감상의 작품 목록이 보인다.",
+        width: 1956,
+        height: 2000
+      }
+    ],
+    sections: [
+      {
+        title: "개요",
+        paragraphs: [
+          "사용자가 좋아하는 영화 3~5개를 고르면 AI가 취향을 분석하고, 그 결과를 실제 TMDB 영화 데이터와 연결해 추천 작품을 보여주는 영화 추천 서비스입니다."
+        ]
+      },
+      {
+        title: "구현 내용",
+        items: [
+          {
+            label: "추천 결과 연결",
+            text: "AI는 추천 영화 제목과 이유만 생성하고, 서버에서 각 제목을 TMDB에 다시 검색해 id·포스터·개봉일·평점과 합쳐 클릭 가능한 영화 카드로 반환"
+          },
+          {
+            label: "응답 형식 고정",
+            text: "OpenAI Responses API 호출에 JSON Schema를 적용하고 필수 필드와 additionalProperties: false로 취향 요약·키워드·추천 분위기·추천 영화 형태만 받도록 제한"
+          },
+          {
+            label: "키 보호",
+            text: "TMDB 토큰과 OpenAI 키는 서버 코드에만 두고, 클라이언트 컴포넌트는 영화 선택 상태와 분석 요청만 담당"
+          },
+          {
+            label: "TMDB 요청 정리",
+            text: "인증·언어·캐싱 설정을 tmdbFetch()로 모으고 인기·검색·상세·재검색 함수로 분리, 서버 요청에 1시간 revalidate 적용"
+          },
+          {
+            label: "상세 데이터",
+            text: "append_to_response로 출연진·키워드·영상·개봉 등급·시청 제공처·추천작·유사작을 한 번의 요청으로 조회"
+          },
+          {
+            label: "탐색 상태 유지",
+            text: "검색어와 페이지 번호를 URLSearchParams에 반영해 새로고침·뒤로가기·링크 공유에서도 결과가 유지되도록 구성"
+          }
+        ]
+      }
+    ]
+  },
+  {
     slug: "fe-daily-study",
     kind: "personal",
     label: "Personal Project",
@@ -200,6 +380,20 @@ export const projects: Project[] = [
         label: "복습 일정 설계 결정",
         href: "https://github.com/Rafdidas/dev_study/blob/main/docs/decisions/0005-review-schedule-on-client.md",
         kind: "evidence"
+      }
+    ],
+    images: [
+      {
+        src: "/projects/fe-daily-study-1.webp",
+        alt: "FE Daily Study 홈 화면. 커리큘럼 진도 4/41, 최신 브리핑 카드, 오늘 다시 볼 브리핑 목록이 어두운 테마로 보인다.",
+        width: 2000,
+        height: 1070
+      },
+      {
+        src: "/projects/fe-daily-study-2.webp",
+        alt: "FE Daily Study 브리핑 상세 화면. map/filter/reduce와 불변성을 주제로 한 설명과 나쁜 예·좋은 예 코드 블록, 용어 사전이 보인다.",
+        width: 709,
+        height: 2000
       }
     ],
     sections: [

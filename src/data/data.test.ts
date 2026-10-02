@@ -15,13 +15,15 @@ describe("데이터 무결성", () => {
     slugs.forEach((slug) => expect(slug).toMatch(/^[a-z0-9-]+$/));
   });
 
-  it("설계 문서의 slug 6개가 순서대로 있다", () => {
+  it("프로젝트 slug 8개가 순서대로 있다", () => {
     expect(projects.map((project) => project.slug)).toEqual([
       "weseedcon",
       "weseed-crm-design-system",
       "construction-logistics-systems",
       "ecommerce",
       "monibuk",
+      "race-note",
+      "tmdb-ai-reco",
       "fe-daily-study"
     ]);
   });
