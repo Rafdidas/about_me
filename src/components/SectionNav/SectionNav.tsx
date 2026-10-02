@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { NavItem } from "@/data/types";
 import styles from "./SectionNav.module.scss";
 
@@ -12,6 +12,7 @@ type SectionNavProps = {
 
 export function SectionNav({ items, label, orientation }: SectionNavProps) {
   const [activeId, setActiveId] = useState(items[0]?.id);
+  const listRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const targets = items
@@ -32,11 +33,29 @@ export function SectionNav({ items, label, orientation }: SectionNavProps) {
     return () => observer.disconnect();
   }, [items]);
 
+  useEffect(() => {
+    const list = listRef.current;
+    const active = list?.querySelector<HTMLElement>('[aria-current="location"]');
+    if (!list || !active) return;
+
+    function place() {
+      if (!list || !active) return;
+      const vertical = orientation === "vertical";
+      list.style.setProperty("--indicator-offset", `${vertical ? active.offsetTop : active.offsetLeft}px`);
+      list.style.setProperty("--indicator-size", `${vertical ? active.offsetHeight : active.offsetWidth}px`);
+      if (!vertical) active.scrollIntoView({ block: "nearest", inline: "nearest" });
+    }
+
+    place();
+    window.addEventListener("resize", place);
+    return () => window.removeEventListener("resize", place);
+  }, [activeId, orientation]);
+
   if (items.length === 0) return null;
 
   return (
     <nav className={`${styles.nav} ${styles[orientation]}`} aria-label={label}>
-      <ul className={styles.list}>
+      <ul ref={listRef} className={styles.list}>
         {items.map((item) => (
           <li key={item.id}>
             <a
@@ -48,6 +67,7 @@ export function SectionNav({ items, label, orientation }: SectionNavProps) {
             </a>
           </li>
         ))}
+        <li className={styles.indicator} aria-hidden="true" />
       </ul>
     </nav>
   );

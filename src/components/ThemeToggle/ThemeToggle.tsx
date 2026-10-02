@@ -27,9 +27,20 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
   const label =
     theme === null ? uiCopy.themeFallback : next === "dark" ? uiCopy.themeToDark : uiCopy.themeToLight;
 
-  function handleClick() {
+  function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
     saveTheme(next);
-    applyTheme(next, document.documentElement);
+    const root = document.documentElement;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!document.startViewTransition || reduceMotion) {
+      applyTheme(next, root);
+      return;
+    }
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    root.style.setProperty("--vt-x", `${rect.left + rect.width / 2}px`);
+    root.style.setProperty("--vt-y", `${rect.top + rect.height / 2}px`);
+    document.startViewTransition(() => applyTheme(next, root));
   }
 
   return (

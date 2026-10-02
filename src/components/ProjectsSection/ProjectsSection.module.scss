@@ -1,4 +1,5 @@
 @use "../../styles/mixins" as *;
+@include reveal-keyframes;
 
 .section {
   display: grid;
@@ -40,11 +41,12 @@
   background: var(--color-surface);
   transition:
     border-color var(--duration-fast) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out);
+    translate var(--duration-fast) var(--ease-out);
+  @include reveal;
 
   &:hover {
     border-color: var(--color-accent);
-    transform: translateY(calc(var(--space-1) * -1));
+    translate: 0 calc(var(--space-1) * -1);
   }
 
   &:has(.link:focus-visible) {

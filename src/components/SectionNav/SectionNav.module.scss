@@ -21,6 +21,16 @@
   }
 }
 
+.indicator {
+  position: absolute;
+  background: var(--color-accent);
+  pointer-events: none;
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    width var(--duration-base) var(--ease-out),
+    height var(--duration-base) var(--ease-out);
+}
+
 .vertical {
   .list {
     flex-direction: column;
@@ -30,12 +40,14 @@
 
   .link {
     padding: var(--space-1) var(--space-4);
-    border-left: 2px solid transparent;
-    margin-left: -1px;
+  }
 
-    &[aria-current="location"] {
-      border-left-color: var(--color-accent);
-    }
+  .indicator {
+    top: 0;
+    left: -1px;
+    width: 2px;
+    height: var(--indicator-size, 0);
+    transform: translateY(var(--indicator-offset, 0));
   }
 }
 
@@ -49,15 +61,19 @@
 
   .list {
     gap: var(--space-4);
+    padding-bottom: 2px;
     white-space: nowrap;
   }
 
   .link {
     padding: var(--space-2) 0;
-    border-bottom: 2px solid transparent;
+  }
 
-    &[aria-current="location"] {
-      border-bottom-color: var(--color-accent);
-    }
+  .indicator {
+    bottom: 0;
+    left: 0;
+    width: var(--indicator-size, 0);
+    height: 2px;
+    transform: translateX(var(--indicator-offset, 0));
   }
 }
