@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
-import { siteMeta } from "@/data/site";
-import "@/styles/main.scss";
+import "@/styles/globals.scss";
 
 const pretendard = localFont({
   src: [
@@ -18,28 +15,13 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteMeta.url),
-  title: {
-    default: siteMeta.title,
-    template: `%s | ${siteMeta.title}`
-  },
-  description: siteMeta.description,
-  openGraph: {
-    title: siteMeta.title,
-    description: siteMeta.description,
-    type: "website",
-    url: siteMeta.url
-  }
+  title: "박현규 — Frontend · UI Engineer"
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ko" className={pretendard.variable} data-scroll-behavior="smooth">
-      <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
