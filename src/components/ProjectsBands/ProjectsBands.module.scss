@@ -21,4 +21,8 @@
   @include up(md) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  li:nth-child(even) {
+    --reveal-shift: 8%;
+  }
 }

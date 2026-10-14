@@ -50,3 +50,17 @@
 .hidden {
   @include visually-hidden;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .button {
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out),
+      scale var(--duration-fast) var(--ease-spring);
+  }
+
+  .button:active {
+    scale: 0.97;
+  }
+}

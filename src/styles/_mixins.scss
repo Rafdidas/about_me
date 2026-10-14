@@ -102,7 +102,7 @@ $breakpoints: (
     @supports (animation-timeline: view()) {
       animation: reveal linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 40%;
+      animation-range: entry var(--reveal-shift, 0%) entry calc(40% + var(--reveal-shift, 0%));
     }
   }
 }
