@@ -109,6 +109,8 @@ html {
 
 body {
   margin: 0;
+  display: flex;
+  flex-direction: column;
   min-height: 100dvh;
   background: var(--band-bg);
   color: var(--band-fg);
@@ -162,6 +164,10 @@ button {
   outline: none;
 }
 
+main {
+  flex: 1 0 auto;
+}
+
 main:focus {
   outline: none;
 }
@@ -173,6 +179,14 @@ main:focus {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
   }
 }
 

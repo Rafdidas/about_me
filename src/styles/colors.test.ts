@@ -5,7 +5,6 @@ import { contrastRatio, parseScssColorMap } from "@/lib/contrast";
 const source = readFileSync(resolve(process.cwd(), "src/styles/_colors.scss"), "utf8");
 const MIN = 4.5;
 
-
 const BANDS = [
   "band-light-canvas",
   "band-light-white",

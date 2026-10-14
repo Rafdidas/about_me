@@ -32,8 +32,8 @@
 
 .brand {
   justify-self: start;
-  font-weight: var(--font-weight-semibold);
   @include text(body-sm);
+  font-weight: var(--font-weight-semibold);
 }
 
 .nav {
@@ -79,10 +79,6 @@
   color: var(--band-fg);
   @include text(body-sm);
   transition: color var(--duration-fast) var(--ease-out);
-
-  &:hover {
-    color: var(--band-link);
-  }
 
   &[aria-current="location"] {
     font-weight: var(--font-weight-semibold);

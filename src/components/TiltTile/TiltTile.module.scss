@@ -13,7 +13,7 @@
     pointer-events: none;
     background: radial-gradient(
       circle at var(--glow-x, 50%) var(--glow-y, 50%),
-      color-mix(in srgb, var(--band-fg) 14%, transparent),
+      color-mix(in srgb, var(--band-fg) 8%, transparent),
       transparent 60%
     );
     transition: opacity var(--duration-base) var(--ease-out);
