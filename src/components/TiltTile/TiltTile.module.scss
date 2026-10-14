@@ -1,0 +1,21 @@
+.tilt {
+  position: relative;
+  height: 100%;
+  border-radius: var(--radius-tile);
+
+  // 포인터를 따라다니는 빛 번짐 (장식, 클릭을 가로채지 않는다).
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: var(--glow-opacity, 0);
+    pointer-events: none;
+    background: radial-gradient(
+      circle at var(--glow-x, 50%) var(--glow-y, 50%),
+      color-mix(in srgb, var(--band-fg) 14%, transparent),
+      transparent 60%
+    );
+    transition: opacity var(--duration-base) var(--ease-out);
+  }
+}

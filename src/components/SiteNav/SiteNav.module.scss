@@ -51,6 +51,25 @@
   gap: var(--space-1);
 }
 
+.activePill,
+.hoverPill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  pointer-events: none;
+}
+
+.activePill {
+  background: color-mix(in srgb, var(--band-fg) 10%, transparent);
+}
+
+.hoverPill {
+  background: color-mix(in srgb, var(--band-fg) 6%, transparent);
+}
+
 .link {
   position: relative;
   z-index: 1;
@@ -67,7 +86,6 @@
 
   &[aria-current="location"] {
     font-weight: var(--font-weight-semibold);
-    background: color-mix(in srgb, var(--band-fg) 8%, transparent);
   }
 }
 

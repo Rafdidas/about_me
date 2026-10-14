@@ -1,6 +1,7 @@
 import { Band } from "@/components/Band/Band";
 import { ProjectTile } from "@/components/ProjectTile/ProjectTile";
 import { SectionTitle } from "@/components/SectionTitle/SectionTitle";
+import { TiltTile } from "@/components/TiltTile/TiltTile";
 import { personalProjectsIntro, projects } from "@/data/projects";
 import { uiCopy } from "@/data/site";
 import styles from "./ProjectsBands.module.scss";
@@ -28,7 +29,9 @@ export function ProjectsBands({ id, title }: { id: string; title: string }) {
         <ul className={styles.grid}>
           {personal.map((project) => (
             <li key={project.slug}>
-              <ProjectTile project={project} withImage />
+              <TiltTile>
+                <ProjectTile project={project} withImage />
+              </TiltTile>
             </li>
           ))}
         </ul>
