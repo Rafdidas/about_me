@@ -17,8 +17,10 @@ const education = getNavItem(sectionNav, "education");
 export default function HomePage() {
   return (
     <SiteShell spy>
-      <Hero id={about.id} />
-      <CompetenciesBand />
+      <div id={about.id}>
+        <Hero id={about.id} />
+        <CompetenciesBand />
+      </div>
       <CareerBand id={career.id} title={career.label} />
       <ProjectsBands id={projects.id} title={projects.label} />
       <SkillsBand id={skills.id} title={skills.label} />

@@ -6,7 +6,7 @@ import styles from "./Hero.module.scss";
 
 export function Hero({ id }: { id: string }) {
   return (
-    <Band tone="canvas" id={id} labelledBy={`${id}-title`} spacious>
+    <Band tone="canvas" labelledBy={`${id}-title`} spacious>
       <div className={styles.content}>
         <p className={styles.overline}>{profile.role}</p>
         <h1 id={`${id}-title`} className={styles.title}>

@@ -11,8 +11,8 @@ export function ProjectsBands({ id, title }: { id: string; title: string }) {
   const personal = projects.filter((project) => project.kind === "personal");
 
   return (
-    <>
-      <Band tone="canvas" id={id} labelledBy={`${id}-title`}>
+    <div id={id}>
+      <Band tone="canvas" labelledBy={`${id}-title`}>
         <SectionTitle id={`${id}-title`}>{title}</SectionTitle>
         <h3 className={styles.groupTitle}>{uiCopy.workProjectsTitle}</h3>
         <ul className={styles.grid}>
@@ -36,6 +36,6 @@ export function ProjectsBands({ id, title }: { id: string; title: string }) {
           ))}
         </ul>
       </Band>
-    </>
+    </div>
   );
 }
