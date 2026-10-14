@@ -15,11 +15,11 @@
 
 ## 구현 원칙
 
-- Next.js App Router의 Server Component를 기본으로 하고, 테마 토글과 섹션 내비만 Client Component로 구현했습니다.
+- Next.js App Router의 Server Component를 기본으로 하고, 테마 토글·상단 내비·모바일 메뉴·타일 기울기만 Client Component로 구현했습니다.
 - 콘텐츠는 `src/data/`의 타입 있는 데이터로 분리하고, 컴포넌트는 이를 렌더링만 합니다.
-- 색상·타이포그래피·간격을 CSS 변수 토큰으로 정의하고, 컴포넌트 스타일(SCSS Modules)은 토큰과 믹스인만 사용합니다.
-- 라이트·다크 테마는 같은 의미 토큰에 모드별 값을 연결하며, 텍스트 대비 4.5:1 이상을 테스트로 검증합니다.
-- 인터랙션은 라이브러리 없이 CSS와 브라우저 기본 API(View Transition, scroll-driven animation, IntersectionObserver)로 구현하고, 움직임 줄이기 설정을 따릅니다.
+- 전체 폭 "띠"가 밝음·흰색·검정으로 번갈아 나오는 구조이며, 색상은 띠 톤 단위 CSS 변수 토큰으로, 타이포는 의미 토큰과 믹스인으로 정의합니다. 컴포넌트 스타일(SCSS Modules)은 토큰과 믹스인만 사용합니다.
+- 라이트·다크 테마는 같은 의미 토큰에 모드별 값을 연결하며, 모든 톤·테마 조합의 텍스트 대비 4.5:1 이상을 테스트로 검증합니다.
+- 스크롤 연동 모션은 CSS(`animation-timeline`)로, 내비 알약·모바일 메뉴·타일 기울기는 Motion(`LazyMotion`)으로 구현하고, 모든 모션은 움직임 줄이기 설정을 따릅니다.
 
 ## 로컬 실행과 검증
 
