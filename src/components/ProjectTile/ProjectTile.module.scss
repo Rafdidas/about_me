@@ -1,0 +1,34 @@
+@use "../../styles/mixins" as *;
+
+.label {
+  color: var(--band-sub);
+  @include text(overline);
+}
+
+.title {
+  @include text(tile);
+}
+
+// 제목 링크 하나로 타일 전체를 클릭 영역으로 만든다. 포커스 링은 타일(Tile)이 그린다.
+.link {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.summary {
+  flex: 1;
+  color: var(--band-sub);
+  @include text(body-sm);
+}
+
+.period {
+  color: var(--band-mute);
+  @include text(caption);
+}

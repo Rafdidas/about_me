@@ -1,21 +1,28 @@
-import { AboutSection } from "@/components/AboutSection/AboutSection";
-import { CareerSection } from "@/components/CareerSection/CareerSection";
-import { EducationSection } from "@/components/EducationSection/EducationSection";
-import { PageShell } from "@/components/PageShell/PageShell";
-import { ProjectsSection } from "@/components/ProjectsSection/ProjectsSection";
-import { SkillsSection } from "@/components/SkillsSection/SkillsSection";
-import { sectionNav, uiCopy } from "@/data/site";
+import { CareerBand } from "@/components/CareerBand/CareerBand";
+import { CompetenciesBand } from "@/components/CompetenciesBand/CompetenciesBand";
+import { EducationBand } from "@/components/EducationBand/EducationBand";
+import { Hero } from "@/components/Hero/Hero";
+import { ProjectsBands } from "@/components/ProjectsBands/ProjectsBands";
+import { SiteShell } from "@/components/SiteShell/SiteShell";
+import { SkillsBand } from "@/components/SkillsBand/SkillsBand";
+import { sectionNav } from "@/data/site";
+import { getNavItem } from "@/lib/nav";
 
-const [about, careerNav, projectsNav, skillsNav, educationNav] = sectionNav;
+const about = getNavItem(sectionNav, "about");
+const career = getNavItem(sectionNav, "career");
+const projects = getNavItem(sectionNav, "projects");
+const skills = getNavItem(sectionNav, "skills");
+const education = getNavItem(sectionNav, "education");
 
 export default function HomePage() {
   return (
-    <PageShell navItems={sectionNav} navLabel={uiCopy.sectionNavLabel}>
-      <AboutSection id={about.id} />
-      <CareerSection id={careerNav.id} title={careerNav.label} />
-      <ProjectsSection id={projectsNav.id} title={projectsNav.label} />
-      <SkillsSection id={skillsNav.id} title={skillsNav.label} />
-      <EducationSection id={educationNav.id} title={educationNav.label} />
-    </PageShell>
+    <SiteShell spy>
+      <Hero id={about.id} />
+      <CompetenciesBand />
+      <CareerBand id={career.id} title={career.label} />
+      <ProjectsBands id={projects.id} title={projects.label} />
+      <SkillsBand id={skills.id} title={skills.label} />
+      <EducationBand id={education.id} title={education.label} />
+    </SiteShell>
   );
 }

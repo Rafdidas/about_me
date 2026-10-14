@@ -1,0 +1,32 @@
+@use "../../styles/mixins" as *;
+
+.content {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-5);
+  text-align: center;
+}
+
+.overline {
+  color: var(--band-sub);
+  @include text(overline);
+}
+
+.title {
+  max-width: var(--band-max);
+  @include text(hero);
+}
+
+.lead {
+  max-width: var(--reading-max);
+  color: var(--band-sub);
+  @include text(lead);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
