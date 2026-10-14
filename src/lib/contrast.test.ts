@@ -6,8 +6,8 @@ describe("contrastRatio", () => {
   });
 
   it("같은 색은 1:1이고 순서와 무관하다", () => {
-    expect(contrastRatio("#433633", "#433633")).toBeCloseTo(1, 5);
-    expect(contrastRatio("#433633", "#F7F0F5")).toBeCloseTo(contrastRatio("#F7F0F5", "#433633"), 5);
+    expect(contrastRatio("#1D1D1F", "#1D1D1F")).toBeCloseTo(1, 5);
+    expect(contrastRatio("#1D1D1F", "#F5F5F7")).toBeCloseTo(contrastRatio("#F5F5F7", "#1D1D1F"), 5);
   });
 
   it("잘못된 hex는 에러", () => {
@@ -18,17 +18,17 @@ describe("contrastRatio", () => {
 describe("parseScssColorMap", () => {
   const source = `
 $theme-light: (
-  bg: #F7F0F5,
-  glass: rgba(247, 240, 245, 0.55),
-  text: #433633,
+  bg: #F5F5F7,
+  glass: rgba(245, 245, 247, 0.8),
+  text: #1D1D1F,
 );
 $theme-dark: (
-  bg: #1C1719,
+  bg: #000000,
 );`;
 
   it("지정한 맵의 hex 값만 추출한다", () => {
-    expect(parseScssColorMap(source, "theme-light")).toEqual({ bg: "#F7F0F5", text: "#433633" });
-    expect(parseScssColorMap(source, "theme-dark")).toEqual({ bg: "#1C1719" });
+    expect(parseScssColorMap(source, "theme-light")).toEqual({ bg: "#F5F5F7", text: "#1D1D1F" });
+    expect(parseScssColorMap(source, "theme-dark")).toEqual({ bg: "#000000" });
   });
 
   it("맵이 없으면 에러", () => {

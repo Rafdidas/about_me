@@ -21,13 +21,13 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "center",
           gap: 32,
-          background: "#F7F0F5",
-          color: "#433633",
+          background: "#F5F5F7",
+          color: "#1D1D1F",
           padding: 96,
           fontFamily: "Pretendard"
         }}
       >
-        <div style={{ fontSize: 28, fontWeight: 700, color: "#A0522D" }}>{profile.role}</div>
+        <div style={{ fontSize: 28, fontWeight: 700, color: "#0071E3" }}>{profile.role}</div>
         <div style={{ fontSize: 96, fontWeight: 700, lineHeight: 1.1 }}>{profile.name}</div>
         <div style={{ fontSize: 36, lineHeight: 1.5, maxWidth: 1000, wordBreak: "keep-all" }}>{profile.headline}</div>
       </div>
