@@ -2980,7 +2980,7 @@ Expected: `_mixins.scss`의 `reveal`이 이미 조건 안에 있어 통과할 �
     .header::before {
       animation: nav-glass-in linear both;
       animation-timeline: scroll();
-      animation-range: 0 4rem;
+      animation-range: 0 var(--space-16);
     }
   }
 }
