@@ -45,8 +45,11 @@
   }
 }
 
-.list {
+.listWrap {
   position: relative;
+}
+
+.list {
   display: flex;
   gap: var(--space-1);
 }

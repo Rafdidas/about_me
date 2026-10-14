@@ -1,9 +1,9 @@
 "use client";
 
-import { LazyMotion, MotionConfig, domAnimation } from "motion/react";
+import { LazyMotion, MotionConfig, domAnimation, useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
 import Link from "next/link";
-import { useEffect, useRef, useState, type SyntheticEvent } from "react";
+import { useEffect, useRef, useState, type FocusEvent, type PointerEvent } from "react";
 import { MobileMenu } from "@/components/MobileMenu/MobileMenu";
 import { ThemeToggle } from "@/components/ThemeToggle/ThemeToggle";
 import { profile } from "@/data/profile";
@@ -31,6 +31,8 @@ export function SiteNav({ items, label, spy }: SiteNavProps) {
   const [activeRect, setActiveRect] = useState<PillRect | null>(null);
   const [hoverRect, setHoverRect] = useState<PillRect | null>(null);
   const [hovering, setHovering] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const pillTransition = reduceMotion ? { duration: 0 } : SPRING;
 
   useEffect(() => {
     const list = listRef.current;
@@ -42,9 +44,17 @@ export function SiteNav({ items, label, spy }: SiteNavProps) {
     return () => observer.disconnect();
   }, [activeId]);
 
-  function showHover(event: SyntheticEvent<HTMLElement>) {
-    setHoverRect(measure(event.currentTarget));
+  function showHover(element: HTMLElement) {
+    setHoverRect(measure(element));
     setHovering(true);
+  }
+
+  function handlePointerEnter(event: PointerEvent<HTMLElement>) {
+    if (event.pointerType === "mouse") showHover(event.currentTarget);
+  }
+
+  function handleFocus(event: FocusEvent<HTMLElement>) {
+    if (event.currentTarget.matches(":focus-visible")) showHover(event.currentTarget);
   }
 
   function hideHover() {
@@ -60,14 +70,14 @@ export function SiteNav({ items, label, spy }: SiteNavProps) {
               {profile.name}
             </Link>
             <nav className={styles.nav} aria-label={label}>
-              <ul ref={listRef} className={styles.list}>
+              <div className={styles.listWrap}>
                 {activeRect ? (
                   <m.span
                     aria-hidden="true"
                     className={styles.activePill}
                     initial={false}
                     animate={{ x: activeRect.x, width: activeRect.width }}
-                    transition={SPRING}
+                    transition={pillTransition}
                   />
                 ) : null}
                 {hoverRect ? (
@@ -76,25 +86,27 @@ export function SiteNav({ items, label, spy }: SiteNavProps) {
                     className={styles.hoverPill}
                     initial={false}
                     animate={{ x: hoverRect.x, width: hoverRect.width, opacity: hovering ? 1 : 0 }}
-                    transition={SPRING}
+                    transition={pillTransition}
                   />
                 ) : null}
-                {items.map((item) => (
-                  <li key={item.id}>
-                    <Link
-                      className={styles.link}
-                      href={navHref(item.id, spy)}
-                      aria-current={item.id === activeId ? "location" : undefined}
-                      onPointerEnter={showHover}
-                      onPointerLeave={hideHover}
-                      onFocus={showHover}
-                      onBlur={hideHover}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+                <ul ref={listRef} className={styles.list}>
+                  {items.map((item) => (
+                    <li key={item.id}>
+                      <Link
+                        className={styles.link}
+                        href={navHref(item.id, spy)}
+                        aria-current={item.id === activeId ? "location" : undefined}
+                        onPointerEnter={handlePointerEnter}
+                        onPointerLeave={hideHover}
+                        onFocus={handleFocus}
+                        onBlur={hideHover}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </nav>
             <div className={styles.actions}>
               <ThemeToggle />

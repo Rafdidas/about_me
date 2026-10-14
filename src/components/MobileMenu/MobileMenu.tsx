@@ -33,7 +33,14 @@ export function MobileMenu({ items, label, spy, activeId }: MobileMenuProps) {
   return (
     <LazyMotion features={domAnimation}>
       <MotionConfig reducedMotion="user">
-        <div className={styles.root}>
+        <div
+          className={styles.root}
+          onBlur={(event) => {
+            if (open && event.relatedTarget instanceof Node && !event.currentTarget.contains(event.relatedTarget)) {
+              setOpen(false);
+            }
+          }}
+        >
           <button
             ref={buttonRef}
             type="button"
