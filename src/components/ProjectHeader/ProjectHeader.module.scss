@@ -1,43 +1,45 @@
 @use "../../styles/mixins" as *;
 
-.header {
+.content {
   display: grid;
+  justify-items: center;
   gap: var(--space-4);
-}
-
-.back {
-  justify-self: start;
-
-  @include up(lg) {
-    display: none;
-  }
+  text-align: center;
 }
 
 .label {
-  color: var(--color-accent);
+  color: var(--band-sub);
   @include text(overline);
 }
 
 .title {
-  @include text(display);
+  max-width: var(--band-max);
+  @include text(section);
 }
 
 .meta {
-  color: var(--color-text-sub);
+  color: var(--band-sub);
   @include text(body-sm);
 }
 
+.tags {
+  justify-content: center;
+}
+
 .note {
+  max-width: var(--reading-max);
   padding: var(--space-4);
-  border-left: 2px solid var(--color-accent);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  background: var(--color-surface);
-  color: var(--color-text-sub);
+  border-radius: var(--radius-tile);
+  background: var(--band-tile);
+  color: var(--band-sub);
+  text-align: left;
   @include text(body-sm);
 }
 
 .links {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-3);
+  margin-top: var(--space-2);
 }

@@ -1,44 +1,36 @@
 @use "../../styles/mixins" as *;
 
-.pager {
+.list {
   display: grid;
-  gap: var(--space-3);
-  padding-top: var(--space-8);
-  border-top: 1px solid var(--color-border);
+  gap: var(--tile-gap);
 
   @include up(md) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.link {
-  display: grid;
-  gap: var(--space-1);
-  padding: var(--space-4);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-  transition: border-color var(--duration-fast) var(--ease-out);
-
-  &:hover {
-    border-color: var(--color-accent);
-  }
-}
-
 .next {
-  text-align: right;
-
   @include up(md) {
     grid-column: 2;
   }
 }
 
 .direction {
-  color: var(--color-text-sub);
+  color: var(--band-mute);
   @include text(caption);
 }
 
-.title {
-  @include text(body-sm);
-  font-weight: var(--font-weight-semibold);
+// 제목 링크 하나로 타일 전체를 클릭 영역으로 만든다 (포커스 링은 Tile이 그린다).
+.link {
+  @include text(tile);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
 }

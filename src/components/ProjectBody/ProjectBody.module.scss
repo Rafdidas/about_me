@@ -1,17 +1,20 @@
 @use "../../styles/mixins" as *;
 
-.body {
+.reading {
   display: grid;
-  gap: var(--space-12);
+  gap: var(--space-16);
+  max-width: var(--reading-max);
+  margin-inline: auto;
 }
 
 .section {
   display: grid;
   gap: var(--space-4);
+  scroll-margin-top: calc(var(--nav-height) + var(--local-nav-height) + var(--space-4));
 }
 
 .title {
-  @include text(heading-1);
+  @include text(tile);
 }
 
 .paragraph {
@@ -23,19 +26,14 @@
   gap: var(--space-3);
 }
 
-.item {
-  display: grid;
-  gap: var(--space-1);
-  padding: var(--space-4);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-  @include text(body-sm);
+.itemLabel {
+  @include text(lead);
+  font-weight: var(--font-weight-semibold);
 }
 
-.itemLabel {
-  @include text(body);
-  font-weight: var(--font-weight-semibold);
+.itemText {
+  color: var(--band-sub);
+  @include text(body-sm);
 }
 
 .evidence {

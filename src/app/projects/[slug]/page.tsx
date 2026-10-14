@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { PageShell } from "@/components/PageShell/PageShell";
+import { LocalNav } from "@/components/LocalNav/LocalNav";
 import { ProjectBody } from "@/components/ProjectBody/ProjectBody";
 import { ProjectGallery } from "@/components/ProjectGallery/ProjectGallery";
 import { ProjectHeader } from "@/components/ProjectHeader/ProjectHeader";
 import { ProjectPager } from "@/components/ProjectPager/ProjectPager";
-import { TextLink } from "@/components/TextLink/TextLink";
+import { SiteShell } from "@/components/SiteShell/SiteShell";
 import { projects } from "@/data/projects";
 import { uiCopy } from "@/data/site";
 import { getAdjacentProjects, getProjectBySlug, getProjectToc } from "@/lib/projects";
@@ -39,15 +39,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const { prev, next } = getAdjacentProjects(slug);
 
   return (
-    <PageShell
-      navItems={getProjectToc(project)}
-      navLabel={uiCopy.tocLabel}
-      sidebarExtra={<TextLink href="/#projects">{uiCopy.backToProjects}</TextLink>}
-    >
+    <SiteShell spy={false}>
       <ProjectHeader project={project} />
+      <LocalNav items={getProjectToc(project)} label={uiCopy.tocLabel} />
       <ProjectGallery images={project.images} />
       <ProjectBody project={project} />
       <ProjectPager prev={prev} next={next} />
-    </PageShell>
+    </SiteShell>
   );
 }

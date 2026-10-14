@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { ButtonLink } from "@/components/ButtonLink/ButtonLink";
-import { PageShell } from "@/components/PageShell/PageShell";
+import { Band } from "@/components/Band/Band";
+import { PillButton } from "@/components/PillButton/PillButton";
+import { SiteShell } from "@/components/SiteShell/SiteShell";
 import { uiCopy } from "@/data/site";
 import styles from "./not-found.module.scss";
 
@@ -8,14 +9,16 @@ export const metadata: Metadata = { title: uiCopy.notFoundTitle };
 
 export default function NotFound() {
   return (
-    <PageShell navItems={[]} navLabel={uiCopy.sectionNavLabel}>
-      <section className={styles.section}>
-        <h1 className={styles.title}>{uiCopy.notFoundTitle}</h1>
-        <p className={styles.body}>{uiCopy.notFoundBody}</p>
-        <div>
-          <ButtonLink href="/">{uiCopy.notFoundLink}</ButtonLink>
+    <SiteShell spy={false}>
+      <Band tone="canvas" labelledBy="not-found-title" spacious>
+        <div className={styles.content}>
+          <h1 id="not-found-title" className={styles.title}>
+            {uiCopy.notFoundTitle}
+          </h1>
+          <p className={styles.body}>{uiCopy.notFoundBody}</p>
+          <PillButton href="/">{uiCopy.notFoundLink}</PillButton>
         </div>
-      </section>
-    </PageShell>
+      </Band>
+    </SiteShell>
   );
 }
