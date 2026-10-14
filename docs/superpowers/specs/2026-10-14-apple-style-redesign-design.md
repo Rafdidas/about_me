@@ -21,7 +21,7 @@
 | 색상 | 애플 그대로: 파랑 `#0071e3`, 회색 `#f5f5f7`, 검정 `#000000`. 기존 모카·테라코타 팔레트 폐기 |
 | 글꼴 | Pretendard 단일. SF Pro는 웹 사용 라이선스 문제로 쓰지 않는다 |
 | 스타일링 | SCSS Modules + CSS 변수 토큰 유지. Tailwind 미사용 |
-| 모션 | 혼합: 스크롤 연동·등장·hover는 CSS(서버 컴포넌트 유지), 손맛이 필요한 4곳만 Motion 라이브러리 |
+| 모션 | 혼합: 스크롤 연동·등장·hover는 CSS(서버 컴포넌트 유지), 손맛이 필요한 3곳(`SiteNav`, `MobileMenu`, `TiltTile`)만 Motion 라이브러리 |
 | 의존성 | `motion` 추가 (`LazyMotion` + `domAnimation`, `m` 컴포넌트만 사용) |
 | 다크 모드 | 토글 유지. 값만 바꾸는 방식(띠 톤 이름 고정, 모드별 값 연결) |
 | 숫자 띠(CountUp) | 제외 |
@@ -40,7 +40,7 @@
 ### 4.1 공통
 
 - 상단 `SiteNav`: 높이 48px, 고정(sticky). 왼쪽 이름, 가운데 섹션 링크(768px 이상), 오른쪽 `ThemeToggle`. 768px 미만은 이름 + 토글 + 메뉴 버튼(`MobileMenu`).
-- 유리 효과는 `SiteNav`에만 적용한다 (라이트 `rgba(245,245,247,.8)`, 다크 `rgba(29,29,31,.72)`, `backdrop-filter: blur(20px) saturate(180%)`). 미지원 또는 `prefers-reduced-transparency: reduce`이면 불투명 배경으로 대체한다.
+- 유리 효과는 `SiteNav`와 `MobileMenu` 패널에만 적용한다(둘 다 `glass-bar` 믹스인) (라이트 `rgba(245,245,247,.8)`, 다크 `rgba(29,29,31,.72)`, `backdrop-filter: blur(20px) saturate(180%)`). 미지원 또는 `prefers-reduced-transparency: reduce`이면 불투명 배경으로 대체한다.
 - 본문 바로가기 링크(`SkipLink`) 유지. 랜드마크: `header`(`SiteNav`) / `main` / `footer`(`SiteFooter`).
 - `Band`: 전체 폭 배경 띠. prop `tone: "canvas" | "white" | "ink"`. 내용은 가운데 정렬 최대 폭 980px. 위아래 여백 96px(모바일 64px).
 - `Tile`: 반경 18px 카드. 핵심 역량·경력·기술·프로젝트에서 공통 사용. 이미지가 있으면 위쪽에 16:10으로 잘라 넣는다(위쪽 기준 `object-position: top`).
@@ -67,10 +67,10 @@
 
 - 같은 `SiteNav`.
 - 첫 띠(canvas): 라벨, `h1`(제목), 기간·역할, 기술 태그, `note`(있을 때), 링크 알약 버튼(첫 링크 주 버튼, 나머지 보조 버튼).
-- 이미지 갤러리: 전체 폭 중앙 열에 16:10 크롭 이미지를 세로로 쌓는다. 이미지가 없으면 렌더링하지 않는다.
-- 본문 띠(white): 읽기 열 약 680px, 섹션마다 `h2`.
+- 이미지 갤러리(white 띠): 전체 폭 중앙 열에 16:10 크롭 이미지를 세로로 쌓는다. 이미지가 없으면 렌더링하지 않는다.
+- 본문 띠(canvas): 읽기 열 약 680px, 섹션마다 `h2`.
 - 섹션 목차: `SiteNav` 아래에 붙는 얇은 보조 바(로컬 내비). 본문 섹션 `h2`(+확인 자료)로 자동 생성. 기존 `getProjectToc` 재사용.
-- 마지막 띠(canvas): 이전/다음 프로젝트 타일(`getAdjacentProjects` 재사용).
+- 마지막 띠(white): 이전/다음 프로젝트 타일(`getAdjacentProjects` 재사용).
 - 섹션 목차는 서버 컴포넌트로, 현재 위치 강조가 없는 점프 링크다.
 - 모바일에서도 `SiteNav`의 이름 링크와 "← 전체 프로젝트" 링크로 메인에 돌아갈 수 있다.
 
@@ -118,8 +118,8 @@
 | `--color-primary-hover` | `#0076df` | |
 | `--color-primary-pressed` | `#006edb` | |
 | `--color-on-primary` | `#ffffff` | |
-| `--color-focus` | `#0071e3` (ink 띠 위에서는 `#2997ff`) | 포커스 링 2px, offset 2px |
-| `--glass-bg`, `--glass-border` | 4.1 참조 | `SiteNav`만 사용 |
+| `--band-focus` | `#0071e3` (ink 띠와 다크 모드에서는 `#2997ff`) | 포커스 링 2px, offset 2px. 띠 톤별 색 토큰 맵의 일부 |
+| `--glass-bg`, `--glass-border` | 4.1 참조 | `SiteNav`, `MobileMenu` 패널만 사용 |
 
 측정한 글자 대비 (WCAG, 4.5:1 이상 필요)
 
@@ -161,7 +161,7 @@
 ### 5.3 모양·간격·시간
 
 - 반경: `--radius-control` 8px, `--radius-tile` 18px, `--radius-pill` 980px.
-- 간격: 기존 4px 스케일 유지, 추가로 띠 여백 `--band-pad-y`(96px, md 미만 64px), 콘텐츠 최대 폭 `--content-max` 980px, 읽기 열 `--reading-max` 680px, 타일 간격 `--tile-gap` 20px.
+- 간격: 기존 4px 스케일 유지, 추가로 띠 여백 `--band-pad-y`(96px, md 미만 64px), 콘텐츠 최대 폭 `--band-max` 980px, 읽기 열 `--reading-max` 680px, 타일 간격 `--tile-gap` 20px.
 - 그림자 없음(평면). 깊이는 배경 대비와 테두리로 만든다.
 - 시간: `--duration-fast` 200ms, `--duration-base` 400ms, `--duration-slow` 800ms(히어로 진입 한정). 이징 `--ease-out`, `--ease-spring`(CSS `linear()` 스프링 근사).
 - 브레이크포인트: `md` 768px, `lg` 1024px(모바일 우선).
@@ -175,7 +175,7 @@
 | 모션 | 구현 | 미지원·줄이기 |
 | --- | --- | --- |
 | 타일 등장 | `animation-timeline: view()`, 아래에서 떠오르며 나타남. 같은 줄 타일은 `animation-range`를 어긋나게 해 순차 등장처럼 보이게 함 | 처음부터 표시 |
-| 히어로 퇴장 | `animation-timeline: scroll()`, 제목·문장이 약간 작아지며 위로 흐려짐 | 변화 없음 |
+| 히어로 퇴장 | `animation-timeline: view()`의 exit 범위로 요소가 실제로 위로 벗어나는 동안만 흐려짐(약간 작아지며 위로 이동) | 변화 없음 |
 | 히어로 진입 | 첫 로드에서 오버라인 → 제목 → 문장 → 버튼이 블록 단위로 순차 등장(문장은 쪼개지 않아 스크린리더가 읽는 내용은 그대로) | 즉시 표시 |
 | 내비 경계선 | 스크롤 0에서는 투명, 조금 스크롤하면 유리 배경·경계선 나타남 (`animation-timeline: scroll()`) | 항상 유리 배경 |
 | 타일 hover | `scale(1.02)`(개별 속성 `scale` 사용, 등장 애니메이션의 transform과 충돌 방지) + 내부 이미지 천천히 확대(`overflow: hidden`), `--ease-spring` | hover 변화 없음 |
@@ -195,18 +195,19 @@ CSS 모션은 `@media (prefers-reduced-motion: no-preference)`와 `@supports (an
 - `LazyMotion features={domAnimation}`과 `import * as m from "motion/react-m"`만 사용한다(초기 약 4.6KB). 공식 문서 기준 `layoutId` 같은 레이아웃 애니메이션은 `domAnimation`이 아니라 `domMax`가 필요하므로 이 설계에서는 `layoutId`를 쓰지 않고 위치·폭 측정 방식으로 구현한다.
 - 앱 전체를 `MotionConfig reducedMotion="user"`로 감싼다(변환·레이아웃 애니메이션 자동 비활성). 전역 CSS에도 `prefers-reduced-motion: reduce`에서 애니메이션·전환을 끄는 규칙을 둔다.
 - 목표: 추가되는 클라이언트 JavaScript가 gzip 기준 약 20KB 이하. 빌드 결과로 실측해 보고한다(초과하면 이유와 함께 보고).
+- 실측: 추가 클라이언트 JavaScript는 gzip 기준 약 +35KB(motion 청크 약 38KB)로 목표(약 20KB)를 넘었다. 사유: LazyMotion + domAnimation과 spring·AnimatePresence가 한 청크로 묶임. 수용하고 사용자에게 보고한다(대안: CSS-only 기울기, 비동기 features).
 - 금지: 스크롤 가로채기(scroll hijacking), 자동 재생·무한 반복(marquee 등), 시간 800ms 초과 모션.
 
 ### 6.3 client component 목록
 
-`ThemeToggle`, `SiteNav`, `MobileMenu`, `TiltTile` 4개만. 늘리려면 이유를 기록한다. 나머지는 모두 Server Component.
+`ThemeToggle`, `SiteNav`, `MobileMenu`, `TiltTile` 4개만(Motion은 `SiteNav`, `MobileMenu`, `TiltTile`에서 쓰고, 기존 `ThemeToggle`은 Motion 없음). 늘리려면 이유를 기록한다. 나머지는 모두 Server Component.
 
 ## 7. 반응형·접근성
 
 - 360px부터 지원. 타일 격자는 768px 미만 1열, 이상 2열. 가로 스크롤 없음.
 - 랜드마크, 페이지당 `h1` 하나, 제목 단계 건너뛰지 않기, 본문 바로가기 유지.
 - 현재 내비 항목은 색 + 굵기 + 알약 표시로 구분(색만 아님), `aria-current="location"`.
-- 모든 인터랙티브 요소에 `:focus-visible` 포커스 링(2px, offset 2px, `--color-focus`). 키보드만으로 내비·타일·링크·토글·모바일 메뉴 접근 가능. 모바일 메뉴는 `aria-expanded`/`aria-controls`, Escape로 닫기, 닫을 때 포커스를 메뉴 버튼으로 복귀.
+- 모든 인터랙티브 요소에 `:focus-visible` 포커스 링(2px, offset 2px, `--color-focus`). 키보드만으로 내비·타일·링크·토글·모바일 메뉴 접근 가능. 모바일 메뉴는 `aria-expanded`/`aria-controls`, Escape로 닫기, 닫을 때 포커스를 메뉴 버튼으로 복귀. 모바일 메뉴는 키보드 포커스가 메뉴 밖으로 나가면 닫힌다.
 - 외부 링크는 새 창 + "(새 창)" 안내(`TextLink`, `PillButton`).
 - `TiltTile`은 링크 바깥을 감싸는 장식 래퍼로 접근성 트리를 바꾸지 않는다. 이미지 `alt` 필수(타입으로 강제, 기존 유지).
 
