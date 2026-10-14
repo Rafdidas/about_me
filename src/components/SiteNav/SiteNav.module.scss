@@ -1,0 +1,80 @@
+@use "../../styles/mixins" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  color: var(--band-fg);
+
+  // 유리 배경 레이어 (스크롤 연동 모션이 이 레이어의 opacity를 다룬다).
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    @include glass-bar;
+  }
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: var(--nav-height);
+  max-width: var(--band-max);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+
+  @include up(md) {
+    padding-inline: var(--space-6);
+  }
+}
+
+.brand {
+  justify-self: start;
+  font-weight: var(--font-weight-semibold);
+  @include text(body-sm);
+}
+
+.nav {
+  display: none;
+
+  @include up(md) {
+    display: block;
+    justify-self: center;
+  }
+}
+
+.list {
+  position: relative;
+  display: flex;
+  gap: var(--space-1);
+}
+
+.link {
+  position: relative;
+  z-index: 1;
+  display: block;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  color: var(--band-fg);
+  @include text(body-sm);
+  transition: color var(--duration-fast) var(--ease-out);
+
+  &:hover {
+    color: var(--band-link);
+  }
+
+  &[aria-current="location"] {
+    font-weight: var(--font-weight-semibold);
+    background: color-mix(in srgb, var(--band-fg) 8%, transparent);
+  }
+}
+
+.actions {
+  display: flex;
+  grid-column: 3;
+  align-items: center;
+  justify-self: end;
+  gap: var(--space-2);
+}

@@ -1,0 +1,67 @@
+@use "../../styles/mixins" as *;
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--space-2) * -1));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.root {
+  @include up(md) {
+    display: none;
+  }
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-8);
+  height: var(--space-8);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--band-fg);
+  cursor: pointer;
+}
+
+.icon {
+  width: var(--space-5);
+  height: var(--space-5);
+}
+
+.panel {
+  position: fixed;
+  top: var(--nav-height);
+  right: 0;
+  left: 0;
+  padding: var(--space-2) var(--space-5) var(--space-5);
+  @include glass-bar;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: menu-in var(--duration-fast) var(--ease-out);
+  }
+}
+
+.list {
+  display: grid;
+}
+
+.link {
+  display: block;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--glass-border);
+  color: var(--band-fg);
+  @include text(lead);
+
+  &[aria-current="location"] {
+    color: var(--band-link);
+  }
+}
