@@ -6,9 +6,9 @@
   left: var(--space-2);
   z-index: 100;
   padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-sm);
-  background: var(--color-accent);
-  color: var(--color-on-accent);
+  border-radius: var(--radius-control);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
   @include text(body-sm);
   transform: translateY(-200%);
 

@@ -17,6 +17,10 @@ export const sectionNav: NavItem[] = [
 
 export const uiCopy = {
   skipLink: "본문 바로가기",
+  heroProjects: "프로젝트 보기",
+  heroContact: "이메일 보내기",
+  menuOpen: "메뉴 열기",
+  menuClose: "메뉴 닫기",
   sectionNavLabel: "섹션",
   tocLabel: "목차",
   backToProjects: "← 전체 프로젝트",

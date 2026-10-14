@@ -9,7 +9,7 @@
 .tag {
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-pill);
-  background: color-mix(in srgb, var(--color-tint) 55%, transparent);
-  color: var(--color-text);
+  background: color-mix(in srgb, var(--band-fg) 8%, transparent);
+  color: var(--band-sub);
   @include text(caption);
 }

@@ -1,0 +1,52 @@
+@use "../../styles/mixins" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.regular {
+  min-height: var(--control-height-regular);
+  padding: var(--pill-padding-regular);
+  @include text(button);
+}
+
+.compact {
+  min-height: var(--control-height-compact);
+  padding: var(--pill-padding-compact);
+  @include text(button-sm);
+}
+
+.primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+
+  &:hover {
+    background: var(--color-primary-hover);
+  }
+
+  &:active {
+    background: var(--color-primary-pressed);
+  }
+}
+
+.secondary {
+  border-color: var(--band-link);
+  background: transparent;
+  color: var(--band-link);
+
+  &:hover {
+    background: color-mix(in srgb, var(--band-link) 10%, transparent);
+  }
+}
+
+.hidden {
+  @include visually-hidden;
+}

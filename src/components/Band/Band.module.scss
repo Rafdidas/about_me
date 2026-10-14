@@ -1,0 +1,21 @@
+@use "../../styles/mixins" as *;
+
+.band {
+  background: var(--band-bg);
+  color: var(--band-fg);
+  padding-block: var(--band-pad-y);
+}
+
+.spacious {
+  padding-block: calc(var(--band-pad-y) + var(--space-12));
+}
+
+.inner {
+  max-width: var(--band-max);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+
+  @include up(md) {
+    padding-inline: var(--space-6);
+  }
+}
