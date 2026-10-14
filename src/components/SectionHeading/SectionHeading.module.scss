@@ -1,6 +1,0 @@
-@use "../../styles/mixins" as *;
-
-.heading {
-  margin-bottom: var(--space-6);
-  @include text(heading-1);
-}

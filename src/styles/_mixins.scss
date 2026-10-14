@@ -62,24 +62,6 @@ $breakpoints: (
   }
 }
 
-// LEGACY(Task 9) 시작
-@mixin glass {
-  background: var(--color-glass);
-  border: 1px solid var(--color-glass-border);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  backdrop-filter: blur(14px) saturate(140%);
-
-  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-    background: var(--color-surface);
-  }
-
-  @media (prefers-reduced-transparency: reduce) {
-    background: var(--color-surface);
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-  }
-}
-// LEGACY(Task 9) 끝
 
 // CSS Modules는 keyframes 이름을 모듈 단위로 바꾸므로,
 // reveal을 쓰는 모듈은 파일 최상단에서 reveal-keyframes를 함께 include한다.

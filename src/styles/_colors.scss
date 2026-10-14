@@ -1,43 +1,6 @@
 // 색상 토큰의 원본. 값 변경 시 colors.test.ts가 대비(4.5:1)를 검증한다.
 // 띠 톤 맵의 키는 CSS 변수 --band-<key>로 출력된다.
 
-// LEGACY(Task 9) 시작
-$theme-light: (
-  bg: #F7F0F5,
-  surface: #FFFFFF,
-  glass: rgba(247, 240, 245, 0.55),
-  glass-border: rgba(255, 255, 255, 0.6),
-  border: rgba(67, 54, 51, 0.1),
-  text: #433633,
-  text-sub: #5C5552,
-  decor: #8F857D,
-  tint: #DECBB7,
-  tint-2: #E9D8E4,
-  accent: #A0522D,
-  on-accent: #F7F0F5,
-);
-
-$theme-dark: (
-  bg: #1C1719,
-  surface: #262023,
-  glass: rgba(75, 59, 71, 0.35),
-  glass-border: rgba(224, 216, 222, 0.12),
-  border: rgba(224, 216, 222, 0.1),
-  text: #E0D8DE,
-  text-sub: #9C9990,
-  decor: #6A6262,
-  tint: #4B3B47,
-  tint-2: rgba(207, 210, 178, 0.12),
-  accent: #E0956B,
-  on-accent: #1C1719,
-);
-
-@mixin emit($theme) {
-  @each $name, $value in $theme {
-    --color-#{$name}: #{$value};
-  }
-}
-// LEGACY(Task 9) 끝
 
 $band-light-canvas: (
   bg: #F5F5F7,

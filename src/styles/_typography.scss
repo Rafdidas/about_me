@@ -14,9 +14,6 @@
   --font-weight-regular: 400;
   --font-weight-semibold: 600;
 
-  // LEGACY(Task 9) 시작
-  --font-weight-bold: 700;
-  // LEGACY(Task 9) 끝
 }
 
 // 모바일 기준값. md 이상에서 hero·section·tile·lead만 커진다 (semantic-tokens-md).
@@ -71,22 +68,6 @@
   --text-button-sm-line-height: 1.125rem;
   --text-button-sm-letter-spacing: -0.016em;
 
-  // LEGACY(Task 9) 시작
-  --text-display-size: var(--text-hero-size);
-  --text-display-weight: var(--text-hero-weight);
-  --text-display-line-height: var(--text-hero-line-height);
-  --text-display-letter-spacing: var(--text-hero-letter-spacing);
-
-  --text-heading-1-size: var(--text-section-size);
-  --text-heading-1-weight: var(--text-section-weight);
-  --text-heading-1-line-height: var(--text-section-line-height);
-  --text-heading-1-letter-spacing: var(--text-section-letter-spacing);
-
-  --text-heading-2-size: var(--text-tile-size);
-  --text-heading-2-weight: var(--text-tile-weight);
-  --text-heading-2-line-height: var(--text-tile-line-height);
-  --text-heading-2-letter-spacing: var(--text-tile-letter-spacing);
-  // LEGACY(Task 9) 끝
 }
 
 @mixin semantic-tokens-md {

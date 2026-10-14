@@ -5,25 +5,6 @@ import { contrastRatio, parseScssColorMap } from "@/lib/contrast";
 const source = readFileSync(resolve(process.cwd(), "src/styles/_colors.scss"), "utf8");
 const MIN = 4.5;
 
-// LEGACY(Task 9) 시작
-describe.each(["theme-light", "theme-dark"])("%s 텍스트 대비 (옛 토큰)", (mapName) => {
-  const colors = parseScssColorMap(source, mapName);
-
-  it.each([
-    ["text", "bg"],
-    ["text", "surface"],
-    ["text-sub", "bg"],
-    ["text-sub", "surface"],
-    ["accent", "bg"],
-    ["accent", "surface"],
-    ["on-accent", "accent"]
-  ])("%s on %s ≥ 4.5:1", (fg, bg) => {
-    expect(colors[fg], `${fg} 누락`).toBeDefined();
-    expect(colors[bg], `${bg} 누락`).toBeDefined();
-    expect(contrastRatio(colors[fg], colors[bg])).toBeGreaterThanOrEqual(MIN);
-  });
-});
-// LEGACY(Task 9) 끝
 
 const BANDS = [
   "band-light-canvas",

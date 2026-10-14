@@ -45,14 +45,6 @@
   --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
   --ease-spring: linear(0, 0.2 6%, 0.62 14%, 0.9 22%, 1.04 30%, 1.07 38%, 1.04 48%, 1.01 62%, 1);
 
-  // LEGACY(Task 9) 시작
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --header-offset: calc(var(--space-16) + var(--space-12));
-  --sidebar-width: 18rem;
-  --content-max: 45rem;
-  // LEGACY(Task 9) 끝
 
   @include colors.emit-solid(colors.$primary, "color-");
 
@@ -63,9 +55,6 @@
 
 :root,
 :root[data-theme="light"] {
-  // LEGACY(Task 9) 시작
-  @include colors.emit(colors.$theme-light);
-  // LEGACY(Task 9) 끝
   @include colors.emit-band(colors.$band-light-canvas);
   @include colors.emit-solid(colors.$glass-light);
   color-scheme: light;
@@ -84,9 +73,6 @@
 }
 
 :root[data-theme="dark"] {
-  // LEGACY(Task 9) 시작
-  @include colors.emit(colors.$theme-dark);
-  // LEGACY(Task 9) 끝
   @include colors.emit-band(colors.$band-dark-canvas);
   @include colors.emit-solid(colors.$glass-dark);
   color-scheme: dark;
