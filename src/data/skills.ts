@@ -7,8 +7,7 @@ export const skills: SkillGroup[] = [
   },
   {
     category: "JavaScript / Framework",
-    items: ["JavaScript", "TypeScript", "React", "Next.js", "Angular", "jQuery"],
-    note: "Angular는 프로젝트 경험"
+    items: ["JavaScript", "TypeScript", "React", "Next.js", "Angular", "jQuery"]
   },
   {
     category: "UI System",
