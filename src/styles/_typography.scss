@@ -2,66 +2,103 @@
 // 컴포넌트는 의미(semantic) 토큰을 @include text(<role>)로만 사용한다.
 
 @mixin primitive-tokens {
-  --font-size-100: 0.8125rem; // 13px
-  --font-size-200: 0.9375rem; // 15px
-  --font-size-300: 1rem; // 16px
-  --font-size-400: 1.125rem; // 18px
-  --font-size-500: 1.375rem; // 22px
-  --font-size-600: 1.75rem; // 28px
-  --font-size-700: 2.25rem; // 36px
+  --font-size-12: 0.75rem;
+  --font-size-14: 0.875rem;
+  --font-size-17: 1.0625rem;
+  --font-size-21: 1.3125rem;
+  --font-size-22: 1.375rem;
+  --font-size-28: 1.75rem;
+  --font-size-40: 2.5rem;
+  --font-size-56: 3.5rem;
 
   --font-weight-regular: 400;
   --font-weight-semibold: 600;
+
+  // LEGACY(Task 9) 시작
   --font-weight-bold: 700;
-
-  --line-height-tight: 1.3;
-  --line-height-snug: 1.5;
-  --line-height-body: 1.7;
-
-  --letter-spacing-tight: -0.02em;
-  --letter-spacing-normal: 0;
-  --letter-spacing-wide: 0.12em;
+  // LEGACY(Task 9) 끝
 }
 
-// 모바일 기준값. md 이상에서 display·heading-1만 한 단계 커진다.
+// 모바일 기준값. md 이상에서 hero·section·tile·lead만 커진다 (semantic-tokens-md).
 @mixin semantic-tokens {
-  --text-display-size: var(--font-size-600);
-  --text-display-weight: var(--font-weight-bold);
-  --text-display-line-height: var(--line-height-tight);
-  --text-display-letter-spacing: var(--letter-spacing-tight);
+  --text-hero-size: var(--font-size-40);
+  --text-hero-weight: var(--font-weight-semibold);
+  --text-hero-line-height: 2.75rem;
+  --text-hero-letter-spacing: -0.005em;
 
-  --text-heading-1-size: var(--font-size-500);
-  --text-heading-1-weight: var(--font-weight-bold);
-  --text-heading-1-line-height: var(--line-height-tight);
-  --text-heading-1-letter-spacing: var(--letter-spacing-tight);
+  --text-section-size: var(--font-size-28);
+  --text-section-weight: var(--font-weight-semibold);
+  --text-section-line-height: 2rem;
+  --text-section-letter-spacing: 0;
 
-  --text-heading-2-size: var(--font-size-400);
-  --text-heading-2-weight: var(--font-weight-semibold);
-  --text-heading-2-line-height: var(--line-height-snug);
-  --text-heading-2-letter-spacing: var(--letter-spacing-normal);
+  --text-tile-size: var(--font-size-22);
+  --text-tile-weight: var(--font-weight-semibold);
+  --text-tile-line-height: 1.75rem;
+  --text-tile-letter-spacing: 0.007em;
 
-  --text-body-size: var(--font-size-300);
+  --text-lead-size: var(--font-size-17);
+  --text-lead-weight: var(--font-weight-regular);
+  --text-lead-line-height: 1.625rem;
+  --text-lead-letter-spacing: -0.01em;
+
+  --text-body-size: var(--font-size-17);
   --text-body-weight: var(--font-weight-regular);
-  --text-body-line-height: var(--line-height-body);
-  --text-body-letter-spacing: var(--letter-spacing-normal);
+  --text-body-line-height: 1.75rem;
+  --text-body-letter-spacing: -0.022em;
 
-  --text-body-sm-size: var(--font-size-200);
+  --text-body-sm-size: var(--font-size-14);
   --text-body-sm-weight: var(--font-weight-regular);
-  --text-body-sm-line-height: var(--line-height-snug);
-  --text-body-sm-letter-spacing: var(--letter-spacing-normal);
+  --text-body-sm-line-height: 1.25rem;
+  --text-body-sm-letter-spacing: -0.016em;
 
-  --text-caption-size: var(--font-size-100);
+  --text-caption-size: var(--font-size-12);
   --text-caption-weight: var(--font-weight-regular);
-  --text-caption-line-height: var(--line-height-snug);
-  --text-caption-letter-spacing: var(--letter-spacing-normal);
+  --text-caption-line-height: 1.0625rem;
+  --text-caption-letter-spacing: -0.01em;
 
-  --text-overline-size: var(--font-size-100);
+  --text-overline-size: var(--font-size-12);
   --text-overline-weight: var(--font-weight-semibold);
-  --text-overline-line-height: var(--line-height-snug);
-  --text-overline-letter-spacing: var(--letter-spacing-wide);
+  --text-overline-line-height: 1rem;
+  --text-overline-letter-spacing: 0.06em;
+
+  --text-button-size: var(--font-size-17);
+  --text-button-weight: var(--font-weight-regular);
+  --text-button-line-height: 1.375rem;
+  --text-button-letter-spacing: -0.022em;
+
+  --text-button-sm-size: var(--font-size-14);
+  --text-button-sm-weight: var(--font-weight-regular);
+  --text-button-sm-line-height: 1.125rem;
+  --text-button-sm-letter-spacing: -0.016em;
+
+  // LEGACY(Task 9) 시작
+  --text-display-size: var(--text-hero-size);
+  --text-display-weight: var(--text-hero-weight);
+  --text-display-line-height: var(--text-hero-line-height);
+  --text-display-letter-spacing: var(--text-hero-letter-spacing);
+
+  --text-heading-1-size: var(--text-section-size);
+  --text-heading-1-weight: var(--text-section-weight);
+  --text-heading-1-line-height: var(--text-section-line-height);
+  --text-heading-1-letter-spacing: var(--text-section-letter-spacing);
+
+  --text-heading-2-size: var(--text-tile-size);
+  --text-heading-2-weight: var(--text-tile-weight);
+  --text-heading-2-line-height: var(--text-tile-line-height);
+  --text-heading-2-letter-spacing: var(--text-tile-letter-spacing);
+  // LEGACY(Task 9) 끝
 }
 
 @mixin semantic-tokens-md {
-  --text-display-size: var(--font-size-700);
-  --text-heading-1-size: var(--font-size-600);
+  --text-hero-size: var(--font-size-56);
+  --text-hero-line-height: 3.75rem;
+
+  --text-section-size: var(--font-size-40);
+  --text-section-line-height: 2.75rem;
+
+  --text-tile-size: var(--font-size-28);
+  --text-tile-line-height: 2rem;
+
+  --text-lead-size: var(--font-size-21);
+  --text-lead-line-height: 1.875rem;
 }

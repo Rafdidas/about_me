@@ -1,6 +1,7 @@
 // 색상 토큰의 원본. 값 변경 시 colors.test.ts가 대비(4.5:1)를 검증한다.
-// 키 이름은 CSS 변수 --color-<key>로 출력된다.
+// 띠 톤 맵의 키는 CSS 변수 --band-<key>로 출력된다.
 
+// LEGACY(Task 9) 시작
 $theme-light: (
   bg: #F7F0F5,
   surface: #FFFFFF,
@@ -34,5 +35,101 @@ $theme-dark: (
 @mixin emit($theme) {
   @each $name, $value in $theme {
     --color-#{$name}: #{$value};
+  }
+}
+// LEGACY(Task 9) 끝
+
+$band-light-canvas: (
+  bg: #F5F5F7,
+  fg: #1D1D1F,
+  sub: #515154,
+  mute: #6E6E73,
+  link: #0066CC,
+  tile: #FFFFFF,
+  focus: #0071E3,
+  border: rgba(0, 0, 0, 0.08),
+);
+
+$band-light-white: (
+  bg: #FFFFFF,
+  fg: #1D1D1F,
+  sub: #515154,
+  mute: #6E6E73,
+  link: #0066CC,
+  tile: #F5F5F7,
+  focus: #0071E3,
+  border: rgba(0, 0, 0, 0.08),
+);
+
+$band-light-ink: (
+  bg: #000000,
+  fg: #F5F5F7,
+  sub: #A1A1A6,
+  mute: #86868B,
+  link: #2997FF,
+  tile: #1D1D1F,
+  focus: #2997FF,
+  border: rgba(255, 255, 255, 0.12),
+);
+
+$band-dark-canvas: (
+  bg: #000000,
+  fg: #F5F5F7,
+  sub: #A1A1A6,
+  mute: #86868B,
+  link: #2997FF,
+  tile: #1D1D1F,
+  focus: #2997FF,
+  border: rgba(255, 255, 255, 0.12),
+);
+
+$band-dark-white: (
+  bg: #101012,
+  fg: #F5F5F7,
+  sub: #A1A1A6,
+  mute: #86868B,
+  link: #2997FF,
+  tile: #1D1D1F,
+  focus: #2997FF,
+  border: rgba(255, 255, 255, 0.12),
+);
+
+$band-dark-ink: (
+  bg: #000000,
+  fg: #F5F5F7,
+  sub: #A1A1A6,
+  mute: #86868B,
+  link: #2997FF,
+  tile: #1D1D1F,
+  focus: #2997FF,
+  border: rgba(255, 255, 255, 0.12),
+);
+
+$primary: (
+  primary: #0071E3,
+  primary-hover: #0076DF,
+  primary-pressed: #006EDB,
+  on-primary: #FFFFFF,
+);
+
+$glass-light: (
+  glass-bg: rgba(245, 245, 247, 0.8),
+  glass-border: rgba(0, 0, 0, 0.08),
+);
+
+$glass-dark: (
+  glass-bg: rgba(29, 29, 31, 0.72),
+  glass-border: rgba(255, 255, 255, 0.12),
+);
+
+@mixin emit-band($map) {
+  @each $name, $value in $map {
+    --band-#{$name}: #{$value};
+  }
+}
+
+@mixin emit-solid($map, $prefix: "") {
+  @each $name, $value in $map {
+    --#{$prefix}#{$name}: #{$value};
   }
 }

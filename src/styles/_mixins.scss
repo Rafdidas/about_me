@@ -28,7 +28,7 @@ $breakpoints: (
 }
 
 @mixin focus-ring {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--band-focus);
   outline-offset: 2px;
 }
 
@@ -44,7 +44,25 @@ $breakpoints: (
   border: 0;
 }
 
-// 약한 글래스모피즘. 고정 UI(Sidebar, MobileHeader)에만 사용한다.
+// 상단 내비·모바일 메뉴 전용 유리 효과 (사이트에서 유리는 여기만 쓴다).
+@mixin glass-bar {
+  background: var(--glass-bg);
+  border-bottom: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    background: var(--band-bg);
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    background: var(--band-bg);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+// LEGACY(Task 9) 시작
 @mixin glass {
   background: var(--color-glass);
   border: 1px solid var(--color-glass-border);
@@ -61,6 +79,7 @@ $breakpoints: (
     backdrop-filter: none;
   }
 }
+// LEGACY(Task 9) 끝
 
 // CSS Modules는 keyframes 이름을 모듈 단위로 바꾸므로,
 // reveal을 쓰는 모듈은 파일 최상단에서 reveal-keyframes를 함께 include한다.
