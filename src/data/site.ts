@@ -47,7 +47,6 @@ export const uiCopy = {
   themeFallback: "테마 전환",
   newWindow: "(새 창)",
   currentPosition: "재직 중",
-  competenciesTitle: "핵심 역량",
   workProjectsTitle: "대표 실무 프로젝트",
   personalProjectsTitle: "개인 프로젝트 · AI 활용 개발",
   evidenceTitle: "확인 자료",

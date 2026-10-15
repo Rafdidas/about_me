@@ -13,51 +13,7 @@ $band-light-canvas: (
   border: rgba(0, 0, 0, 0.08),
 );
 
-$band-light-white: (
-  bg: #FFFFFF,
-  fg: #1D1D1F,
-  sub: #515154,
-  mute: #6E6E73,
-  link: #0066CC,
-  tile: #F5F5F7,
-  focus: #0071E3,
-  border: rgba(0, 0, 0, 0.08),
-);
-
-$band-light-ink: (
-  bg: #000000,
-  fg: #F5F5F7,
-  sub: #A1A1A6,
-  mute: #86868B,
-  link: #2997FF,
-  tile: #1D1D1F,
-  focus: #2997FF,
-  border: rgba(255, 255, 255, 0.12),
-);
-
 $band-dark-canvas: (
-  bg: #000000,
-  fg: #F5F5F7,
-  sub: #A1A1A6,
-  mute: #86868B,
-  link: #2997FF,
-  tile: #1D1D1F,
-  focus: #2997FF,
-  border: rgba(255, 255, 255, 0.12),
-);
-
-$band-dark-white: (
-  bg: #101012,
-  fg: #F5F5F7,
-  sub: #A1A1A6,
-  mute: #86868B,
-  link: #2997FF,
-  tile: #1D1D1F,
-  focus: #2997FF,
-  border: rgba(255, 255, 255, 0.12),
-);
-
-$band-dark-ink: (
   bg: #000000,
   fg: #F5F5F7,
   sub: #A1A1A6,

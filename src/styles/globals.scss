@@ -29,8 +29,6 @@
 
   --nav-height: 3rem;
   --local-nav-height: 3rem;
-  --band-pad-y: var(--space-16);
-  --band-max: 61.25rem;
   --reading-max: 42.5rem;
   --tile-gap: var(--space-5);
   --shell-max: 80rem;
@@ -55,10 +53,6 @@
 
   @include colors.emit-solid(colors.$primary, "color-");
 
-  @include up(md) {
-    --band-pad-y: var(--space-24);
-  }
-
   @include up(lg) {
     --section-gap: 10rem;
     --avatar-size: 15rem;
@@ -74,14 +68,6 @@
   [data-tone="canvas"] {
     @include colors.emit-band(colors.$band-light-canvas);
   }
-
-  [data-tone="white"] {
-    @include colors.emit-band(colors.$band-light-white);
-  }
-
-  [data-tone="ink"] {
-    @include colors.emit-band(colors.$band-light-ink);
-  }
 }
 
 :root[data-theme="dark"] {
@@ -91,14 +77,6 @@
 
   [data-tone="canvas"] {
     @include colors.emit-band(colors.$band-dark-canvas);
-  }
-
-  [data-tone="white"] {
-    @include colors.emit-band(colors.$band-dark-white);
-  }
-
-  [data-tone="ink"] {
-    @include colors.emit-band(colors.$band-dark-ink);
   }
 }
 
