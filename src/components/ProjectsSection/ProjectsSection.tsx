@@ -1,0 +1,41 @@
+import { ProjectCard } from "@/components/ProjectCard/ProjectCard";
+import { ProjectTile } from "@/components/ProjectTile/ProjectTile";
+import { Section } from "@/components/Section/Section";
+import { SectionHeader } from "@/components/SectionHeader/SectionHeader";
+import { TiltTile } from "@/components/TiltTile/TiltTile";
+import { personalProjectsIntro, projects } from "@/data/projects";
+import { sectionHeadings, uiCopy } from "@/data/site";
+import styles from "./ProjectsSection.module.scss";
+
+export function ProjectsSection({ id }: { id: string }) {
+  const headingId = `${id}-title`;
+  const work = projects.filter((project) => project.kind === "work");
+  const personal = projects.filter((project) => project.kind === "personal");
+
+  return (
+    <Section id={id} labelledBy={headingId}>
+      <SectionHeader headingId={headingId} icon="projects" heading={sectionHeadings.projects} />
+
+      <h3 className={styles.groupTitle}>{uiCopy.workProjectsTitle}</h3>
+      <ul className={styles.workList}>
+        {work.map((project) => (
+          <li key={project.slug}>
+            <ProjectCard project={project} />
+          </li>
+        ))}
+      </ul>
+
+      <h3 className={styles.groupTitle}>{uiCopy.personalProjectsTitle}</h3>
+      <p className={styles.intro}>{personalProjectsIntro}</p>
+      <ul className={styles.grid}>
+        {personal.map((project, index) => (
+          <li key={project.slug} className={index % 3 === 0 ? styles.wide : undefined}>
+            <TiltTile>
+              <ProjectTile project={project} withImage />
+            </TiltTile>
+          </li>
+        ))}
+      </ul>
+    </Section>
+  );
+}

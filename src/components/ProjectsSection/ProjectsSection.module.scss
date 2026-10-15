@@ -1,0 +1,42 @@
+@use "../../styles/mixins" as *;
+
+.groupTitle {
+  margin-bottom: var(--space-6);
+  @include text(tile);
+
+  &:not(:first-of-type) {
+    margin-top: var(--space-16);
+  }
+}
+
+.workList {
+  display: grid;
+  gap: var(--tile-gap);
+}
+
+.intro {
+  max-width: var(--reading-max);
+  margin-bottom: var(--space-8);
+  color: var(--band-sub);
+  @include text(body-sm);
+}
+
+// 개인 프로젝트: 전체 폭 → 절반 → 절반 주기.
+.grid {
+  display: grid;
+  gap: var(--tile-gap);
+
+  @include up(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  li:nth-child(even) {
+    --reveal-shift: 8%;
+  }
+}
+
+.wide {
+  @include up(md) {
+    grid-column: 1 / -1;
+  }
+}

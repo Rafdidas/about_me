@@ -22,7 +22,7 @@ export function ProjectTile({ project, withImage = false }: ProjectTileProps) {
             alt={image.alt}
             width={image.width}
             height={image.height}
-            sizes="(min-width: 768px) 480px, 100vw"
+            sizes="(min-width: 1024px) 760px, 100vw"
           />
         ) : undefined
       }

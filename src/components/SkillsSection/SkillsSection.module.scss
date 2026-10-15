@@ -1,0 +1,33 @@
+@use "../../styles/mixins" as *;
+
+.grid {
+  display: grid;
+  gap: var(--tile-gap);
+
+  @include up(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  li:nth-child(even) {
+    --reveal-shift: 8%;
+  }
+}
+
+.group {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.category {
+  @include text(tile);
+}
+
+.items {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.note {
+  color: var(--band-mute);
+  @include text(caption);
+}

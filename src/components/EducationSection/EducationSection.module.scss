@@ -1,0 +1,20 @@
+@use "../../styles/mixins" as *;
+
+.list {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.item {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.name {
+  @include text(body);
+}
+
+.detail {
+  color: var(--band-mute);
+  @include text(caption);
+}

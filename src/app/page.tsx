@@ -1,10 +1,10 @@
 import { AboutCards } from "@/components/AboutCards/AboutCards";
 import { CareerTimeline } from "@/components/CareerTimeline/CareerTimeline";
-import { EducationBand } from "@/components/EducationBand/EducationBand";
+import { EducationSection } from "@/components/EducationSection/EducationSection";
 import { Hero } from "@/components/Hero/Hero";
-import { ProjectsBands } from "@/components/ProjectsBands/ProjectsBands";
+import { ProjectsSection } from "@/components/ProjectsSection/ProjectsSection";
 import { SiteShell } from "@/components/SiteShell/SiteShell";
-import { SkillsBand } from "@/components/SkillsBand/SkillsBand";
+import { SkillsSection } from "@/components/SkillsSection/SkillsSection";
 import { sectionNav } from "@/data/site";
 import { getNavItem } from "@/lib/nav";
 
@@ -22,9 +22,9 @@ export default function HomePage() {
         <AboutCards />
       </div>
       <CareerTimeline id={career.id} />
-      <ProjectsBands id={projects.id} title={projects.label} />
-      <SkillsBand id={skills.id} title={skills.label} />
-      <EducationBand id={education.id} title={education.label} />
+      <ProjectsSection id={projects.id} />
+      <SkillsSection id={skills.id} />
+      <EducationSection id={education.id} />
     </SiteShell>
   );
 }

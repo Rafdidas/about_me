@@ -1,0 +1,50 @@
+@use "../../styles/mixins" as *;
+
+.label {
+  color: var(--band-sub);
+  @include text(overline);
+}
+
+.title {
+  @include text(tile);
+}
+
+// 제목 링크 하나로 카드 전체를 클릭 영역으로 만든다. 포커스 링은 Tile이 그린다.
+.link {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.meta {
+  color: var(--band-mute);
+  @include text(caption);
+}
+
+.summary {
+  color: var(--band-sub);
+  @include text(body-sm);
+}
+
+.highlights {
+  display: grid;
+  gap: var(--space-3);
+  margin-block: var(--space-2);
+
+  @include up(md) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.highlight {
+  padding: var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--band-bg);
+  @include text(body-sm);
+}
