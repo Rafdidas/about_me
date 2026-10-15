@@ -37,13 +37,15 @@ export function ProjectCard({ project }: { project: Project }) {
       </p>
       <p className={styles.summary}>{project.summary}</p>
       {project.highlights && project.highlights.length > 0 ? (
-        <ul className={styles.highlights}>
-          {project.highlights.map((highlight) => (
-            <li key={highlight} className={styles.highlight}>
-              {highlight}
-            </li>
-          ))}
-        </ul>
+        <div className={styles.highlightsBox}>
+          <ul className={styles.highlights}>
+            {project.highlights.map((highlight) => (
+              <li key={highlight} className={styles.highlight}>
+                {highlight}
+              </li>
+            ))}
+          </ul>
+        </div>
       ) : null}
       <TagList items={project.stack} />
     </Tile>

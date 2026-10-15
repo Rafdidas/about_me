@@ -32,12 +32,21 @@
   @include text(body-sm);
 }
 
+// 핵심 작업 3칸은 뷰포트가 아니라 카드 폭 기준으로 나눈다.
+// 3단 셸에서는 같은 뷰포트라도 가운데 열 폭이 달라 칸이 142px까지 좁아졌다.
+// 40rem(칸당 약 190px 이상) 이상일 때만 3열, 아니면 1열.
+$highlights-three-col: 40rem;
+
+.highlightsBox {
+  container-type: inline-size;
+  margin-block: var(--space-2);
+}
+
 .highlights {
   display: grid;
   gap: var(--space-3);
-  margin-block: var(--space-2);
 
-  @include up(md) {
+  @container (min-width: #{$highlights-three-col}) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
