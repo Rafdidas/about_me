@@ -74,7 +74,7 @@
   left: var(--space-2);
   z-index: 0;
   border-radius: var(--radius-pill);
-  background: color-mix(in srgb, var(--band-link) 14%, transparent);
+  background: var(--band-link);
   pointer-events: none;
 }
 
@@ -89,9 +89,13 @@
   color: var(--band-sub);
   transition: color var(--duration-fast) var(--ease-out);
 
-  &:hover,
-  &[aria-current="location"] {
+  &:hover {
     color: var(--band-link);
+  }
+
+  // 현재 섹션: 단색 알약 위에서 배경색 아이콘
+  &[aria-current="location"] {
+    color: var(--band-bg);
   }
 }
 
