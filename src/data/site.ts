@@ -25,8 +25,8 @@ export const sectionHeadings: Record<SectionHeadingKey, SectionHeading> = {
   career: { label: "Career", title: "이커머스에서 B2B 업무 시스템까지", accent: "B2B 업무 시스템" },
   projects: { label: "Projects", title: "실무 프로젝트와 개인 서비스", accent: "개인 서비스" },
   skills: { label: "Skills", title: "주로 다루는 기술", accent: "기술" },
-  education: { label: "Education", title: "학력과 자격", accent: "자격" },
-  contact: { label: "Contact", title: "함께 이야기 나눠요", accent: "이야기" }
+  education: { label: "Education", title: "학력" },
+  contact: { label: "Contact", title: "Contact" }
 };
 
 export const uiCopy = {
