@@ -35,3 +35,22 @@
   width: var(--space-6);
   height: var(--space-6);
 }
+
+@keyframes badge-spin {
+  from {
+    rotate: 0turn;
+  }
+
+  to {
+    rotate: 2turn;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .ring {
+      animation: badge-spin linear both;
+      animation-timeline: scroll();
+    }
+  }
+}

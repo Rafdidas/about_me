@@ -1,10 +1,13 @@
 @use "../../styles/mixins" as *;
 
+@include reveal-keyframes;
+
 .header {
   display: grid;
   justify-items: start;
   gap: var(--space-5);
   margin-bottom: var(--space-10);
+  @include reveal;
 }
 
 .label {
