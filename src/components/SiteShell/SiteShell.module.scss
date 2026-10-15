@@ -1,0 +1,56 @@
+@use "../../styles/mixins" as *;
+
+.shell {
+  width: 100%;
+  max-width: var(--shell-max);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+
+  @include up(md) {
+    padding-inline: var(--space-8);
+  }
+
+  @include up(lg) {
+    display: grid;
+    grid-template-areas: "profile column rail";
+    grid-template-columns: var(--profile-width) minmax(0, 1fr) var(--rail-width);
+    align-items: start;
+    column-gap: var(--shell-gap);
+    padding-block: var(--space-6);
+  }
+}
+
+.profileSlot {
+  grid-area: profile;
+
+  @include up(lg) {
+    align-self: stretch;
+  }
+}
+
+.column {
+  grid-area: column;
+  min-width: 0;
+}
+
+.main {
+  max-width: var(--content-max);
+  margin-inline: auto;
+}
+
+.footer {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-block: var(--space-8);
+  border-top: 1px solid var(--band-border);
+  color: var(--band-mute);
+  @include text(caption);
+}
+
+.railSlot {
+  grid-area: rail;
+
+  @include up(lg) {
+    align-self: stretch;
+  }
+}

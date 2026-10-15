@@ -1,12 +1,12 @@
 @use "../../styles/mixins" as *;
 
-.header {
+// 1024px 미만: 상단 바
+.bar {
   position: sticky;
   top: 0;
   z-index: 50;
   color: var(--band-fg);
 
-  // 유리 배경 레이어 (스크롤 연동 모션이 이 레이어의 opacity를 다룬다).
   &::before {
     content: "";
     position: absolute;
@@ -14,104 +14,109 @@
     z-index: -1;
     @include glass-bar;
   }
+
+  @include up(lg) {
+    display: none;
+  }
 }
 
-.bar {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+.barInner {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   height: var(--nav-height);
-  max-width: var(--band-max);
-  margin-inline: auto;
   padding-inline: var(--space-5);
 
   @include up(md) {
-    padding-inline: var(--space-6);
+    padding-inline: var(--space-8);
   }
 }
 
 .brand {
-  justify-self: start;
   @include text(body-sm);
   font-weight: var(--font-weight-semibold);
 }
 
-.nav {
-  display: none;
-
-  @include up(md) {
-    display: block;
-    justify-self: center;
-  }
-}
-
-.listWrap {
-  position: relative;
-}
-
-.list {
-  display: flex;
-  gap: var(--space-1);
-}
-
-.activePill,
-.hoverPill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  height: 100%;
-  border-radius: var(--radius-pill);
-  pointer-events: none;
-}
-
-.activePill {
-  background: color-mix(in srgb, var(--band-fg) 10%, transparent);
-}
-
-.hoverPill {
-  background: color-mix(in srgb, var(--band-fg) 6%, transparent);
-}
-
-.link {
-  position: relative;
-  z-index: 1;
-  display: block;
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-pill);
-  color: var(--band-fg);
-  @include text(body-sm);
-  transition: color var(--duration-fast) var(--ease-out);
-
-  &[aria-current="location"] {
-    font-weight: var(--font-weight-semibold);
-  }
-}
-
 .actions {
   display: flex;
-  grid-column: 3;
   align-items: center;
-  justify-self: end;
   gap: var(--space-2);
 }
 
-@keyframes nav-glass-in {
-  from {
-    opacity: 0;
-  }
+// 1024px 이상: 오른쪽 아이콘 레일
+.rail {
+  display: none;
 
-  to {
-    opacity: 1;
+  @include up(lg) {
+    position: sticky;
+    top: var(--space-6);
+    display: block;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    .header::before {
-      animation: nav-glass-in linear both;
-      animation-timeline: scroll();
-      animation-range: 0 var(--space-16);
-    }
+.railWrap {
+  position: relative;
+  padding: var(--space-2);
+  border: 1px solid var(--band-border);
+  border-radius: var(--radius-pill);
+  background: var(--band-tile);
+}
+
+.railList {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.activePill {
+  position: absolute;
+  top: 0;
+  right: var(--space-2);
+  left: var(--space-2);
+  z-index: 0;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--band-link) 14%, transparent);
+  pointer-events: none;
+}
+
+.railLink {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--space-10);
+  height: var(--space-10);
+  border-radius: var(--radius-pill);
+  color: var(--band-sub);
+  transition: color var(--duration-fast) var(--ease-out);
+
+  &:hover,
+  &[aria-current="location"] {
+    color: var(--band-link);
   }
+}
+
+.railIcon {
+  width: var(--space-5);
+  height: var(--space-5);
+}
+
+// 섹션 이름 말풍선: hover·키보드 포커스에서 보인다. 접근 가능한 이름은 링크의 aria-label.
+.tip {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + var(--space-3));
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-control);
+  background: var(--band-fg);
+  color: var(--band-bg);
+  white-space: nowrap;
+  visibility: hidden;
+  pointer-events: none;
+  translate: 0 -50%;
+  @include text(caption);
+}
+
+.railLink:hover .tip,
+.railLink:focus-visible .tip {
+  visibility: visible;
 }

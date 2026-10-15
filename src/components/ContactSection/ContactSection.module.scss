@@ -1,0 +1,19 @@
+@use "../../styles/mixins" as *;
+
+.email {
+  display: inline-block;
+  color: var(--band-link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  @include text(section);
+
+  &:hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
+.github {
+  margin-top: var(--space-4);
+  @include text(body);
+}

@@ -9,7 +9,7 @@ export const metadata: Metadata = { title: uiCopy.notFoundTitle };
 
 export default function NotFound() {
   return (
-    <SiteShell spy={false}>
+    <SiteShell spy={false} contact={false}>
       <Band tone="canvas" labelledBy="not-found-title" spacious>
         <div className={styles.content}>
           <h1 id="not-found-title" className={styles.title}>

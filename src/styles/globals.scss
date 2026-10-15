@@ -117,6 +117,10 @@ html {
   }
 
   scroll-padding-top: calc(var(--nav-height) + var(--space-4));
+
+  @include up(lg) {
+    scroll-padding-top: var(--space-6);
+  }
 }
 
 body {
