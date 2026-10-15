@@ -2,7 +2,7 @@
 
 이 저장소에서 AI 도구로 작업할 때 따르는 규칙이다. 사람이 작업하든 AI가 작업하든
 같은 기준(구조·컨벤션·접근성·완료 기준)을 적용해 일관성과 품질을 유지한다.
-설계 기준 문서: `docs/superpowers/specs/2026-10-14-apple-style-redesign-design.md`
+설계 기준 문서: `docs/superpowers/specs/2026-10-15-drake-layout-redesign-design.md` (색·타이포·모션 안전 규칙은 `2026-10-14-apple-style-redesign-design.md`)
 
 ## 콘텐츠 원칙
 
@@ -14,6 +14,7 @@
 ## 범위
 
 - 라우트: `/`(메인 원페이지), `/projects/[slug]`(상세, 정적 생성), 404
+- 레이아웃: 1024px 이상 3단(왼쪽 `ProfileCard` · 가운데 콘텐츠 · 오른쪽 아이콘 레일), 미만은 상단 바 + 한 열. 섹션은 `Section` + `SectionHeader`(알약 라벨·큰 제목)로 시작한다.
 - 새 페이지·기능·의존성은 즉흥적으로 추가하지 않고 기록한 뒤 판단한다.
 - 범위 밖: 블로그·MDX·CMS, 다국어, Tailwind, 분석 도구, 문의 폼, SF Pro 글꼴
 
@@ -27,18 +28,18 @@
 ## 스타일 규칙
 
 - 토큰 원본: `src/styles/_colors.scss`(띠 톤·프라이머리·유리), `_typography.scss`(타이포), `globals.scss`(간격·모양·시간)
-- 색은 띠 톤 토큰(`--band-bg|fg|sub|mute|link|tile|focus|border`)만 쓴다. 톤은 `Band`(`data-tone="canvas|white|ink"`)가 바꿔 준다. 컴포넌트에서 색 값을 직접 쓰지 않는다.
+- 색은 톤 토큰(`--band-bg|fg|sub|mute|link|tile|focus|border`)만 쓴다. 톤은 `canvas` 하나이며 라이트·다크 값이 `globals.scss`에서 연결된다. 컴포넌트에서 색 값을 직접 쓰지 않는다.
 - 모듈 SCSS에서 색상 값, `font-size`, 간격 숫자를 직접 쓰지 않는다. `var(--…)` 토큰과 믹스인만 쓴다.
   (예외: `0`, `1px` 테두리, `2px` 포커스 링·표시, 비율·퍼센트, `aspect-ratio`, `scale()` 같은 무차원 값)
 - 타이포는 `@include text(hero|section|tile|lead|body|body-sm|caption|overline|button|button-sm)`로만 적용한다.
 - 반응형 글자 크기는 토큰 값 재정의로 처리한다. 컴포넌트에 글자 크기용 media query를 두지 않는다.
 - 브레이크포인트 믹스인 `up(md|lg)` / `down(md|lg)` — md 768px, lg 1024px, 모바일 우선
 - `--band-mute`는 캡션 전용(14px 미만 보조 문구). 색상 토큰을 바꾸면 `npm test`의 대비 테스트(4.5:1)를 통과해야 한다.
-- 유리 효과(`@include glass-bar`)는 `SiteNav`와 `MobileMenu` 패널에만 쓴다. 그림자는 쓰지 않는다.
+- 유리 효과(`@include glass-bar`)는 1024px 미만 상단 바와 `MobileMenu` 패널에만 쓴다. 프로필 카드·아이콘 레일은 불투명 카드다. 그림자는 쓰지 않는다.
 
 ## 모션 규칙
 
-- 스크롤 연동·등장·hover는 CSS로, 내비 알약·모바일 메뉴·타일 기울기만 Motion 라이브러리로 구현한다.
+- 스크롤 연동·등장·hover·배지 회전·타임라인 채움은 CSS로, 아이콘 레일 알약·모바일 메뉴·타일 기울기만 Motion 라이브러리로 구현한다.
 - Motion은 `LazyMotion features={domAnimation}`과 `import * as m from "motion/react-m"`만 쓴다. `layoutId`·드래그는 쓰지 않는다(`domMax` 필요). Motion을 쓰는 client component는 각자 `LazyMotion`과 `MotionConfig reducedMotion="user"`로 감싼다.
 - CSS 모션은 `@media (prefers-reduced-motion: no-preference)`와 스크롤 연동은 `@supports (animation-timeline: view())` 안에서만 선언한다 (`motion-guard.test.ts`가 검사). 모션이 꺼져도 내용은 항상 보여야 한다.
 - 시간 0.2~0.8초(0.8초는 히어로 진입 한정), `transform`·`opacity` 위주. 스크롤 가로채기, 자동 재생, 무한 반복(marquee 등)은 쓰지 않는다.

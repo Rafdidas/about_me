@@ -2,6 +2,7 @@
 
 작성일: 2026-10-14
 상태: 구현 완료(검증 대기)
+> 2026-10-15: 레이아웃·섹션 구성·내비게이션·띠 구조는 Drake식 3단 레이아웃 설계(2026-10-15-drake-layout-redesign-design.md)로 대체되었다. 색 값·타이포 토큰·접근성·모션 안전 규칙은 유효하다.
 브랜치: `redesign/apple-style` (`main`에서 분기, 배포 전)
 기준 문서: `docs/superpowers/specs/2026-10-02-portfolio-renewal-design.md` (이 설계는 그 문서의 레이아웃·토큰·모션·컴포넌트·규칙 일부를 대체한다)
 디자인 참고: 사용자가 제공한 Apple 디자인 시스템 요약(apple.com 마케팅 표면 측정값)
