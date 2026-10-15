@@ -34,6 +34,7 @@ export const uiCopy = {
   profileLabel: "프로필",
   contactCta: "연락하기",
   projectsBadge: "PROJECTS · VIEW WORK · ",
+  projectsBadgeLabel: "PROJECTS VIEW WORK 프로젝트 보기",
   avatarAlt: "박현규 프로필 이미지(미모지)",
   heroProjects: "프로젝트 보기",
   heroContact: "이메일 보내기",

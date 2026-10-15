@@ -6,7 +6,7 @@ const CIRCLE = "M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0";
 
 export function ProjectsBadge() {
   return (
-    <a className={styles.badge} href="#projects" aria-label={uiCopy.heroProjects}>
+    <a className={styles.badge} href="#projects" aria-label={uiCopy.projectsBadgeLabel}>
       <svg className={styles.ring} viewBox="0 0 120 120" aria-hidden="true" focusable="false">
         <defs>
           <path id="projects-badge-circle" d={CIRCLE} />
