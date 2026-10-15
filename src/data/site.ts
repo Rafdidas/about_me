@@ -59,6 +59,7 @@ export const uiCopy = {
   contactLabel: "연락처",
   contactEmail: "이메일",
   contactGithub: "GitHub",
+  notFoundLabel: "404",
   notFoundTitle: "페이지를 찾을 수 없습니다",
   notFoundBody: "주소가 바뀌었거나 존재하지 않는 페이지입니다.",
   notFoundLink: "메인으로 돌아가기",

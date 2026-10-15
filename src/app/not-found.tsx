@@ -15,7 +15,7 @@ export default function NotFound() {
         <SectionHeader
           headingId="not-found-title"
           icon="intro"
-          heading={{ label: "404", title: uiCopy.notFoundTitle }}
+          heading={{ label: uiCopy.notFoundLabel, title: uiCopy.notFoundTitle }}
           level={1}
         />
         <p className={styles.body}>{uiCopy.notFoundBody}</p>
