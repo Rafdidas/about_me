@@ -1,4 +1,5 @@
-import type { NavItem } from "./types";
+import { profile } from "./profile";
+import type { NavItem, SectionHeading } from "./types";
 
 export const siteMeta = {
   title: "박현규 — Frontend · UI Engineer",
@@ -12,11 +13,28 @@ export const sectionNav: NavItem[] = [
   { id: "career", label: "경력" },
   { id: "projects", label: "프로젝트" },
   { id: "skills", label: "기술" },
-  { id: "education", label: "학력 · 자격" }
+  { id: "education", label: "학력 · 자격" },
+  { id: "contact", label: "연락" }
 ];
+
+type SectionHeadingKey = "intro" | "about" | "career" | "projects" | "skills" | "education" | "contact";
+
+export const sectionHeadings: Record<SectionHeadingKey, SectionHeading> = {
+  intro: { label: "Introduce", title: profile.headline, accent: "6년 이상" },
+  about: { label: "About", title: "업무 화면을 만들고 운영 화면을 다듬습니다", accent: "운영 화면" },
+  career: { label: "Career", title: "이커머스에서 B2B 업무 시스템까지", accent: "B2B 업무 시스템" },
+  projects: { label: "Projects", title: "실무 프로젝트와 개인 서비스", accent: "개인 서비스" },
+  skills: { label: "Skills", title: "주로 다루는 기술", accent: "기술" },
+  education: { label: "Education", title: "학력과 자격", accent: "자격" },
+  contact: { label: "Contact", title: "함께 이야기 나눠요", accent: "이야기" }
+};
 
 export const uiCopy = {
   skipLink: "본문 바로가기",
+  profileLabel: "프로필",
+  contactCta: "연락하기",
+  projectsBadge: "PROJECTS · VIEW WORK · ",
+  avatarAlt: "박현규 프로필 이미지(미모지)",
   heroProjects: "프로젝트 보기",
   heroContact: "이메일 보내기",
   menuOpen: "메뉴 열기",

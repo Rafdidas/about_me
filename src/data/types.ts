@@ -33,6 +33,8 @@ export type Project = {
   note?: string;
   links: ExternalLink[];
   images?: ProjectImage[];
+  /** 카드에 보여줄 핵심 담당 작업(실무 프로젝트 3개). 이력서 "담당 작업"을 줄인 문장 */
+  highlights?: string[];
   sections: ProjectSection[];
 };
 
@@ -57,3 +59,6 @@ export type CareerEntry = {
 export type SkillGroup = { category: string; items: string[]; note?: string };
 
 export type EducationItem = { title: string; detail?: string };
+
+/** 섹션 머리: 알약 라벨 + 큰 제목. accent는 제목 안에 그대로 들어 있는 구절 */
+export type SectionHeading = { label: string; title: string; accent?: string };

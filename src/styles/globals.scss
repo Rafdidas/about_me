@@ -33,6 +33,13 @@
   --band-max: 61.25rem;
   --reading-max: 42.5rem;
   --tile-gap: var(--space-5);
+  --shell-max: 80rem;
+  --profile-width: 20rem;
+  --rail-width: 3.75rem;
+  --content-max: 47.5rem;
+  --shell-gap: var(--space-8);
+  --section-gap: 6rem;
+  --avatar-size: 10rem;
 
   --control-height-regular: 2.75rem;
   --control-height-compact: 2.25rem;
@@ -50,6 +57,11 @@
 
   @include up(md) {
     --band-pad-y: var(--space-24);
+  }
+
+  @include up(lg) {
+    --section-gap: 10rem;
+    --avatar-size: 15rem;
   }
 }
 

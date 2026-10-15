@@ -2,10 +2,21 @@ import { career } from "./career";
 import { education } from "./education";
 import { profile } from "./profile";
 import { personalProjectsIntro, projects } from "./projects";
-import { sectionNav, siteMeta, uiCopy } from "./site";
+import { sectionHeadings, sectionNav, siteMeta, uiCopy } from "./site";
 import { skills } from "./skills";
 
-const allData = { profile, career, projects, personalProjectsIntro, skills, education, sectionNav, siteMeta, uiCopy };
+const allData = {
+  profile,
+  career,
+  projects,
+  personalProjectsIntro,
+  skills,
+  education,
+  sectionNav,
+  sectionHeadings,
+  siteMeta,
+  uiCopy
+};
 const PERIOD = /^\d{4}\.\d{2}$/;
 
 describe("데이터 무결성", () => {
@@ -70,5 +81,23 @@ describe("데이터 무결성", () => {
   it("섹션 내비 id는 중복되지 않는다", () => {
     const ids = sectionNav.map((item) => item.id);
     expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it("실무 프로젝트는 핵심 담당 작업 3개를 가진다", () => {
+    projects
+      .filter((project) => project.kind === "work")
+      .forEach((project) => {
+        expect(project.highlights, project.slug).toHaveLength(3);
+        project.highlights?.forEach((highlight) => expect(highlight.trim(), project.slug).not.toBe(""));
+      });
+  });
+
+  it("섹션 제목이 모든 내비 항목을 덮고, 강조 구절은 제목 안에 있다", () => {
+    sectionNav.forEach((item) => expect(sectionHeadings, item.id).toHaveProperty(item.id));
+    Object.entries(sectionHeadings).forEach(([key, heading]) => {
+      expect(heading.label.trim(), key).not.toBe("");
+      expect(heading.title.trim(), key).not.toBe("");
+      if (heading.accent) expect(heading.title, key).toContain(heading.accent);
+    });
   });
 });

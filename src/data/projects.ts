@@ -17,6 +17,11 @@ export const projects: Project[] = [
       { label: "weseedcon.com", href: "https://weseedcon.com", kind: "service" },
       { label: "con.weseed.co.kr", href: "https://con.weseed.co.kr", kind: "service" }
     ],
+    highlights: [
+      "내비게이션·공통 레이아웃 구현, 목록·조회·상세의 반복 영역 컴포넌트 분리",
+      "데이터 그리드 가로·세로 스크롤과 페이지네이션을 개발자와 기준을 맞춰 적용",
+      "대시보드 카드 반응형 배치와 별도 시안 기반 모바일 목록·상세·메뉴 구현"
+    ],
     sections: [
       {
         title: "배경",
@@ -49,6 +54,11 @@ export const projects: Project[] = [
     stack: ["Angular", "SCSS", "CSS Variables"],
     role: "집중 개선 후 운영",
     links: [],
+    highlights: [
+      "화면에 흩어진 색상 값을 역할별로 분류해 CSS 변수 통합안 작성·조율",
+      "타이포그래피를 주요 메뉴에 순차 적용하고 중복 모바일 스타일 정리",
+      "기존 선택자와의 충돌을 조회·등록 화면 단위로 검수하고 기준을 문서 초안에 기록"
+    ],
     sections: [
       {
         title: "배경",
@@ -81,6 +91,11 @@ export const projects: Project[] = [
     stack: ["Next.js", "React", "Angular"],
     note: "사내·고객사 전용 시스템으로 화면을 공개하기 어려워 프로젝트별 담당 화면과 구현 과제를 중심으로 정리했습니다.",
     links: [],
+    highlights: [
+      "LH 레미콘스마트관리시스템: 타설관리·관제정보 목록, 검색 모달, 대시보드",
+      "현대 CSM: 개발 환경·공통 레이아웃부터 참여해 4개 업무 영역 화면 구축",
+      "롯데글로벌로지스 CRM: 다단계 탭·보고서·대량 처리·문서 출력 화면 구현"
+    ],
     sections: [
       {
         title: "LH 레미콘스마트관리시스템",
@@ -114,6 +129,11 @@ export const projects: Project[] = [
     period: { start: "2019.10", end: "2024.11" },
     stack: ["HTML", "CSS/SCSS", "JavaScript", "jQuery"],
     links: [],
+    highlights: [
+      "메디플러스 세컨드닥터몰·생활공작소 등 8개 쇼핑몰 PC·모바일 신규 구축·오픈",
+      "지오다노·안다르·차홍 등 운영몰의 프로모션·상시 운영 요청 반영",
+      "JavaScript·jQuery로 메뉴·탭·슬라이드·폼 동작 구현과 브라우저 검수"
+    ],
     sections: [
       {
         title: "신규 구축",
