@@ -6,7 +6,7 @@
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
-  @include text(section);
+  @include text(body);
 
   &:hover {
     text-decoration-thickness: 2px;
