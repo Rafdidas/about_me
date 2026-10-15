@@ -42,36 +42,38 @@ function Rail({ items, label, spy, activeId }: RailProps) {
   return (
     <LazyMotion features={domAnimation}>
       <MotionConfig reducedMotion="user">
-        <nav className={styles.rail} aria-label={label}>
-          <div className={styles.railWrap}>
-            {activeRect ? (
-              <m.span
-                aria-hidden="true"
-                className={styles.activePill}
-                initial={false}
-                animate={{ y: activeRect.y, height: activeRect.height }}
-                transition={reduceMotion ? { duration: 0 } : SPRING}
-              />
-            ) : null}
-            <ul ref={listRef} className={styles.railList}>
-              {items.map((item) => (
-                <li key={item.id}>
-                  <Link
-                    className={styles.railLink}
-                    href={navHref(item.id, spy)}
-                    aria-label={item.label}
-                    aria-current={item.id === activeId ? "location" : undefined}
-                  >
-                    <Icon name={NAV_ICONS[item.id] ?? "intro"} className={styles.railIcon} />
-                    <span className={styles.tip} aria-hidden="true">
-                      {item.label}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </nav>
+        <header className={styles.railHeader}>
+          <nav aria-label={label}>
+            <div className={styles.railWrap}>
+              {activeRect ? (
+                <m.span
+                  aria-hidden="true"
+                  className={styles.activePill}
+                  initial={false}
+                  animate={{ y: activeRect.y, height: activeRect.height }}
+                  transition={reduceMotion ? { duration: 0 } : SPRING}
+                />
+              ) : null}
+              <ul ref={listRef} className={styles.railList}>
+                {items.map((item) => (
+                  <li key={item.id}>
+                    <Link
+                      className={styles.railLink}
+                      href={navHref(item.id, spy)}
+                      aria-label={item.label}
+                      aria-current={item.id === activeId ? "location" : undefined}
+                    >
+                      <Icon name={NAV_ICONS[item.id] ?? "intro"} className={styles.railIcon} />
+                      <span className={styles.tip} aria-hidden="true">
+                        {item.label}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </nav>
+        </header>
       </MotionConfig>
     </LazyMotion>
   );

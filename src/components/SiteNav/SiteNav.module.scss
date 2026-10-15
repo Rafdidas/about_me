@@ -43,8 +43,8 @@
   gap: var(--space-2);
 }
 
-// 1024px 이상: 오른쪽 아이콘 레일
-.rail {
+// 1024px 이상: 오른쪽 아이콘 레일. 이 폭에서는 상단 바(header)가 숨겨지므로 레일이 배너 랜드마크를 맡는다.
+.railHeader {
   display: none;
 
   @include up(lg) {
