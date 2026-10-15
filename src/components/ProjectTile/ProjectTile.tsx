@@ -6,9 +6,11 @@ import type { Project } from "@/data/types";
 import { formatPeriod } from "@/lib/format";
 import styles from "./ProjectTile.module.scss";
 
-type ProjectTileProps = { project: Project; withImage?: boolean };
+const DEFAULT_SIZES = "(min-width: 1024px) 760px, 100vw";
 
-export function ProjectTile({ project, withImage = false }: ProjectTileProps) {
+type ProjectTileProps = { project: Project; withImage?: boolean; sizes?: string };
+
+export function ProjectTile({ project, withImage = false, sizes = DEFAULT_SIZES }: ProjectTileProps) {
   const image = withImage ? project.images?.[0] : undefined;
 
   return (
@@ -22,7 +24,7 @@ export function ProjectTile({ project, withImage = false }: ProjectTileProps) {
             alt={image.alt}
             width={image.width}
             height={image.height}
-            sizes="(min-width: 1024px) 760px, 100vw"
+            sizes={sizes}
           />
         ) : undefined
       }
