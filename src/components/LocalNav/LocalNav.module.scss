@@ -12,21 +12,19 @@
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @include up(lg) {
+    top: 0;
+  }
 }
 
 .list {
   display: flex;
-  gap: var(--space-6);
-  max-width: var(--band-max);
-  height: var(--local-nav-height);
-  margin-inline: auto;
-  padding-inline: var(--space-5);
   align-items: center;
+  gap: var(--space-6);
+  height: var(--local-nav-height);
+  padding-inline: var(--space-1);
   white-space: nowrap;
-
-  @include up(md) {
-    padding-inline: var(--space-6);
-  }
 }
 
 .link {

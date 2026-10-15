@@ -1,4 +1,4 @@
-import { Band } from "@/components/Band/Band";
+import { Section } from "@/components/Section/Section";
 import { TagList } from "@/components/Tag/Tag";
 import { TextLink } from "@/components/TextLink/TextLink";
 import { Tile } from "@/components/Tile/Tile";
@@ -11,7 +11,7 @@ export function ProjectBody({ project }: { project: Project }) {
   const evidence = getEvidenceLinks(project);
 
   return (
-    <Band tone="canvas">
+    <Section>
       <div className={styles.reading}>
         {project.sections.map((section, index) => {
           const id = sectionId(index);
@@ -57,6 +57,6 @@ export function ProjectBody({ project }: { project: Project }) {
           </section>
         ) : null}
       </div>
-    </Band>
+    </Section>
   );
 }

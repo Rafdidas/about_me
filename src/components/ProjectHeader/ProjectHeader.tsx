@@ -1,5 +1,6 @@
-import { Band } from "@/components/Band/Band";
 import { PillButton } from "@/components/PillButton/PillButton";
+import { Section } from "@/components/Section/Section";
+import { SectionHeader } from "@/components/SectionHeader/SectionHeader";
 import { TagList } from "@/components/Tag/Tag";
 import { TextLink } from "@/components/TextLink/TextLink";
 import { uiCopy } from "@/data/site";
@@ -12,18 +13,22 @@ export function ProjectHeader({ project }: { project: Project }) {
   const links = getPrimaryLinks(project);
 
   return (
-    <Band tone="canvas" labelledBy="project-title" spacious>
-      <div className={styles.content}>
+    <Section labelledBy="project-title">
+      <p className={styles.back}>
         <TextLink href="/#projects">{uiCopy.backToProjects}</TextLink>
-        <p className={styles.label}>{project.label}</p>
-        <h1 id="project-title" className={styles.title}>
-          {project.title}
-        </h1>
+      </p>
+      <SectionHeader
+        headingId="project-title"
+        icon="projects"
+        heading={{ label: project.label, title: project.title }}
+        level={1}
+      />
+      <div className={styles.content}>
         <p className={styles.meta}>
           {formatPeriod(project.period)}
           {project.role ? ` · ${project.role}` : null}
         </p>
-        <TagList items={project.stack} className={styles.tags} />
+        <TagList items={project.stack} />
         {project.note ? <p className={styles.note}>{project.note}</p> : null}
         {links.length > 0 ? (
           <ul className={styles.links} aria-label={uiCopy.projectLinksLabel}>
@@ -37,6 +42,6 @@ export function ProjectHeader({ project }: { project: Project }) {
           </ul>
         ) : null}
       </div>
-    </Band>
+    </Section>
   );
 }

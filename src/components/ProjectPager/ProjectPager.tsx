@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Band } from "@/components/Band/Band";
+import { Section } from "@/components/Section/Section";
 import { Tile } from "@/components/Tile/Tile";
 import { uiCopy } from "@/data/site";
 import type { Project } from "@/data/types";
@@ -11,7 +11,7 @@ export function ProjectPager({ prev, next }: ProjectPagerProps) {
   if (!prev && !next) return null;
 
   return (
-    <Band tone="white">
+    <Section>
       <nav aria-label={uiCopy.pagerLabel}>
         <ul className={styles.list}>
           {prev ? (
@@ -36,6 +36,6 @@ export function ProjectPager({ prev, next }: ProjectPagerProps) {
           ) : null}
         </ul>
       </nav>
-    </Band>
+    </Section>
   );
 }

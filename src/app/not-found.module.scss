@@ -1,17 +1,10 @@
 @use "../styles/mixins" as *;
 
-.content {
-  display: grid;
-  justify-items: center;
-  gap: var(--space-4);
-  text-align: center;
-}
-
-.title {
-  @include text(section);
-}
-
 .body {
   color: var(--band-sub);
   @include text(lead);
+}
+
+.action {
+  margin-top: var(--space-8);
 }
