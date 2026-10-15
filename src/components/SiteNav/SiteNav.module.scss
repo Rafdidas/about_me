@@ -48,9 +48,12 @@
   display: none;
 
   @include up(lg) {
+    // 스크롤해도 뷰포트 세로 중앙에 머문다 (슬롯 안에서 sticky)
     position: sticky;
-    top: var(--space-6);
-    display: block;
+    top: 0;
+    display: grid;
+    align-content: center;
+    height: 100dvh;
   }
 }
 
