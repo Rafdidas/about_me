@@ -64,20 +64,12 @@
   @include colors.emit-band(colors.$band-light-canvas);
   @include colors.emit-solid(colors.$glass-light);
   color-scheme: light;
-
-  [data-tone="canvas"] {
-    @include colors.emit-band(colors.$band-light-canvas);
-  }
 }
 
 :root[data-theme="dark"] {
   @include colors.emit-band(colors.$band-dark-canvas);
   @include colors.emit-solid(colors.$glass-dark);
   color-scheme: dark;
-
-  [data-tone="canvas"] {
-    @include colors.emit-band(colors.$band-dark-canvas);
-  }
 }
 
 *,
