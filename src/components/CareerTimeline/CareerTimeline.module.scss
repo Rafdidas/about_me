@@ -1,0 +1,85 @@
+@use "../../styles/mixins" as *;
+
+.timeline {
+  position: relative;
+  padding-left: var(--space-8);
+}
+
+// 세로선(배경)과 채움선. 채움선은 기본으로 꽉 차 있고, 스크롤 연동 모션이 있을 때만 채워지며 나타난다.
+.track {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--space-2);
+  width: 2px;
+  background: var(--band-border);
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  background: var(--band-link);
+  transform-origin: top;
+}
+
+.list {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.item {
+  position: relative;
+}
+
+.dot {
+  position: absolute;
+  top: var(--space-6);
+  left: calc(var(--space-8) * -1 + var(--space-2) + 1px - var(--space-3) / 2);
+  width: var(--space-3);
+  height: var(--space-3);
+  border: 2px solid var(--band-link);
+  border-radius: 50%;
+  background: var(--band-bg);
+}
+
+.period {
+  color: var(--band-link);
+  @include text(overline);
+}
+
+.company {
+  @include text(tile);
+}
+
+.position {
+  color: var(--band-mute);
+  @include text(caption);
+}
+
+.summary {
+  color: var(--band-sub);
+  @include text(body-sm);
+}
+
+.highlights {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.highlight {
+  position: relative;
+  padding-left: var(--space-4);
+  @include text(body-sm);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0.65em;
+    left: 0;
+    width: var(--space-1);
+    height: var(--space-1);
+    border-radius: 50%;
+    background: var(--band-mute);
+  }
+}

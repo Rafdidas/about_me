@@ -1,0 +1,36 @@
+@use "../../styles/mixins" as *;
+
+.grid {
+  display: grid;
+  gap: var(--tile-gap);
+
+  @include up(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  li:nth-child(even) {
+    --reveal-shift: 8%;
+  }
+}
+
+.card {
+  transition: border-color var(--duration-fast) var(--ease-out);
+
+  &:hover {
+    border-color: var(--band-link);
+  }
+}
+
+.number {
+  color: var(--band-link);
+  @include text(section);
+}
+
+.label {
+  @include text(tile);
+}
+
+.text {
+  color: var(--band-sub);
+  @include text(body-sm);
+}

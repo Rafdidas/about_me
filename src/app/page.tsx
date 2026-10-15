@@ -1,5 +1,5 @@
-import { CareerBand } from "@/components/CareerBand/CareerBand";
-import { CompetenciesBand } from "@/components/CompetenciesBand/CompetenciesBand";
+import { AboutCards } from "@/components/AboutCards/AboutCards";
+import { CareerTimeline } from "@/components/CareerTimeline/CareerTimeline";
 import { EducationBand } from "@/components/EducationBand/EducationBand";
 import { Hero } from "@/components/Hero/Hero";
 import { ProjectsBands } from "@/components/ProjectsBands/ProjectsBands";
@@ -19,9 +19,9 @@ export default function HomePage() {
     <SiteShell spy>
       <div id={about.id}>
         <Hero id={about.id} />
-        <CompetenciesBand />
+        <AboutCards />
       </div>
-      <CareerBand id={career.id} title={career.label} />
+      <CareerTimeline id={career.id} />
       <ProjectsBands id={projects.id} title={projects.label} />
       <SkillsBand id={skills.id} title={skills.label} />
       <EducationBand id={education.id} title={education.label} />

@@ -1,22 +1,5 @@
 @use "../../styles/mixins" as *;
 
-.content {
-  display: grid;
-  justify-items: center;
-  gap: var(--space-5);
-  text-align: center;
-}
-
-.overline {
-  color: var(--band-sub);
-  @include text(overline);
-}
-
-.title {
-  max-width: var(--band-max);
-  @include text(hero);
-}
-
 .lead {
   max-width: var(--reading-max);
   color: var(--band-sub);
@@ -26,60 +9,11 @@
 .actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
   gap: var(--space-3);
-  margin-top: var(--space-3);
+  margin-top: var(--space-8);
 }
 
-@keyframes hero-in {
-  from {
-    opacity: 0;
-    transform: translateY(var(--space-4));
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes hero-out {
-  from {
-    opacity: 1;
-    transform: none;
-  }
-
-  to {
-    opacity: 0;
-    transform: translateY(calc(var(--space-8) * -1)) scale(0.96);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .overline,
-  .title,
-  .lead,
-  .actions {
-    animation: hero-in var(--duration-slow) var(--ease-out) both;
-  }
-
-  .title {
-    animation-delay: 80ms;
-  }
-
-  .lead {
-    animation-delay: 160ms;
-  }
-
-  .actions {
-    animation-delay: 240ms;
-  }
-
-  @supports (animation-timeline: view()) {
-    .content {
-      animation: hero-out linear both;
-      animation-timeline: view();
-      animation-range: exit 0% exit 100%;
-    }
-  }
+.badgeSlot {
+  margin-inline-start: auto;
 }
