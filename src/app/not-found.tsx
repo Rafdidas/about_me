@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: uiCopy.notFoundTitle };
 
 export default function NotFound() {
   return (
-    <SiteShell spy={false} contact={false}>
+    <SiteShell spy={false} contact={false} profile="after">
       <Section labelledBy="not-found-title">
         <SectionHeader
           headingId="not-found-title"

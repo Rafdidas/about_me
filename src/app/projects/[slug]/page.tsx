@@ -39,7 +39,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const { prev, next } = getAdjacentProjects(slug);
 
   return (
-    <SiteShell spy={false}>
+    <SiteShell spy={false} profile="after">
       <ProjectHeader project={project} />
       <LocalNav items={getProjectToc(project)} label={uiCopy.tocLabel} />
       <ProjectGallery images={project.images} />
