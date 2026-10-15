@@ -27,7 +27,7 @@
 
 ## 스타일 규칙
 
-- 토큰 원본: `src/styles/_colors.scss`(띠 톤·프라이머리·유리), `_typography.scss`(타이포), `globals.scss`(간격·모양·시간)
+- 토큰 원본: `src/styles/_colors.scss`(톤·프라이머리·유리), `_typography.scss`(타이포), `globals.scss`(간격·모양·시간)
 - 색은 톤 토큰(`--band-bg|fg|sub|mute|link|tile|focus|border`)만 쓴다. 톤은 `canvas` 하나이며 라이트·다크 값이 `globals.scss`에서 연결된다. 컴포넌트에서 색 값을 직접 쓰지 않는다.
 - 모듈 SCSS에서 색상 값, `font-size`, 간격 숫자를 직접 쓰지 않는다. `var(--…)` 토큰과 믹스인만 쓴다.
   (예외: `0`, `1px` 테두리, `2px` 포커스 링·표시, 비율·퍼센트, `aspect-ratio`, `scale()` 같은 무차원 값)
