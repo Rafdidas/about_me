@@ -2,20 +2,20 @@ import type { Profile } from "./types";
 
 export const profile: Profile = {
   name: "박현규",
-  role: "Frontend · UI Engineer",
-  headline: "이커머스·B2B 서비스의 PC·모바일 UI를 6년 이상 구축·운영했습니다.",
+  role: "Full-stack Developer",
+  headline: "화면부터 서버까지, 업무 흐름을 구현하는 개발자입니다.",
   intro:
-    "현재 React·Next.js·Angular 기반 업무 시스템에서 공통 레이아웃·컴포넌트 구현과 기존 화면의 스타일 개선을 담당합니다. 개인 프로젝트에서는 가계부를 배포·운영하고, React 앱에 서버 데이터 관리·입력 검증·인증 흐름을 구현했습니다.",
+    "이커머스·B2B 서비스에서 6년 이상 PC·모바일 화면을 구축·운영했습니다. 웹 퍼블리셔로 시작해 현재는 React·Next.js·Angular 기반 업무 화면과 Java·Spring·MySQL 기반 백엔드 기능을 개발하고 연동합니다. 개인 프로젝트에서는 AI와 협업해 가계부를 배포·운영하고, 학습 앱에 서버 데이터 관리·입력 검증·인증 흐름을 구현했습니다.",
   email: "yhu930421@naver.com",
   github: "https://github.com/rafdidas",
   competencies: [
     {
-      label: "업무 화면 구현",
-      text: "React·Next.js·Angular 환경에서 내비게이션·공통 레이아웃·목록·조회·상세·대시보드 UI 구현"
+      label: "업무 기능 개발",
+      text: "React·Next.js·Angular 기반 업무 화면과 공통 컴포넌트 구현, Java·Spring·MySQL 기반 백엔드 기능 개발 및 화면과 서버 간 데이터 연동"
     },
     {
-      label: "운영 화면 개선",
-      text: "CRM 색상 값을 CSS 변수로 통합하고 타이포그래피·모바일 스타일을 단계적으로 적용, 기존 선택자와의 충돌을 실제 화면에서 검수·수정"
+      label: "공통 UI·모바일 개선",
+      text: "색상·타이포그래피 기준과 공통 컴포넌트 정비, 모바일 탭 전환용 useSwipeTab 훅 개발과 제스처 충돌·오클릭 방지, 데이터 그리드의 스크롤·레이아웃 개선"
     },
     {
       label: "구축부터 운영까지",

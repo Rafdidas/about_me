@@ -10,8 +10,13 @@ export const skills: SkillGroup[] = [
     items: ["JavaScript", "TypeScript", "React", "Next.js", "Angular", "jQuery"]
   },
   {
+    category: "Backend",
+    items: ["Java", "Spring", "Spring Boot", "MySQL"],
+    note: "B2B 업무 기능 개발 및 프론트엔드 연동"
+  },
+  {
     category: "UI System",
-    items: ["CSS Variables", "Typography 기준 적용", "공통 UI·컴포넌트 구현", "Figma", "디자인 시스템 문서화"]
+    items: ["CSS Variables", "Tailwind Variants", "Typography 기준 적용", "공통 UI·컴포넌트 구현", "Figma", "디자인 시스템 문서화"]
   },
   {
     category: "State / Data",

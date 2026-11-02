@@ -2,9 +2,9 @@ import { profile } from "./profile";
 import type { NavItem, SectionHeading } from "./types";
 
 export const siteMeta = {
-  title: "박현규 — Frontend · UI Engineer",
+  title: "박현규 — Full-stack Developer",
   description:
-    "이커머스·B2B 서비스의 PC·모바일 UI를 6년 이상 구축·운영한 프론트엔드·UI 엔지니어 박현규의 포트폴리오입니다.",
+    "이커머스·B2B 서비스의 PC·모바일 화면 구축·운영 경험을 바탕으로 React·Next.js·Angular와 Java·Spring·MySQL로 업무 흐름을 구현하는 풀스택 개발자 박현규의 포트폴리오입니다.",
   url: "https://about-me-iota-blond.vercel.app"
 };
 
@@ -20,12 +20,12 @@ export const sectionNav: NavItem[] = [
 type SectionHeadingKey = "intro" | "about" | "career" | "projects" | "skills" | "education" | "contact";
 
 export const sectionHeadings: Record<SectionHeadingKey, SectionHeading> = {
-  intro: { label: "Introduce", title: profile.headline, accent: "6년 이상" },
-  about: { label: "About", title: "업무 화면을 만들고 운영 화면을 다듬습니다", accent: "운영 화면" },
+  intro: { label: "Introduce", title: profile.headline, accent: "화면부터 서버까지" },
+  about: { label: "About", title: "사용자 화면과 서버의 데이터 처리를 연결합니다", accent: "데이터 처리" },
   career: { label: "Career", title: "이커머스에서 B2B 업무 시스템까지", accent: "B2B 업무 시스템" },
   projects: { label: "Projects", title: "실무 프로젝트와 개인 서비스", accent: "개인 서비스" },
   skills: { label: "Skills", title: "주로 다루는 기술", accent: "기술" },
-  education: { label: "Education", title: "학력" },
+  education: { label: "Education", title: "학력 · 자격" },
   contact: { label: "Contact", title: "Contact" }
 };
 
